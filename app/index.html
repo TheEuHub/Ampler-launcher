@@ -114,10 +114,6 @@
             <img src="./assets/images/sidebar/i-live.png" alt="">
             <div class="gTabsText"><p>Custom Installations</p></div>
         </div>
-        <div onclick="downloadsmenu()" id="gtabs9" class="sidebarOptions" role="button" tabindex="0">
-            <img src="./assets/images/sidebar/m-news.png" alt="">
-            <div class="gTabsText"><p>Offline Downloads</p></div>
-        </div>
 
         <div onclick="creditsmenu()" id="gtabs5" class="sidebarOptions sidebarBottom" role="button" tabindex="0">
             <img src="./assets/images/sidebar/m-credits.png" alt="">
@@ -142,7 +138,6 @@
                 <li id="header6" class="headerButtons" data-view="patchnotes" role="button" tabindex="0" onclick="patchnotesheader()">Patch Notes</li>
                 <li id="header11" class="headerButtons" data-view="servers" role="button" tabindex="0" onclick="serversheader()">Servers</li>
                 <li id="header12" class="headerButtons" data-view="downloads" role="button" tabindex="0" onclick="downloadsheader()">Downloads</li>
-                <li id="header8" class="headerButtons" data-view="credits" role="button" tabindex="0" onclick="creditsheader()">Credits</li>
             </ul>
         </div>
 
@@ -257,25 +252,31 @@
                     <p class="settingsdesc">Offer the community presets on the Installations screen when creating a custom build.</p>
                 </div>
 
-                <p class="bolded settingstitle">QUICK SETTINGS</p>
-                <div class="settingoption">
-                    <input id="mcBrandingCheckbox" class="settingsbox" type="checkbox" onchange="toggleBranding(this.checked)">
-                    <p>Minecraft branding</p>
-                    <p class="settingsdesc">Swap the Eaglercraft wordmark for the Minecraft one across the sidebar and headers.</p>
-                </div>
-                <div class="settingrow">
-                    <p style="min-width: 7vw;">Volume</p>
-                    <input id="volumeSlider" type="range" min="0" max="100" value="70" oninput="setVolume()">
-                </div>
-                <div class="settingoption">
-                    <input id="perfMode" class="settingsbox" type="checkbox" onchange="togglePerformanceMode()">
-                    <p>Performance mode</p>
-                    <p class="settingsdesc">Cuts animations and shadows so the launcher itself stays fast.</p>
-                </div>
-                <div class="settingoption">
-                    <input id="autoSave" class="settingsbox" type="checkbox" onchange="toggleAutoSave()" checked>
-                    <p>Auto-save stats</p>
-                    <p class="settingsdesc">Track playtime and sessions on this device.</p>
+                <div id="settingsPanel" class="inline settings-panel">
+                    <p class="settings-header bolded settingstitle">QUICK SETTINGS</p>
+                    <div class="settings-content">
+                        <div class="setting-item">
+                            <div class="settingoption">
+                                <input id="mcBrandingToggle" class="settingsbox" type="checkbox" onchange="toggleBranding(this.checked)">
+                                <p>Minecraft branding</p>
+                                <p class="settingsdesc">Swap the Eaglercraft wordmark for the Minecraft one across the sidebar and headers.</p>
+                            </div>
+                            <div class="settingrow">
+                                <p style="min-width: 7vw;">Volume</p>
+                                <input id="volumeSlider" type="range" min="0" max="100" value="70" oninput="setVolume()">
+                            </div>
+                            <div class="settingoption">
+                                <input id="perfMode" class="settingsbox" type="checkbox" onchange="togglePerformanceMode()">
+                                <p>Performance mode</p>
+                                <p class="settingsdesc">Cuts animations and shadows so the launcher itself stays fast.</p>
+                            </div>
+                            <div class="settingoption">
+                                <input id="autoSave" class="settingsbox" type="checkbox" onchange="toggleAutoSave()" checked>
+                                <p>Auto-save stats</p>
+                                <p class="settingsdesc">Track playtime and sessions on this device.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <p class="bolded settingstitle">LAUNCH MODE</p>
