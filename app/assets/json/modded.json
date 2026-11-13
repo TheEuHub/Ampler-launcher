@@ -1,0 +1,247 @@
+[
+  {
+    "title": "Astra Client",
+    "version": "1.8.8-v1.6.0",
+    "icon": "./assets/images/icons/astra-client.png",
+    "link": "./mc/ir/astra-client/",
+    "active": true
+  },
+  {
+    "title": "Astra Client WASM",
+    "version": "1.8.8-v1.6.0-wasm",
+    "icon": "./assets/images/icons/astra-client.png",
+    "link": "./mc/ir/astra-client-wasm/",
+    "active": true
+  },
+  {
+    "title": "Astra Client 2",
+    "version": "1.8.8",
+    "icon": "./assets/images/icons/astra-client.png",
+    "link": "./mc/Astra%20Client%202-1.8.8/",
+    "active": true
+  },
+  {
+    "title": "Aero Client",
+    "version": "1.8.8-v1.4",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Aero%20Client/",
+    "active": true
+  },
+  {
+    "title": "EB Client",
+    "version": "1.8.8-u53",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/EB%20Client/",
+    "active": true
+  },
+  {
+    "title": "EB Client 1.8.8",
+    "version": "1.8.8",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/EB%20Client%201.8.8/",
+    "active": true
+  },
+  {
+    "title": "EB Client 1.14.4",
+    "version": "1.14.4",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/EB%20Client%201.14.4/",
+    "active": true
+  },
+  {
+    "title": "Eaglerforge",
+    "version": "1.8.8-v1.3.2",
+    "icon": "./assets/images/icons/eaglerforge.png",
+    "link": "./mc/Eaglerforge/",
+    "active": true
+  },
+  {
+    "title": "Eclipse Client",
+    "version": "1.8.8-v2.0",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Eclipse%20Client/",
+    "active": true
+  },
+  {
+    "title": "EFI Client 1.8.8",
+    "version": "1.8.8",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/efi-1.8.8/",
+    "active": true
+  },
+  {
+    "title": "EFI Client 1.12.2",
+    "version": "1.12.2",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/efi-1.12.2/",
+    "active": true
+  },
+  {
+    "title": "Forge 1.6.4",
+    "version": "1.6.4",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Forge%201.6.4/",
+    "active": true
+  },
+  {
+    "title": "Huzzium Client",
+    "version": "1.8.8-v1.2",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Huzzium%20Client/",
+    "active": true
+  },
+  {
+    "title": "Kozmo Client",
+    "version": "1.12.2-v1.0",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Kozmo%20Client/",
+    "active": true
+  },
+  {
+    "title": "Larp Client 1.12.2",
+    "version": "1.12.2",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Larp%20Client%201.12.2/",
+    "active": true
+  },
+  {
+    "title": "Larp Client 1.14.4",
+    "version": "1.14.4",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Larp%20Client%201.14.4/",
+    "active": true
+  },
+  {
+    "title": "Modern Client",
+    "version": "1.8.8-v1.1",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Modern%20Client/",
+    "active": true
+  },
+  {
+    "title": "Myven Client",
+    "version": "1.8.8-v1.6",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Myven%20Client/",
+    "active": true
+  },
+  {
+    "title": "PixelClient 1.8.8",
+    "version": "1.8.8-v2.1.4",
+    "icon": "./assets/images/icons/pixelclient.svg",
+    "link": "./mc/ir/pixelclient-1.8.8/",
+    "active": true
+  },
+  {
+    "title": "PixelClient 1.8.8 WASM",
+    "version": "1.8.8-v2.1.4-wasm",
+    "icon": "./assets/images/icons/pixelclient.svg",
+    "link": "./mc/ir/pixelclient-1.8.8-wasm/",
+    "active": true
+  },
+  {
+    "title": "PixelClient",
+    "version": "1.12.2-v2.1.4",
+    "icon": "./assets/images/icons/pixelclient.svg",
+    "link": "./mc/ir/pixelclient-1.12.2/",
+    "active": true
+  },
+  {
+    "title": "PixelClient 1.12.2 WASM",
+    "version": "1.12.2-v2.1.4-wasm",
+    "icon": "./assets/images/icons/pixelclient.svg",
+    "link": "./mc/ir/pixelclient-1.12.2-wasm/",
+    "active": true
+  },
+  {
+    "title": "Precision Client",
+    "version": "1.8.8-v1.3",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Precision%20Client/",
+    "active": true
+  },
+  {
+    "title": "Reflex Client",
+    "version": "1.8.8-v1.0",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/Reflex%20Client/",
+    "active": true
+  },
+  {
+    "title": "Resent Client",
+    "version": "1.8.8-v4.0",
+    "icon": "./assets/images/icons/resent-client.png",
+    "link": "./mc/ir/resent-client/",
+    "active": true
+  },
+  {
+    "title": "Resent Client 3.8",
+    "version": "1.8.8-v3.8",
+    "icon": "./assets/images/icons/resent-client.png",
+    "link": "./mc/ir/resent-client-3.8/",
+    "active": true
+  },
+  {
+    "title": "Shadow Client",
+    "version": "1.8.8-v4.5-u34",
+    "icon": "./assets/images/mc-icons/skull.png",
+    "link": "./mc/Shadow%20Network/",
+    "active": true
+  },
+  {
+    "title": "Starlike",
+    "version": "1.8.8-v0.4.2",
+    "icon": "./assets/images/icons/starlike.png",
+    "link": "./mc/ir/starlike-client/",
+    "active": true
+  },
+  {
+    "title": "The Broken Script",
+    "version": "1.8.8",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/The%20Broken%20Script%201.8.8/",
+    "active": true
+  },
+  {
+    "title": "Tuff Client",
+    "version": "1.12.2-v1.1UT13",
+    "icon": "./assets/images/mc-icons/tuff.png",
+    "link": "./mc/Tuff%20Client/",
+    "active": true
+  },
+  {
+    "title": "Tuff Client WASM",
+    "version": "1.12.2-v1.1UT13-wasm",
+    "icon": "./assets/images/mc-icons/tuff.png",
+    "link": "./mc/ir/tuff-client-1.12.2-wasm/",
+    "active": true
+  },
+  {
+    "title": "Tuff Client Beta",
+    "version": "1.12.2-beta3",
+    "icon": "./assets/images/mc-icons/tuff.png",
+    "link": "./mc/Tuff%20Client%20Beta/",
+    "active": true
+  },
+  {
+    "title": "Winston Horror",
+    "version": "1.8.8-v1.0",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/ir/winston-horror/",
+    "active": true
+  },
+  {
+    "title": "Z-Client 1.11",
+    "version": "1.8.8-v1.11",
+    "icon": "./assets/images/icons/eaglercraft.png",
+    "link": "./mc/ir/z1.11/",
+    "active": true
+  },
+  {
+    "title": "Beta 1.6.4 (Modded base)",
+    "version": "b1.6.4",
+    "icon": "./assets/images/mc-icons/tnt.png",
+    "link": "./mc/beta-1.6.4/",
+    "active": true
+  }
+]

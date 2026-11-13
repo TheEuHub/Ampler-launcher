@@ -1,0 +1,387 @@
+[
+  {
+    "title": "Latest release",
+    "version": "1.12.2-u2",
+    "icon": "./assets/images/mc-icons/grass.png",
+    "link": "./mc/ir/1.12.2/",
+    "active": true
+  },
+  {
+    "title": "Latest release WASM",
+    "version": "1.12.2-u2-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/ir/1.12.2-wasm/",
+    "active": true
+  },
+  {
+    "title": "Previous release",
+    "version": "1.8.8-u53",
+    "icon": "./assets/images/mc-icons/dirt.png",
+    "link": "./mc/ir/1.8.8/",
+    "active": true
+  },
+  {
+    "title": "Previous release WASM",
+    "version": "1.8.8-u53-wasm",
+    "icon": "./assets/images/mc-icons/dirt-wasm.png",
+    "link": "./mc/ir/1.8.8-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.6.4",
+    "version": "1.6.4-25w17a",
+    "icon": "./assets/images/mc-icons/hay-bale.png",
+    "link": "./mc/ir/1.6.4/",
+    "active": true
+  },
+  {
+    "title": "Older release",
+    "version": "1.5.2-sp2.01",
+    "icon": "./assets/images/mc-icons/hopper.png",
+    "link": "./mc/ir/1.5.2/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.2.5",
+    "version": "1.2.5",
+    "icon": "./assets/images/mc-icons/jungle-log.png",
+    "link": "./mc/ir/1.2.5/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Infdev",
+    "version": "inf",
+    "icon": "./assets/images/mc-icons/monster-spawner.png",
+    "link": "./mc/infdev/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Infdev WASM",
+    "version": "inf-wasm",
+    "icon": "./assets/images/mc-icons/monster-spawner-wasm.png",
+    "link": "./mc/infdev-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Indev",
+    "version": "inv",
+    "icon": "./assets/images/mc-icons/furnace.png",
+    "link": "./mc/indev/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.30",
+    "version": "c0.30",
+    "icon": "./assets/images/mc-icons/tnt.png",
+    "link": "./mc/c0.30/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.30 WASM",
+    "version": "c0.30-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/ir/classic-0.3.0-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 26.2 WASM",
+    "version": "26.2-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/26.2-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 26.1.2 WASM",
+    "version": "26.1.2-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/26.1.2-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.21.11 WASM",
+    "version": "1.21.11-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/1.21.11-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.20.6 WASM",
+    "version": "1.20.6-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/1.20.6-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.17.1 WASM",
+    "version": "1.17.1-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/1.17.1-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.16.5",
+    "version": "1.16.5",
+    "icon": "./assets/images/mc-icons/grass.png",
+    "link": "./mc/1.16.5/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.16.5 WASM",
+    "version": "1.16.5-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/1.16.5-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.14.4",
+    "version": "1.14.4",
+    "icon": "./assets/images/mc-icons/grass.png",
+    "link": "./mc/1.14.4/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.14.4 WASM",
+    "version": "1.14.4-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/1.14.4-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.13.2",
+    "version": "1.13.2",
+    "icon": "./assets/images/mc-icons/grass.png",
+    "link": "./mc/1.13.2/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.13.2 WASM",
+    "version": "1.13.2-wasm",
+    "icon": "./assets/images/mc-icons/grass-wasm.png",
+    "link": "./mc/1.13.2-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.7.10",
+    "version": "1.7.10",
+    "icon": "./assets/images/mc-icons/dirt.png",
+    "link": "./mc/1.7.10/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.7.10 WASM",
+    "version": "1.7.10-wasm",
+    "icon": "./assets/images/mc-icons/dirt-wasm.png",
+    "link": "./mc/1.7.10-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.4.7",
+    "version": "1.4.7",
+    "icon": "./assets/images/mc-icons/hopper.png",
+    "link": "./mc/1.4.7/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.4.7 WASM",
+    "version": "1.4.7-wasm",
+    "icon": "./assets/images/mc-icons/hopper.png",
+    "link": "./mc/1.4.7-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.3.2 WASM",
+    "version": "1.3.2-wasm",
+    "icon": "./assets/images/mc-icons/jungle-log.png",
+    "link": "./mc/1.3.2-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.2.5 WASM",
+    "version": "1.2.5-wasm",
+    "icon": "./assets/images/mc-icons/jungle-log.png",
+    "link": "./mc/1.2.5-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.2.3",
+    "version": "1.2.3",
+    "icon": "./assets/images/mc-icons/jungle-log.png",
+    "link": "./mc/1.2.3/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.2.3 WASM",
+    "version": "1.2.3-wasm",
+    "icon": "./assets/images/mc-icons/jungle-log.png",
+    "link": "./mc/1.2.3-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.1",
+    "version": "1.1",
+    "icon": "./assets/images/mc-icons/jungle-log.png",
+    "link": "./mc/1.1/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft 1.0",
+    "version": "1.0",
+    "icon": "./assets/images/mc-icons/jungle-log.png",
+    "link": "./mc/1.0/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.25a-05 WASM",
+    "version": "c0.0.25a-05-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.25a-05-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.24a-03 WASM",
+    "version": "c0.0.24a-03-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.24a-03-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.23a-01 WASM",
+    "version": "c0.0.23a-01-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.23a-01-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.22a-05 WASM",
+    "version": "c0.0.22a-05-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.22a-05-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.21a WASM",
+    "version": "c0.0.21a-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.21a-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.20a-02 WASM",
+    "version": "c0.0.20a-02-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.20a-02-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.19a-06 WASM",
+    "version": "c0.0.19a-06-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.19a-06-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.18a-02 WASM",
+    "version": "c0.0.18a-02-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.18a-02-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.17a WASM",
+    "version": "c0.0.17a-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.17a-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.16a-02 WASM",
+    "version": "c0.0.16a-02-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.16a-02-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.15a WASM",
+    "version": "c0.0.15a-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.15a-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.14a-08 WASM",
+    "version": "c0.0.14a-08-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.14a-08-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.13a-03 WASM",
+    "version": "c0.0.13a-03-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.13a-03-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.12a-03 WASM",
+    "version": "c0.0.12a-03-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.12a-03-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Classic 0.0.11a WASM",
+    "version": "c0.0.11a-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/classic-0.0.11a-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Indev 20100223 WASM",
+    "version": "indev-20100223-wasm",
+    "icon": "./assets/images/mc-icons/furnace.png",
+    "link": "./mc/indev-20100223-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Indev 20100219 WASM",
+    "version": "indev-20100219-wasm",
+    "icon": "./assets/images/mc-icons/furnace.png",
+    "link": "./mc/indev-20100219-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Pre-Classic rd-161348 WASM",
+    "version": "rd-161348-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/pre-classic-rd-161348-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Pre-Classic rd-160052 WASM",
+    "version": "rd-160052-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/pre-classic-rd-160052-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Pre-Classic rd-132328 WASM",
+    "version": "rd-132328-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/pre-classic-rd-132328-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Pre-Classic rd-132211 WASM",
+    "version": "rd-132211-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/pre-classic-rd-132211-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Pre-Classic rd-131655 WASM",
+    "version": "rd-131655-wasm",
+    "icon": "./assets/images/mc-icons/tnt-wasm.png",
+    "link": "./mc/pre-classic-rd-131655-wasm/",
+    "active": true
+  }
+]

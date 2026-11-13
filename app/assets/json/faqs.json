@@ -1,0 +1,22 @@
+[
+  {
+    "question": "Will there be a offline download?",
+    "answer": "Possibly once developement is done."
+  },
+  {
+    "question": "How often are the launcher options updated?",
+    "answer": "Whenever the next big update is."
+  },
+  {
+    "question": "How can I contribute?",
+    "answer": "Open an issue on the project repository with your suggestion, or help add code directly. Every contributor is thanked on the Credits screen."
+  },
+  {
+    "question": "Can I use your code?",
+    "answer": "Yes, but PLEASE credit if you do copy my code."
+  },
+  {
+    "question": "How do I add my own mod to the modketplace?",
+    "answer": "Open an issue on the project repository with your mod and it might be added to the Modketplace."
+  }
+]
