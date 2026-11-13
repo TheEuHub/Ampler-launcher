@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="0; url=./app/">
+    <title>Ampler Launcher</title>
+    <link rel="shortcut icon" href="./app/assets/images/logo.png" type="image/x-icon">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background: #14161a;
+            color: #f2f2f2;
+            font-family: Roboto, Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .fwd {
+            text-align: center;
+            line-height: 1.6;
+        }
+        .fwd img {
+            width: 96px;
+            image-rendering: pixelated;
+        }
+        .fwd a {
+            color: #7CFC98;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="fwd">
+        <img src="./app/assets/images/logo.png" alt="">
+        <p class="brand">Opening Ampler Launcher&hellip;</p>
+        <p><a href="./app/">Continue to the launcher</a></p>
+    </div>
+    <script>
+        location.replace('./app/');
+    </script>
+</body>
+
+</html>

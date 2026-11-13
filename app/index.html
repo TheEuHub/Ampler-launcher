@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ampler Launcher</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/fonts.css">
+    <link rel="stylesheet" media="screen and (max-width: 1100px)" href="./assets/css/screensize.css">
+    <link rel="stylesheet" media="screen and (max-height: 550px)" href="./assets/css/screensize.css">
+    <link rel="shortcut icon" href="./assets/images/logo.png" type="image/x-icon">
+    <script>
+        // Apply saved theme, layout and text size before first paint
+        try {
+            var root = document.documentElement;
+            if (localStorage.getItem("theme")) { root.dataset.theme = localStorage.getItem("theme"); }
+            if (localStorage.getItem("layout")) { root.dataset.layout = localStorage.getItem("layout"); }
+            if (localStorage.getItem("textscale")) { root.style.setProperty("--text-scale", localStorage.getItem("textscale")); }
+            if (localStorage.getItem("mcBranding") === "true") { root.classList.add("mc-branding"); }
+            if (localStorage.getItem("performanceMode") === "true") { root.classList.add("perf-mode"); }
+            if (localStorage.getItem("fpsBoost") !== "false") { root.classList.add("fps-boost"); }
+        } catch (e) {}
+    </script>
+    <meta content="Ampler Launcher" property="og:title">
+    <meta content="A Minecraft-themed launcher for Eaglercraft: 113 builds, five editions, servers, mods, skins and offline downloads." property="og:description">
+    <meta content="./assets/images/logo.png" property="og:image">
+    <meta content="#008542" data-react-helmet="true" name="theme-color">
+</head>
+
+<body>
+    <div id="externalmenu"></div>
+
+    <div id="naerror" class="error">
+        <div>
+            <p class="bolded" style="margin-left: 1vw;">SORRY!</p>
+            <p id="errortext" style="color: goldenrod;">This feature hasn't been made yet.</p>
+        </div>
+    </div>
+    <div id="screenerror" class="error">
+        <div>
+            <p class="bolded" style="margin-left: 1vw;">ERROR!</p>
+            <p>Currently this screen resolution is buggy.</p>
+        </div>
+    </div>
+
+    <div id="confirmationmenu">
+        <div class="confrimationmenuscreen">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                onclick="confirmationcancel()"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M18 6l-12 12"/><path d="M6 6l12 12"/></svg>
+            <p class="bolded warningtitle"></p>
+            <p class="warningdesc"></p>
+            <div class="confirmationbuttons">
+                <div class="classicbutton" onclick="confirmationcancel();">
+                    <p class="bolded">Cancel</p>
+                </div>
+                <div class="redbutton classicbutton warningbutton">
+                    <p class="bolded">Yes, Delete</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sidebar" id="sidebar">
+        <div id="whatsnew" class="sidebarWhatsNew" role="button" tabindex="0" onclick="generaterecentnote()">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M12 3l1.9 5.8L20 10l-6.1 1.2L12 17l-1.9-5.8L4 10l6.1-1.2z"/>
+            </svg>
+            <div class="gTabsText">
+                <p>What's New</p>
+                <p class="whatsnewsub">v1.5.06</p>
+            </div>
+        </div>
+
+        <div onclick="webedition()" id="gtabs2" class="sidebarOptions selected" role="button" tabindex="0">
+            <img src="./assets/images/sidebar/i-web.png" alt="">
+            <div class="gTabsText">
+                <p class="eaglercraftText brandPrefix">EAGLERCRAFT :</p>
+                <p>Web Edition</p>
+            </div>
+        </div>
+        <div onclick="eaglercontrols()" id="gtabs4" class="sidebarOptions" role="button" tabindex="0">
+            <img src="./assets/images/sidebar/i-controls.png" alt="">
+            <div class="gTabsText">
+                <p class="eaglercraftText brandPrefix">EAGLERCRAFT :</p>
+                <p>Mobile/Controller</p>
+            </div>
+        </div>
+        <div onclick="moddededition()" id="gtabs3" class="sidebarOptions" role="button" tabindex="0">
+            <img src="./assets/images/sidebar/i-modded.png" alt="">
+            <div class="gTabsText">
+                <p class="eaglercraftText brandPrefix">EAGLERCRAFT :</p>
+                <p>Modded Editions</p>
+            </div>
+        </div>
+        <div onclick="alphaedition()" id="gtabs12" class="sidebarOptions" role="button" tabindex="0">
+            <img src="./assets/images/mc-icons/monster-spawner.png" alt="">
+            <div class="gTabsText">
+                <p class="eaglercraftText brandPrefix">EAGLERCRAFT :</p>
+                <p>Alpha</p>
+            </div>
+        </div>
+        <div onclick="betaedition()" id="gtabs13" class="sidebarOptions" role="button" tabindex="0">
+            <img src="./assets/images/mc-icons/tnt.png" alt="">
+            <div class="gTabsText">
+                <p class="eaglercraftText brandPrefix">EAGLERCRAFT :</p>
+                <p>Beta</p>
+            </div>
+        </div>
+
+        <div onclick="custominstallationsmenu()" id="gtabs10" class="sidebarOptions" role="button" tabindex="0">
+            <img src="./assets/images/sidebar/i-live.png" alt="">
+            <div class="gTabsText"><p>Custom Installations</p></div>
+        </div>
+        <div onclick="downloadsmenu()" id="gtabs9" class="sidebarOptions" role="button" tabindex="0">
+            <img src="./assets/images/sidebar/m-news.png" alt="">
+            <div class="gTabsText"><p>Offline Downloads</p></div>
+        </div>
+
+        <div onclick="creditsmenu()" id="gtabs5" class="sidebarOptions sidebarBottom" role="button" tabindex="0">
+            <img src="./assets/images/sidebar/m-credits.png" alt="">
+            <div class="gTabsText"><p>Credits</p></div>
+        </div>
+        <div onclick="settingsmenu()" id="gtabs6" class="sidebarOptions sidebarBottom" role="button" tabindex="0">
+            <img src="./assets/images/sidebar/m-settings.png" alt="">
+            <div class="gTabsText"><p>Settings</p></div>
+        </div>
+        <div class="launcherVersion"><p>v1.5.06</p></div>
+    </div>
+
+    <div class="mainPage" id="mainPage">
+        <div class="gameHeader" id="gameheader">
+            <p id="gameedition" class="currentGame bolded">EAGLERCRAFT WEB EDITION</p>
+            <ul class="gameTabs" id="gameTabs">
+                <li id="header1" class="headerButtons selected" data-view="play" role="button" tabindex="0" onclick="playheader()">Play</li>
+                <li id="header2" class="headerButtons" data-view="mods" role="button" tabindex="0" onclick="modsheader()">Mods</li>
+                <li id="header3" class="headerButtons" data-view="faq" role="button" tabindex="0" onclick="faqsheader()">FAQ</li>
+                <li id="header4" class="headerButtons" data-view="installations" role="button" tabindex="0" onclick="installationheader()">Installations</li>
+                <li id="header5" class="headerButtons" data-view="skins" role="button" tabindex="0" onclick="skinsheader()">Skins</li>
+                <li id="header6" class="headerButtons" data-view="patchnotes" role="button" tabindex="0" onclick="patchnotesheader()">Patch Notes</li>
+                <li id="header11" class="headerButtons" data-view="servers" role="button" tabindex="0" onclick="serversheader()">Servers</li>
+                <li id="header12" class="headerButtons" data-view="downloads" role="button" tabindex="0" onclick="downloadsheader()">Downloads</li>
+                <li id="header8" class="headerButtons" data-view="credits" role="button" tabindex="0" onclick="creditsheader()">Credits</li>
+            </ul>
+        </div>
+
+        <div id="mods">
+            <img class="modketplace-title" src="./assets/images/modketplace-title.png" alt="Modketplace">
+            <p class="bolded modssubtitle">Community mods for the EaglerForge installation.</p>
+            <hr style="margin-top: 2vh;">
+            <div id="modsbox"></div>
+        </div>
+
+        <div id="faq">
+            <p class="bolded faqtitle">Frequently Asked Questions</p>
+            <p>Here are some frequently asked questions about Ampler Launcher.</p>
+            <div id="faqbox"></div>
+        </div>
+
+        <div id="installations">
+            <div class="serversHeaderBar">
+                <div class="newinstallation">
+                    <div id="newinstallationbutton" class="classicbutton" role="button" tabindex="0"
+                        onclick="newinstallation('./assets/json/base.json');">
+                        <p class="bolded">New installation</p>
+                    </div>
+                </div>
+                <p id="installationscount" class="settingsdesc"></p>
+                <p id="custominstallationscount" class="settingsdesc"></p>
+            </div>
+            <div id="installationsbox"></div>
+        </div>
+
+        <div id="skinsview"></div>
+
+        <div id="game-bg" style="background-image: url(./assets/images/web-edition.jpg);">
+            <img id="game-title" src="./assets/images/web-title.png" alt="Eaglercraft">
+            <div class="stats-widget">
+                <div class="stat-item">
+                    <p class="stat-label">Playtime</p>
+                    <p class="stat-value bolded" id="playtimeDisplay">0h 0m</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-label">Sessions</p>
+                    <p class="stat-value bolded" id="sessionsDisplay">0</p>
+                </div>
+                <div class="stat-item">
+                    <p class="stat-label">FPS Boost</p>
+                    <p class="stat-value bolded" id="fpsBoostDisplay" role="button" tabindex="0"
+                        onclick="toggleFpsBoost()">ON</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="patchNotes">
+            <div class="notesLayout">
+                <aside class="notesIndex">
+                    <p class="bolded patchnotes-title">Versions</p>
+                    <div class="versionscontainer">
+                        <input class="versionBox" id="filterGame" type="checkbox" onchange="sortnote('game')" checked><p>Game Releases</p>
+                        <input class="versionBox" id="filterSite" type="checkbox" onchange="sortnote('site')" checked><p>Site Releases</p>
+                    </div>
+                    <hr>
+                    <div id="patchnotesindex" class="notesIndexList"></div>
+                </aside>
+                <section class="notesMain">
+                    <div id="patchnotesbox"></div>
+                    <div id="patchnotedetail" hidden></div>
+                </section>
+            </div>
+        </div>
+
+        <div id="servers">
+            <div class="serversHeaderBar">
+                <p class="bolded settingstitle">SERVERS</p>
+                <div class="serverAddRow">
+                    <input id="customServerName" class="settinginput" type="text" autocomplete="off"
+                        spellcheck="false" placeholder="Server name">
+                    <input id="customServerIp" class="settinginput" type="text" autocomplete="off"
+                        spellcheck="false" placeholder="wss://example.org">
+                    <div class="classicbutton greenbutton" role="button" tabindex="0" onclick="addCustomServer()">
+                        <p class="bolded">Add server</p>
+                    </div>
+                    <div class="classicbutton" role="button" tabindex="0" onclick="refreshAllServers()">
+                        <p class="bolded">Refresh</p>
+                    </div>
+                </div>
+            </div>
+            <div id="serversGrid" class="serversGrid"></div>
+        </div>
+
+        <div id="downloads">
+            <div class="serversHeaderBar">
+                <p class="bolded settingstitle">OFFLINE DOWNLOADS</p>
+                <p class="settingsdesc">Package any client as a single .html or a .zip you can keep and serve yourself.</p>
+            </div>
+            <div id="downloadsGrid" class="serversGrid"></div>
+        </div>
+
+        <div id="credits">
+            <div class="creditsHead">
+                <p class="bolded contributorstitle">Credits</p>
+                <p>Everyone whose code, clients, artwork or relays this launcher stands on.</p>
+            </div>
+            <div id="creditsbox" class="creditsGrid"></div>
+            <div id="creditdetail" hidden></div>
+        </div>
+
+        <div id="settings">
+            <div id="generalsettings">
+                <p class="bolded settingstitle">LAUNCHER SETTINGS</p>
+                <div class="settingoption">
+                    <input id="launcherpresets" class="settingsbox" type="checkbox" onchange="presetlaunchers()">
+                    <p>Preset launchers</p>
+                    <p class="settingsdesc">Offer the community presets on the Installations screen when creating a custom build.</p>
+                </div>
+
+                <p class="bolded settingstitle">QUICK SETTINGS</p>
+                <div class="settingoption">
+                    <input id="mcBrandingCheckbox" class="settingsbox" type="checkbox" onchange="toggleBranding(this.checked)">
+                    <p>Minecraft branding</p>
+                    <p class="settingsdesc">Swap the Eaglercraft wordmark for the Minecraft one across the sidebar and headers.</p>
+                </div>
+                <div class="settingrow">
+                    <p style="min-width: 7vw;">Volume</p>
+                    <input id="volumeSlider" type="range" min="0" max="100" value="70" oninput="setVolume()">
+                </div>
+                <div class="settingoption">
+                    <input id="perfMode" class="settingsbox" type="checkbox" onchange="togglePerformanceMode()">
+                    <p>Performance mode</p>
+                    <p class="settingsdesc">Cuts animations and shadows so the launcher itself stays fast.</p>
+                </div>
+                <div class="settingoption">
+                    <input id="autoSave" class="settingsbox" type="checkbox" onchange="toggleAutoSave()" checked>
+                    <p>Auto-save stats</p>
+                    <p class="settingsdesc">Track playtime and sessions on this device.</p>
+                </div>
+
+                <p class="bolded settingstitle">LAUNCH MODE</p>
+                <p class="settingsdesc">How the game opens when you press Play.</p>
+                <div class="settingcards">
+                    <div class="settingcard" data-launchmode="same" onclick="setlaunchmode('same')" role="button" tabindex="0"><p class="bolded">Same tab</p><p class="carddesc">Replaces the launcher with the game.</p></div>
+                    <div class="settingcard" data-launchmode="tab" onclick="setlaunchmode('tab')" role="button" tabindex="0"><p class="bolded">New tab</p><p class="carddesc">Opens the game in a new browser tab.</p></div>
+                    <div class="settingcard" data-launchmode="blank" onclick="setlaunchmode('blank')" role="button" tabindex="0"><p class="bolded">About:blank</p><p class="carddesc">Opens a blank tab and runs the game inside it.</p></div>
+                    <div class="settingcard" data-launchmode="popup" onclick="setlaunchmode('popup')" role="button" tabindex="0"><p class="bolded">Popup window</p><p class="carddesc">Opens a 1280x720 window. Popups must be allowed.</p></div>
+                    <div class="settingcard" data-launchmode="blob" onclick="setlaunchmode('blob')" role="button" tabindex="0"><p class="bolded">Blob tab</p><p class="carddesc">Builds a cloaked page and opens it as a blob URL.</p></div>
+                    <div class="settingcard" data-launchmode="data-uri" onclick="setlaunchmode('data-uri')" role="button" tabindex="0"><p class="bolded">Data-URI tab</p><p class="carddesc">Builds a cloaked page and opens it as a data URI.</p></div>
+                </div>
+
+                <p class="bolded settingstitle">DEFAULT VIEW</p>
+                <p class="settingsdesc">Which tab the launcher opens on.</p>
+                <div class="settingcards">
+                    <div class="settingcard compact" data-defaultview="play" onclick="setdefaultview('play')" role="button" tabindex="0"><p class="bolded">Play</p></div>
+                    <div class="settingcard compact" data-defaultview="mods" onclick="setdefaultview('mods')" role="button" tabindex="0"><p class="bolded">Mods</p></div>
+                    <div class="settingcard compact" data-defaultview="installations" onclick="setdefaultview('installations')" role="button" tabindex="0"><p class="bolded">Installations</p></div>
+                    <div class="settingcard compact" data-defaultview="skins" onclick="setdefaultview('skins')" role="button" tabindex="0"><p class="bolded">Skins</p></div>
+                    <div class="settingcard compact" data-defaultview="servers" onclick="setdefaultview('servers')" role="button" tabindex="0"><p class="bolded">Servers</p></div>
+                    <div class="settingcard compact" data-defaultview="downloads" onclick="setdefaultview('downloads')" role="button" tabindex="0"><p class="bolded">Downloads</p></div>
+                </div>
+
+                <p class="bolded settingstitle">LAYOUT</p>
+                <p class="settingsdesc">How the launcher chrome is arranged.</p>
+                <div class="settingcards">
+                    <div class="settingcard compact" data-layout="new" onclick="setlayout('new')" role="button" tabindex="0"><p class="bolded">New</p></div>
+                    <div class="settingcard compact" data-layout="classic" onclick="setlayout('classic')" role="button" tabindex="0"><p class="bolded">Classic</p></div>
+                    <div class="settingcard compact" data-layout="compact" onclick="setlayout('compact')" role="button" tabindex="0"><p class="bolded">Compact</p></div>
+                </div>
+
+                <p class="bolded settingstitle">APPEARANCE</p>
+                <p class="settingsdesc">Theme</p>
+                <div class="settingcards">
+                    <div class="settingcard compact" data-themename="default" onclick="settheme('default')" role="button" tabindex="0"><span class="themedot" style="background:#008542;"></span><p class="bolded">Default</p></div>
+                    <div class="settingcard compact" data-themename="redstone" onclick="settheme('redstone')" role="button" tabindex="0"><span class="themedot" style="background:#b02a2a;"></span><p class="bolded">Redstone</p></div>
+                    <div class="settingcard compact" data-themename="lapis" onclick="settheme('lapis')" role="button" tabindex="0"><span class="themedot" style="background:#1f5fbf;"></span><p class="bolded">Lapis</p></div>
+                    <div class="settingcard compact" data-themename="amethyst" onclick="settheme('amethyst')" role="button" tabindex="0"><span class="themedot" style="background:#7b3fb5;"></span><p class="bolded">Amethyst</p></div>
+                    <div class="settingcard compact" data-themename="gold" onclick="settheme('gold')" role="button" tabindex="0"><span class="themedot" style="background:#b8860b;"></span><p class="bolded">Gold</p></div>
+                    <div class="settingcard compact" data-themename="midnight" onclick="settheme('midnight')" role="button" tabindex="0"><span class="themedot" style="background:#2a6fb8;"></span><p class="bolded">Midnight</p></div>
+                    <div class="settingcard compact" data-themename="neon" onclick="settheme('neon')" role="button" tabindex="0"><span class="themedot" style="background:#0eae9f;"></span><p class="bolded">Neon</p></div>
+                    <div class="settingcard compact" data-themename="light" onclick="settheme('light')" role="button" tabindex="0"><span class="themedot" style="background:#e8e8e8;"></span><p class="bolded">Light</p></div>
+                </div>
+                <p class="settingsdesc" style="margin-top: 1.5vw;">Text size</p>
+                <div class="settingcards">
+                    <div class="settingcard compact" data-textscale="0.9" onclick="settextscale(0.9)" role="button" tabindex="0"><p class="bolded">Small</p></div>
+                    <div class="settingcard compact" data-textscale="1" onclick="settextscale(1)" role="button" tabindex="0"><p class="bolded">Default</p></div>
+                    <div class="settingcard compact" data-textscale="1.15" onclick="settextscale(1.15)" role="button" tabindex="0"><p class="bolded">Large</p></div>
+                    <div class="settingcard compact" data-textscale="1.3" onclick="settextscale(1.3)" role="button" tabindex="0"><p class="bolded">Larger</p></div>
+                </div>
+
+                <p class="bolded settingstitle">LAUNCHER USERNAME</p>
+                <input id="usernameinput" type="text" autocomplete="off" placeholder="Username" onkeyup="usernamechange()">
+                <div class="settingrow" style="margin-top: 0.6vw;">
+                    <div class="classicbutton" role="button" tabindex="0" onclick="randomizeUsername()"><p class="bolded">Randomize</p></div>
+                </div>
+
+                <div class="clearstoragebutton" role="button" tabindex="0" onclick="clearlocalstorage()">
+                    <p class="bolded">Clear All Local Storage</p>
+                </div>
+            </div>
+
+            <div id="aboutsettings">
+                <div style="position: relative;">
+                    <div class="whatsnewbutton" role="button" tabindex="0" onclick="generaterecentnote();">
+                        <p class="bolded">What's New</p>
+                    </div>
+                    <p class="bolded settingstitle">AMPLER LAUNCHER</p>
+                    <p class="settingsdetails">A Minecraft-themed launcher for Eaglercraft, merging six community launchers into one offline-first app.</p>
+                    <p class="settingsdetails">Created by: IRV77, maintained by TheEuHub</p>
+                </div>
+                <hr>
+                <p class="bolded settingstitle">UI</p>
+                <p class="settingsdetails">v1.5.06</p>
+                <p class="settingsdetails">Thursday, November 13th, 2026</p>
+                <hr>
+                <p class="bolded settingstitle">LEGAL AND CREDITS</p>
+                <p class="settingsdetails">This website is not affiliated with Mojang or Microsoft.</p>
+                <p class="settingsdetails">Eaglercraft is a fan-made browser port of Minecraft. All client files belong to their respective authors; see Credits.</p>
+            </div>
+        </div>
+
+        <div id="gameSelection">
+            <div id="drop" class="dropdownSelector" role="button" tabindex="0"
+                aria-haspopup="listbox" aria-expanded="false" onclick="dropdowntoggle()">
+                <div style="display: flex; gap: 1vw;">
+                    <div class="centeredIcon">
+                        <img id="gameicon" src="./assets/images/mc-icons/grass.png" style="width: 2.5vw;" alt="">
+                    </div>
+                    <div class="versionText">
+                        <p id="gametitle" class="bolded">Latest release</p>
+                        <p id="gameversion">1.12.2-u2</p>
+                    </div>
+                    <div id="dropdownuparrow" class="centeredIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="dropdownIcon">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M6 9l6 6l6 -6"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div id="dropdn" class="dropdownMenu" style="visibility: hidden;"></div>
+            <a id="playbutton" href="./mc/1.12.2/"><div id="mainbutton" class="playButton"></div></a>
+            <div class="username centeredIcon bolded" id="userbox">
+                <p id="username">Generic User</p>
+                <input id="inlineUsernameInput" class="inlineUsernameInput" type="text" autocomplete="off" maxlength="24">
+                <svg class="userEditIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    role="button" tabindex="0" onclick="editUser()">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/>
+                    <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/>
+                    <path d="M16 5l3 3"/>
+                </svg>
+            </div>
+        </div>
+    </div>
+
+    <script src="./assets/js/jszip-local.js"></script>
+    <script src="./assets/js/skins.js"></script>
+    <script src="./assets/js/skinsview.js"></script>
+    <script src="./assets/js/index.js"></script>
+</body>
+
+</html>
