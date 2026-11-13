@@ -1,0 +1,348 @@
+.gTabsText {
+  display: none;
+}
+
+/* Below 1100px the rail narrows and the launch bar grows. Both are tokens, so
+   the panels, the dropdown and the bar all follow without being restated. */
+body {
+  --sidebar-w: 5.5vw;
+  --bar-h: 6.2vw;
+}
+
+.sidebarOptions {
+  height: 5.5vw;
+}
+
+#gtabs2 img, #gtabs3 img, #gtabs4 img, #gtabs11 img, #gtabs12 img, #gtabs13 img, #gtabs9 img, #gtabs10 img {
+  width: 3vw;
+}
+
+#gtabs5 {
+  bottom: 7.6vw;
+}
+
+#gtabs6 {
+  bottom: 2.7vw;
+}
+
+#gtabs5 img, #gtabs6 img {
+  width: 2.5vw;
+}
+
+.currentGame {
+  font-size: calc(1.7vw * var(--text-scale, 1));
+}
+
+.headerButtons {
+  padding: 0.6vw 1.5vw;
+  font-size: calc(1.4vw * var(--text-scale, 1));
+}
+
+#game-title {
+  margin-top: 8vw;
+}
+
+
+.dropdownSelector {
+  left: 3vw;
+  height: var(--bar-h);
+  width: 28vw;
+}
+
+.dropdownIcon {
+  width: 2.25vw;
+}
+
+#playbutton {
+  width: 19.5vw;
+  height: 4.5vw;
+}
+
+.username {
+  right: 7vw;
+  font-size: calc(1.7vw * var(--text-scale, 1));
+}
+
+/* Mods Menu CSS */
+
+
+.modssubtitle {
+  font-size: calc(1.6vw * var(--text-scale, 1));
+}
+
+#modsbox {
+  grid-template-columns: repeat(auto-fill, minmax(17vw, 1fr));
+  padding: 4vh var(--gutter) 11vh;
+}
+
+.moddetails {
+  font-size: calc(1.3vw * var(--text-scale, 1));
+}
+
+.modtitle {
+  font-size: calc(1.4vw * var(--text-scale, 1));
+}
+
+/* FAQ Menu CSS */
+
+#faq {
+  font-size: calc(1.5vw * var(--text-scale, 1));
+}
+
+.faqtitle {
+  font-size: calc(2.6vw * var(--text-scale, 1));
+}
+
+/* Installations Menu CSS */
+
+
+.installationOptions {
+  font-size: calc(1.5vw * var(--text-scale, 1));
+}
+
+/* Skins, Servers, Downloads Menu CSS */
+
+
+/* Patch Notes Menu CSS */
+
+
+.patchnotes-title {
+  font-size: calc(1.6vw * var(--text-scale, 1));
+}
+
+.patchnote {
+  width: 22vw;
+}
+
+.patchnotedetails {
+  font-size: calc(1.4vw * var(--text-scale, 1));
+}
+
+/* Credits Screen CSS */
+
+#credits {
+  padding: 2vh var(--gutter) 9vw;
+  gap: 0;
+  font-size: calc(1.4vw * var(--text-scale, 1));
+}
+
+.creditsGrid {
+  grid-template-columns: repeat(auto-fill, minmax(28vw, 1fr));
+  gap: 1.6vw;
+}
+
+.credittile {
+  width: 100%;
+  min-height: 10vw;
+}
+
+.credittile img {
+  width: 6vw;
+  height: 6vw;
+}
+
+/* Settings Screen CSS */
+
+#settings {
+  font-size: calc(1.4vw * var(--text-scale, 1));
+  padding: 6vh var(--gutter) 7vh;
+}
+
+#generalsettings .settingstitle, #aboutsettings .settingstitle {
+  font-size: calc(1.5vw * var(--text-scale, 1));
+}
+
+.clearstoragebutton {
+  margin-top: 3vw;
+  padding: 0.5vw 2.5vw;
+  width: max-content;
+}
+
+/* Dropdown Menu CSS */
+
+.launcherVersion {
+  font-size: calc(1.1vw * var(--text-scale, 1));
+}
+
+.dropdownMenu {
+  left: 3vw;
+  width: 28vw;
+  bottom: var(--bar-h);
+}
+
+.dropdownOptions {
+  font-size: calc(1.4vw * var(--text-scale, 1));
+  width: 100%;
+}
+
+.versionText {
+  font-size: calc(1.4vw * var(--text-scale, 1));
+}
+
+/* Phone breakpoint */
+@media only screen and (max-width: 768px), only screen and (max-height: 480px) {
+  /* One set of pixel sizes for the whole shell: rail 54, header 56, tab strip
+     34, launch bar 64, gutter 14. Every panel and the dropdown are already
+     derived from these, so the phone layout cannot fall out of step. */
+  body {
+    --sidebar-w: 54px;
+    --header-h: 56px;
+    --tabstrip-h: 35px;
+    --chrome-h: 91px;
+    --bar-h: 64px;
+    --gutter: 14px;
+  }
+  .sidebarWhatsNew {
+    padding: 0 10px;
+    gap: 8px;
+  }
+  .sidebarWhatsNew .gTabsText p {
+    font-size: 12px;
+  }
+  .sidebarWhatsNew .whatsnewsub {
+    font-size: 10px;
+  }
+  .gameTabs {
+    flex-wrap: nowrap;
+    overflow: hidden;
+    padding: 0 6px;
+  }
+  .headerButtons {
+    padding: 8px 9px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+  .sidebarOptions,
+  .sidebarOptions.sidebarBottom {
+    height: 50px;
+    padding-left: 10px;
+  }
+  .sidebarOptions.sidebarBottom {
+    margin: 2px 4px;
+  }
+  #gtabs5 {
+    bottom: 108px;
+  }
+  #gtabs6 {
+    bottom: 54px;
+  }
+  .launcherVersion {
+    left: 10px;
+    bottom: 2px;
+  }
+  #gtabs2 img, #gtabs3 img, #gtabs4 img, #gtabs11 img, #gtabs12 img, #gtabs13 img, #gtabs5 img, #gtabs6 img, #gtabs9 img, #gtabs10 img {
+    width: 24px;
+  }
+  #gtabs12 img, #gtabs13 img { width: 22px; height: 22px; object-fit: contain; }
+  .moddownload { font-size: 11px; padding: 7px 4px; border-width: 1px; }
+  /* The launch bar is a plain row on a phone: selector, Play, name. Nothing is
+     pinned to a guessed pixel offset, so the three can never overlap. */
+  #gameSelection {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 6px;
+    padding: 0 8px;
+    box-sizing: border-box;
+  }
+  .dropdownSelector {
+    position: static;
+    width: 190px;
+    flex: 0 0 190px;
+  }
+  #playbutton {
+    position: static;
+    transform: none;
+    margin: 0 auto;
+  }
+  .username {
+    position: static;
+    margin-left: auto;
+  }
+  .dropdownMenu {
+    left: 6px;
+    width: 190px;
+    bottom: 64px;
+  }
+  .dropdownOptions {
+    height: 46px;
+    min-height: 46px;
+    font-size: 12px;
+  }
+  .dropdownSelector .centeredIcon:first-child img,
+  .dropdownOption img {
+    width: 30px;
+    height: 30px;
+  }
+  .stats-widget {
+    top: 8px;
+    right: 8px;
+    gap: 8px;
+    padding: 6px 10px;
+  }
+  #credits {
+    padding: 12px 12px 70px;
+  }
+  .creditsGrid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .credittile {
+    min-height: 0;
+    padding: 10px;
+  }
+  .credittile img {
+    width: 56px;
+    height: 56px;
+  }
+  .creditside .contributoruser {
+    font-size: 18px;
+  }
+  .creditside .contributordescription,
+  .creditrole {
+    font-size: 13px;
+  }
+  .creditDetailHead img {
+    width: 64px;
+    height: 64px;
+  }
+  .contactname {
+    font-size: 22px;
+  }
+  .creditlist {
+    font-size: 14px;
+  }
+  .notesLayout {
+    grid-template-columns: 1fr;
+  }
+  .notesIndex {
+    position: static;
+    max-height: 200px;
+  }
+  .notesIndexRow {
+    font-size: 13px;
+  }
+  .notesIndexVersion {
+    min-width: 62px;
+  }
+  .patchnoteDetailHead img {
+    width: 44px;
+    height: 44px;
+  }
+  .patchnoteDetailTitle {
+    font-size: 20px;
+  }
+  .patchnotelist,
+  .patchnoteDetailDesc {
+    font-size: 14px;
+  }
+  #playbutton {
+    width: 148px;
+    height: 42px;
+    max-height: calc(100% - 16px);
+  }
+  #modsbox, #installationsbox, .skinsScroll, #faqbox, #patchNotes, #credits {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+}
