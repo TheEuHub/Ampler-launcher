@@ -340,14 +340,6 @@
                     <div class="settingcard compact" data-themename="neon" onclick="settheme('neon')" role="button" tabindex="0"><span class="themedot" style="background:#0eae9f;"></span><p class="bolded">Neon</p></div>
                     <div class="settingcard compact" data-themename="light" onclick="settheme('light')" role="button" tabindex="0"><span class="themedot" style="background:#e8e8e8;"></span><p class="bolded">Light</p></div>
                 </div>
-                <p class="settingsdesc" style="margin-top: 1.5vw;">Text size</p>
-                <div class="settingcards">
-                    <div class="settingcard compact" data-textscale="0.9" onclick="settextscale(0.9)" role="button" tabindex="0"><p class="bolded">Small</p></div>
-                    <div class="settingcard compact" data-textscale="1" onclick="settextscale(1)" role="button" tabindex="0"><p class="bolded">Default</p></div>
-                    <div class="settingcard compact" data-textscale="1.15" onclick="settextscale(1.15)" role="button" tabindex="0"><p class="bolded">Large</p></div>
-                    <div class="settingcard compact" data-textscale="1.3" onclick="settextscale(1.3)" role="button" tabindex="0"><p class="bolded">Larger</p></div>
-                </div>
-
                 <p class="bolded settingstitle">LAUNCHER USERNAME</p>
                 <input id="usernameinput" type="text" autocomplete="off" placeholder="Username" onkeyup="usernamechange()">
                 <div class="settingrow" style="margin-top: 0.6vw;">
@@ -402,7 +394,7 @@
             </div>
             <div id="dropdn" class="dropdownMenu" style="visibility: hidden;"></div>
             <a id="playbutton" href="./mc/1.12.2/"><div id="mainbutton" class="playButton"></div></a>
-            <div class="username centeredIcon bolded" id="userbox">
+            <div class="username centeredIcon bolded" id="userbox" role="button" tabindex="0">
                 <p id="username">Generic User</p>
                 <input id="inlineUsernameInput" class="inlineUsernameInput" type="text" autocomplete="off" maxlength="24">
                 <svg class="userEditIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"

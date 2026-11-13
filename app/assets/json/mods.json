@@ -76,8 +76,7 @@
     "author": "Patrick",
     "description": "Adds setting homes and teleportation to them",
     "icon": "./assets/images/mod-icons/home.png",
-    "link": "homes.js",
-    "active": false
+    "link": "eagler-homes.js"
   },
   {
     "title": "Fresh Eagler UI",
