@@ -168,7 +168,26 @@
             <div id="installationsbox"></div>
         </div>
 
-        <div id="skinsview"></div>
+        <div id="skinsview">
+            <div class="skinsHead">
+                <p class="bolded skinsTitle">SKINS</p>
+                <p class="skinsCount" id="skinscount"></p>
+                <div class="skinsTools">
+                    <input class="skinSearch" id="skinsearch" type="text" autocomplete="off" placeholder="Search skins">
+                    <div class="skinTool classicbutton" role="button" tabindex="0" onclick="pickSkinFolder()"><p class="bolded">Add skin folder</p></div>
+                    <div class="skinTool classicbutton" role="button" tabindex="0" onclick="pickSingleSkinFile()"><p class="bolded">Upload skin</p></div>
+                    <input id="skinfolder" type="file" webkitdirectory hidden>
+                    <input id="skinfileinput" type="file" accept=".png,.jpg,.jpeg,.webp,.gif" hidden>
+                </div>
+            </div>
+            <div class="skinsScroll" id="skinsscroll">
+                <div id="skingrid" class="skinsGrid"></div>
+                <div id="skinempty" class="skinsEmpty" hidden>
+                    <p class="bolded">No skins found</p>
+                    <p>Add a folder or upload a .png to use it in game.</p>
+                </div>
+            </div>
+        </div>
 
         <div id="game-bg" style="background-image: url(./assets/images/web-edition.jpg);">
             <img id="game-title" src="./assets/images/web-title.png" alt="Eaglercraft">
@@ -253,7 +272,7 @@
                 </div>
 
                 <div id="settingsPanel" class="inline settings-panel">
-                    <p class="settings-header bolded settingstitle">QUICK SETTINGS</p>
+                    <p class="settings-header bolded settingstitle">Sound &amp; Performance</p>
                     <div class="settings-content">
                         <div class="setting-item">
                             <div class="settingoption">
@@ -365,7 +384,7 @@
                 aria-haspopup="listbox" aria-expanded="false" onclick="dropdowntoggle()">
                 <div style="display: flex; gap: 1vw;">
                     <div class="centeredIcon">
-                        <img id="gameicon" src="./assets/images/mc-icons/grass.png" style="width: 2.5vw;" alt="">
+                        <img id="gameicon" src="./assets/images/mc-icons/grass.png" alt="">
                     </div>
                     <div class="versionText">
                         <p id="gametitle" class="bolded">Latest release</p>
@@ -400,6 +419,7 @@
 
     <script src="./assets/js/jszip-local.js"></script>
     <script src="./assets/js/skins.js"></script>
+    <script src="./assets/skins/list.js"></script>
     <script src="./assets/js/skinsview.js"></script>
     <script src="./assets/js/index.js"></script>
 </body>
