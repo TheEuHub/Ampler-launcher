@@ -2427,9 +2427,10 @@
      * ------------------------------------------------------------------ */
 
     /* Clicking the wording of an option toggles its box, so the box itself
-       never has to be hit. */
+       never has to be hit. Rows without a checkbox (the volume row) are
+       ignored. */
     function wireOptionRows() {
-        Array.prototype.forEach.call(document.querySelectorAll('.settingoption'), function (row) {
+        Array.prototype.forEach.call(document.querySelectorAll('.setting-item'), function (row) {
             if (row.dataset.wired) return;
             row.dataset.wired = '1';
             row.addEventListener('click', function (event) {

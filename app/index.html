@@ -265,35 +265,44 @@
         <div id="settings">
             <div id="generalsettings">
                 <p class="bolded settingstitle">LAUNCHER SETTINGS</p>
-                <div class="settingoption">
+                <div class="setting-item setting-general">
+                    <div class="setting-text">
+                        <p>Preset launchers</p>
+                        <p class="settingsdesc">Offer the community presets on the Installations screen when creating a custom build.</p>
+                    </div>
                     <input id="launcherpresets" class="settingsbox" type="checkbox" onchange="presetlaunchers()">
-                    <p>Preset launchers</p>
-                    <p class="settingsdesc">Offer the community presets on the Installations screen when creating a custom build.</p>
                 </div>
 
                 <div id="settingsPanel" class="inline settings-panel">
-                    <p class="settings-header bolded settingstitle">Sound &amp; Performance</p>
+                    <p class="settings-header bolded">Sound &amp; Performance</p>
                     <div class="settings-content">
                         <div class="setting-item">
-                            <div class="settingoption">
-                                <input id="mcBrandingToggle" class="settingsbox" type="checkbox" onchange="toggleBranding(this.checked)">
+                            <div class="setting-text">
                                 <p>Minecraft branding</p>
                                 <p class="settingsdesc">Swap the Eaglercraft wordmark for the Minecraft one across the sidebar and headers.</p>
                             </div>
-                            <div class="settingrow">
-                                <p style="min-width: 7vw;">Volume</p>
-                                <input id="volumeSlider" type="range" min="0" max="100" value="70" oninput="setVolume()">
+                            <input id="mcBrandingToggle" class="settingsbox" type="checkbox" onchange="toggleBranding(this.checked)">
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-text">
+                                <p>Volume</p>
+                                <p class="settingsdesc">Launcher music and sounds.</p>
                             </div>
-                            <div class="settingoption">
-                                <input id="perfMode" class="settingsbox" type="checkbox" onchange="togglePerformanceMode()">
+                            <input id="volumeSlider" type="range" min="0" max="100" value="70" oninput="setVolume()">
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-text">
                                 <p>Performance mode</p>
                                 <p class="settingsdesc">Cuts animations and shadows so the launcher itself stays fast.</p>
                             </div>
-                            <div class="settingoption">
-                                <input id="autoSave" class="settingsbox" type="checkbox" onchange="toggleAutoSave()" checked>
+                            <input id="perfMode" class="settingsbox" type="checkbox" onchange="togglePerformanceMode()">
+                        </div>
+                        <div class="setting-item">
+                            <div class="setting-text">
                                 <p>Auto-save stats</p>
                                 <p class="settingsdesc">Track playtime and sessions on this device.</p>
                             </div>
+                            <input id="autoSave" class="settingsbox" type="checkbox" onchange="toggleAutoSave()" checked>
                         </div>
                     </div>
                 </div>

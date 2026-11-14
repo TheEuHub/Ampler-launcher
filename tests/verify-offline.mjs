@@ -1189,7 +1189,7 @@ if (!JSDOM) {
     win.showView('generalsettings');
     await sleep(20);
     {
-        const row = [...d.querySelectorAll('.settingoption')].find((r) => r.querySelector('input[type=checkbox]'));
+        const row = [...d.querySelectorAll('.setting-item')].find((r) => r.querySelector('input[type=checkbox]'));
         const box = row.querySelector('input[type=checkbox]');
         const before = box.checked;
         row.querySelector('p').dispatchEvent(new win.MouseEvent('click', { bubbles: true }));
