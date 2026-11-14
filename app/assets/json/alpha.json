@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Eaglercraft Alpha 1.2.6",
+    "version": "a1.2.6",
+    "icon": "./assets/images/mc-icons/monster-spawner.png",
+    "link": "./mc/ir/alpha-1.2.6/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Alpha 1.1.2",
+    "version": "a1.1.2_01-25w20b",
+    "icon": "./assets/images/mc-icons/monster-spawner.png",
+    "link": "./mc/alpha-1.1.2_01/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Alpha 1.0.16_02 WASM",
+    "version": "a1.0.16_02-wasm",
+    "icon": "./assets/images/mc-icons/monster-spawner-wasm.png",
+    "link": "./mc/alpha-1.0.16_02-wasm/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Alpha 1.0.6_03",
+    "version": "a1.0.6_03",
+    "icon": "./assets/images/mc-icons/monster-spawner.png",
+    "link": "./mc/alpha-1.0.6_03/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Alpha 1.0.4",
+    "version": "a1.0.4",
+    "icon": "./assets/images/mc-icons/monster-spawner.png",
+    "link": "./mc/alpha-1.0.4/",
+    "active": true
+  },
+  {
+    "title": "Eaglercraft Alpha 1.0.1_01",
+    "version": "a1.0.1_01",
+    "icon": "./assets/images/mc-icons/monster-spawner.png",
+    "link": "./mc/alpha-1.0.1_01/",
+    "active": true
+  }
+]

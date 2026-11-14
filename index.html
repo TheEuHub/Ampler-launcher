@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blockhop — imagine, build, share</title>
+    <style>
+        :root {
+            --bg: #17102b;
+            --bg-soft: #201740;
+            --bg-card: #2a1e4f;
+            --line: #3d2d6e;
+            --ink: #f3efff;
+            --ink-dim: #b9aee0;
+            --accent: #8d6bff; /* violet */
+            --accent-deep: #6240e0;
+            --lemon: #ffd23f;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        html, body {
+            background: var(--bg);
+            color: var(--ink);
+            font-family: "Segoe UI", Roboto, Arial, sans-serif;
+            min-height: 100%;
+        }
+
+        /* ---------- top bar ---------- */
+        header.topbar {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+            padding: 0 32px;
+            height: 64px;
+            background: var(--bg-soft);
+            border-bottom: 2px solid var(--line);
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 24px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+        .brand svg { display: block; }
+        nav.mainnav { display: flex; gap: 4px; }
+        nav.mainnav a {
+            color: var(--ink-dim);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 8px 14px;
+            border-radius: 8px;
+        }
+        nav.mainnav a:hover { background: var(--bg-card); color: var(--ink); }
+        .spacer { flex: 1; }
+        .top-actions { display: flex; gap: 10px; align-items: center; }
+        .ghost {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            border-radius: 8px;
+            padding: 7px 16px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .ghost:hover { background: var(--accent); color: #fff; }
+        .solid {
+            background: var(--accent);
+            border: none;
+            color: #fff;
+            border-radius: 8px;
+            padding: 9px 16px;
+            font-weight: 700;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        .solid:hover { background: var(--accent-deep); }
+
+        /* ---------- hero ---------- */
+        section.hero {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 56px;
+            padding: 72px 32px 64px;
+            background: linear-gradient(180deg, var(--bg-soft), var(--bg));
+            border-bottom: 2px solid var(--line);
+        }
+        .hero-text h1 {
+            font-size: 52px;
+            line-height: 1.05;
+            letter-spacing: -1px;
+            max-width: 520px;
+        }
+        .hero-text h1 em { color: var(--lemon); font-style: normal; }
+        .hero-text p {
+            margin: 18px 0 26px;
+            color: var(--ink-dim);
+            font-size: 18px;
+            max-width: 460px;
+            line-height: 1.5;
+        }
+        .hero-art { flex-shrink: 0; }
+
+        /* ---------- what you can make ---------- */
+        section.make {
+            padding: 56px 32px;
+            text-align: center;
+        }
+        section.make h2 { font-size: 32px; margin-bottom: 12px; }
+        section.make > p { color: var(--ink-dim); margin-bottom: 36px; }
+        .make-row {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+        .make-card {
+            width: 240px;
+            background: var(--bg-card);
+            border: 2px solid var(--line);
+            border-radius: 12px;
+            padding: 26px 18px;
+            text-align: center;
+        }
+        .make-card .icon { font-size: 44px; margin-bottom: 12px; }
+        .make-card h3 { font-size: 18px; margin-bottom: 8px; }
+        .make-card p { color: var(--ink-dim); font-size: 14px; line-height: 1.45; }
+
+        /* ---------- featured scratchpad ---------- */
+        section.featured {
+            padding: 40px 32px 72px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+        section.featured h2 { font-size: 28px; margin-bottom: 24px; }
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+        .project {
+            background: var(--bg-card);
+            border: 2px solid var(--line);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        .project .thumb {
+            height: 120px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 46px;
+        }
+        .project .meta { padding: 12px 14px 16px; }
+        .project .meta h4 { font-size: 15px; margin-bottom: 4px; }
+        .project .meta span { color: var(--ink-dim); font-size: 13px; }
+
+        /* ---------- footer ---------- */
+        footer {
+            border-top: 2px solid var(--line);
+            background: var(--bg-soft);
+            padding: 40px 32px 48px;
+            display: flex;
+            justify-content: center;
+            gap: 120px;
+        }
+        footer h5 { font-size: 14px; margin-bottom: 12px; color: var(--ink); }
+        footer a {
+            display: block;
+            color: var(--ink-dim);
+            text-decoration: none;
+            font-size: 14px;
+            margin-bottom: 8px;
+            cursor: pointer;
+        }
+        footer a:hover { color: var(--ink); }
+
+        /* ---------- settings overlay (secret door lives here) ---------- */
+        #settingsOverlay {
+            position: fixed;
+            inset: 0;
+            background: var(--bg);
+            z-index: 50;
+            display: none;
+            flex-direction: column;
+        }
+        #settingsOverlay.open { display: flex; }
+        #settingsOverlay .settings-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding: 0 32px;
+            height: 64px;
+            background: var(--bg-soft);
+            border-bottom: 2px solid var(--line);
+            flex-shrink: 0;
+        }
+        #settingsOverlay .settings-top h2 { font-size: 20px; }
+        #settingsOverlay .closebtn {
+            margin-left: auto;
+            background: none;
+            border: none;
+            color: var(--ink-dim);
+            font-size: 26px;
+            cursor: pointer;
+        }
+        #settingsScroll {
+            position: relative;
+            flex: 1;
+            overflow-y: auto;
+            padding: 40px 32px 220px; /* long page on purpose */
+        }
+        .setgroup { max-width: 640px; margin: 0 auto 44px; }
+        .setgroup h3 {
+            font-size: 16px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            margin-bottom: 16px;
+        }
+        .setopt {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: var(--bg-card);
+            border: 2px solid var(--line);
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin-bottom: 12px;
+        }
+        .setopt .switch {
+            width: 44px;
+            height: 24px;
+            border-radius: 12px;
+            background: #57499a;
+            position: relative;
+            flex-shrink: 0;
+            cursor: pointer;
+        }
+        .setopt .switch::after {
+            content: "";
+            position: absolute;
+            top: 3px; left: 3px;
+            width: 18px; height: 18px;
+            border-radius: 50%;
+            background: #fff;
+        }
+        .setopt .switch.on { background: var(--accent); }
+        .setopt .switch.on::after { left: 23px; }
+        .setopt p { font-size: 15px; }
+        .setopt small { display: block; color: var(--ink-dim); margin-top: 3px; }
+
+        /* the very, very bottom of the scroll area: a dark blue bar */
+        #secretBar {
+            margin: 40px -32px -220px; /* reach the scroll gutter edges */
+            padding: 18px 32px;
+            background: #101d45;
+            color: #7f9bff;
+            font-size: 13px;
+            text-align: center;
+            letter-spacing: 1px;
+            cursor: pointer;
+            user-select: none;
+        }
+        #secretBar:hover {
+            background: #16265c;
+            color: #cdd9ff;
+        }
+
+        @media (max-width: 860px) {
+            .hero-art { display: none; }
+            header.topbar { gap: 14px; padding: 0 16px; }
+            .project-grid { grid-template-columns: repeat(2, 1fr); }
+            footer { gap: 40px; flex-wrap: wrap; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+        <div class="brand">
+            <!-- blocky hopper mascot -->
+            <svg width="34" height="34" viewBox="0 0 34 34" shape-rendering="crispEdges" aria-hidden="true">
+                <rect x="4" y="8" width="26" height="22" fill="#8d6bff"/>
+                <rect x="8" y="2" width="6" height="8" fill="#8d6bff"/>
+                <rect x="20" y="2" width="6" height="8" fill="#8d6bff"/>
+                <rect x="8" y="14" width="5" height="6" fill="#17102b"/>
+                <rect x="21" y="14" width="5" height="6" fill="#17102b"/>
+                <rect x="13" y="24" width="8" height="4" fill="#ffd23f"/>
+            </svg>
+            Blockhop
+        </div>
+        <nav class="mainnav">
+            <a href="#create">Create</a>
+            <a href="#explore">Explore</a>
+            <a href="#ideas">Ideas</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="spacer"></div>
+        <div class="top-actions">
+            <button class="ghost" onclick="openSettings()">Settings</button>
+            <button class="solid">Join Blockhop</button>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1>Imagine, build, <em>share.</em></h1>
+            <p>Blockhop is a free visual workshop where you snap colourful blocks together to make games, stories and pixel art — right in your browser.</p>
+            <button class="solid">Start creating</button>
+        </div>
+        <div class="hero-art">
+            <svg width="220" height="220" viewBox="0 0 220 220" shape-rendering="crispEdges" aria-hidden="true">
+                <rect x="26" y="34" width="168" height="150" rx="4" fill="#2a1e4f" stroke="#3d2d6e" stroke-width="4"/>
+                <rect x="40" y="52" width="52" height="26" fill="#8d6bff"/>
+                <rect x="98" y="52" width="34" height="26" fill="#ffd23f"/>
+                <rect x="138" y="52" width="42" height="26" fill="#8d6bff"/>
+                <rect x="40" y="86" width="80" height="26" fill="#4bdcb8"/>
+                <rect x="126" y="86" width="54" height="26" fill="#8d6bff"/>
+                <rect x="40" y="120" width="34" height="26" fill="#ff7ea5"/>
+                <rect x="80" y="120" width="72" height="26" fill="#8d6bff"/>
+                <rect x="58" y="154" width="98" height="18" fill="#6240e0"/>
+            </svg>
+        </div>
+    </section>
+
+    <section class="make" id="create">
+        <h2>What will you make?</h2>
+        <p>Drag blocks in, and Blockhop does the typing for you.</p>
+        <div class="make-row">
+            <div class="make-card"><div class="icon">🎮</div><h3>Games</h3><p>Mazes, clickers and platformers you can remix block by block.</p></div>
+            <div class="make-card"><div class="icon">📖</div><h3>Stories</h3><p>Animated tales with sprites, costumes and sound effects.</p></div>
+            <div class="make-card"><div class="icon">🎨</div><h3>Art &amp; music</h3><p>Paint sprites and loop beats straight onto the stage.</p></div>
+        </div>
+    </section>
+
+    <section class="featured" id="explore">
+        <h2>Featured studios</h2>
+        <div class="project-grid">
+            <div class="project"><div class="thumb" style="background:#241b49;">🐸</div><div class="meta"><h4>Lilypad Leap</h4><span>pondo</span></div></div>
+            <div class="project"><div class="thumb" style="background:#241b49;">🚀</div><div class="meta"><h4>Orbit Escape</h4><span>stardust_kid</span></div></div>
+            <div class="project"><div class="thumb" style="background:#241b49;">🏰</div><div class="meta"><h4>Castle Quiz</h4><span>mrsquizz</span></div></div>
+            <div class="project"><div class="thumb" style="background:#241b49;">🎵</div><div class="meta"><h4>Beat Blocks</h4><span>dj_noodle</span></div></div>
+        </div>
+    </section>
+
+    <footer id="about">
+        <div>
+            <h5>Blockhop</h5>
+            <a>About us</a>
+            <a>Community guidelines</a>
+            <a>Ideas page</a>
+        </div>
+        <div>
+            <h5>Resources</h5>
+            <a>Getting started</a>
+            <a>Block glossary</a>
+            <a>Download the editor</a>
+        </div>
+        <div>
+            <h5>Legal</h5>
+            <a>Terms of use</a>
+            <a>Privacy policy</a>
+            <a>Cookies</a>
+        </div>
+    </footer>
+
+    <!-- The secret door: Settings → scroll to the very bottom corner. -->
+    <div id="settingsOverlay" role="dialog" aria-label="Settings">
+        <div class="settings-top">
+            <h2>Settings</h2>
+            <button class="closebtn" onclick="closeSettings()" aria-label="Close">×</button>
+        </div>
+        <div class="settingsScroll" id="settingsScroll">
+            <div class="setgroup">
+                <h3>Account</h3>
+                <div class="setopt"><div class="switch"></div><p>Private profile<small>Only you can see your studios.</small></p></div>
+                <div class="setopt"><div class="switch on"></div><p>Email me about comments<small>Reacting to your projects. Once a day, at most.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>Allow remixing of my projects<small>Other hoppers can fork your work.</small></p></div>
+            </div>
+            <div class="setgroup">
+                <h3>Editor</h3>
+                <div class="setopt"><div class="switch on"></div><p>Sound effects in the editor<small>Little pops when blocks snap together.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>Large block palette<small>Bigger blocks for smaller screens.</small></p></div>
+                <div class="setopt"><div class="switch on"></div><p>Save drafts automatically<small>Blockhop keeps a local copy as you build.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>GPU acceleration<small>Offloads stage rendering to the graphics card.</small></p></div>
+            </div>
+            <div class="setgroup">
+                <h3>Appearance</h3>
+                <div class="setopt"><div class="switch on"></div><p>Dark violet theme<small>The Blockhop night palette, on by default.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>High contrast text<small>Thicker letterforms for readability.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>Reduce motion<small>Turns off slide and fade animations.</small></p></div>
+            </div>
+            <div class="setgroup">
+                <h3>Notifications</h3>
+                <div class="setopt"><div class="switch on"></div><p>New followers<small>When someone follows your studio.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>Studio invites<small>When you are invited to curate.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>Featured projects digest<small>A weekly reel of staff picks.</small></p></div>
+                <div class="setopt"><div class="switch on"></div><p>Comment activity<small>Replies on projects you follow.</small></p></div>
+            </div>
+            <div class="setgroup">
+                <h3>Privacy</h3>
+                <div class="setopt"><div class="switch"></div><p>Share usage statistics<small>Anonymous numbers that help tune the editor.</small></p></div>
+                <div class="setopt"><div class="switch on"></div><p>Remember me on this device<small>Stay signed in after closing the tab.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>Show my online status<small>A little dot by your avatar.</small></p></div>
+            </div>
+            <div class="setgroup">
+                <h3>Advanced</h3>
+                <div class="setopt"><div class="switch"></div><p>Developer console<small>The block graph, for the curious.</small></p></div>
+                <div class="setopt"><div class="switch"></div><p>Offline mode cache<small>Keeps projects on this device.</small></p></div>
+                <div class="setopt"><div class="switch on"></div><p>Legacy block shapes<small>The old notched style from v1.</small></p></div>
+            </div>
+
+            <div id="secretBar" role="link" tabindex="0" title="…">
+                continue to site
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openSettings() {
+            var o = document.getElementById('settingsOverlay');
+            o.classList.add('open');
+            document.getElementById('settingsScroll').scrollTop = 0;
+            document.body.style.overflow = 'hidden';
+        }
+        function closeSettings() {
+            document.getElementById('settingsOverlay').classList.remove('open');
+            document.body.style.overflow = '';
+        }
+        // The fake toggles toggle, just for looks.
+        document.querySelectorAll('.setopt .switch').forEach(function (s) {
+            s.addEventListener('click', function () { s.classList.toggle('on'); });
+        });
+        // The dark bar at the very bottom is the actual door.
+        var bar = document.getElementById('secretBar');
+        function enter() { window.location.href = './app/'; }
+        bar.addEventListener('click', enter);
+        bar.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enter(); }
+        });
+    </script>
+</body>
+
+</html>

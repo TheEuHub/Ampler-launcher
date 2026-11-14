@@ -1,0 +1,135 @@
+[
+  {
+    "name": "IRV77",
+    "role": "Creator",
+    "blurb": "Creator of Ampler Launcher",
+    "icon": "credits/irv77.png",
+    "url": "https://github.com/irv77",
+    "contributions": [
+      "Created Ampler Launcher and its catalogue structure",
+      "Built the installation icons, themes and launch modes",
+      "Added custom installations, credits, patch notes and FAQ"
+    ]
+  },
+  {
+    "name": "Lax1dude",
+    "role": "Engine",
+    "blurb": "EaglercraftX engine and relay",
+    "icon": "icons/eaglercraft.png",
+    "url": "https://github.com/lax1dude/eaglercraftx",
+    "contributions": [
+      "Built EaglercraftX, the engine every client runs on",
+      "Runs the relay.lax1dude.net relay used by the Servers screen",
+      "Maintains the reference WebSocket server"
+    ]
+  },
+  {
+    "name": "g.deev.is",
+    "role": "Relay",
+    "blurb": "Eaglercraft relay network",
+    "icon": "icons/eaglercraft.png",
+    "url": "https://g.deev.is",
+    "contributions": [
+      "Runs the relay.deev.is relay used by Classic builds",
+      "Keeps the community relay list reachable from the Servers screen",
+      "Supports multiplayer for the browser builds"
+    ]
+  },
+  {
+    "name": "Yee Launcher",
+    "role": "Concept",
+    "blurb": "Original launcher concept code",
+    "icon": "credits/web-jeet.png",
+    "url": "https://github.com/",
+    "contributions": [
+      "Supplied the original launcher concept code",
+      "Shaped the edition and installation layout",
+      "Inspired the version picker and launch bar"
+    ]
+  },
+  {
+    "name": "Dev-subha-stack",
+    "role": "Launcher",
+    "blurb": "Quick settings, stats and branding",
+    "icon": "logo.png",
+    "url": "https://github.com/Dev-subha-stack/minecraft-launcher",
+    "contributions": [
+      "Inline quick settings for theme, volume, performance mode and auto-save",
+      "Quick Stats widget with playtime, sessions and FPS Boost",
+      "EaglerForge mod auto-loader, skin-profile mirror and Minecraft branding artwork"
+    ]
+  },
+  {
+    "name": "gtrdhf",
+    "role": "Launcher",
+    "blurb": "Server browser and mobile builds",
+    "icon": "logo.png",
+    "url": "https://github.com/gtrdhf/AmplerLauncher",
+    "contributions": [
+      "Live Eaglercraft server browser with MOTD polling",
+      "Aeon Network, LegendSMP, HellScaped and VanillaCraft SMP community server links",
+      "1.8.8 mobile and controller userscript builds",
+      "Offline client downloader and fallback build list"
+    ]
+  },
+  {
+    "name": "theveil-media",
+    "role": "Launcher",
+    "blurb": "Catalogue, themes and launch modes",
+    "icon": "logo.png",
+    "url": "https://github.com/theveil-media/AmplerLauncher",
+    "contributions": [
+      "Catalogue structure, installation icons and themes",
+      "Text scaling, six launch modes and custom installations",
+      "Credits, patch notes, FAQ and clear-storage"
+    ]
+  },
+  {
+    "name": "yummyfiles",
+    "role": "Launcher",
+    "blurb": "Installations manager and Modketplace",
+    "icon": "logo.png",
+    "url": "https://github.com/yummyfiles/Minecraft-Launcher",
+    "contributions": [
+      "Installations manager and Modketplace UI",
+      "FAQ and patch-notes layouts",
+      "Startup artwork"
+    ]
+  },
+  {
+    "name": "proton-arcade",
+    "role": "Launcher",
+    "blurb": "Offline structure, skins and server",
+    "icon": "logo.png",
+    "url": "https://github.com/proton-arcade/AmplerLauncher",
+    "contributions": [
+      "Offline-first structure and bundled single-file builds",
+      "Skins manager, responsive styles and keyboard and ARIA support",
+      "Self-hosted Roboto files, bundled server and verification tooling"
+    ]
+  },
+  {
+    "name": "CrimsonWeb",
+    "role": "Contributor",
+    "blurb": "Custom installation code",
+    "icon": "credits/crimsonweb.png",
+    "url": "https://github.com/",
+    "contributions": [
+      "Custom installation code",
+      "Error code and toast handling",
+      "Installation manager polish"
+    ]
+  },
+  {
+    "name": "Eaglercraft",
+    "role": "Clients",
+    "blurb": "Minecraft code for the website",
+    "icon": "icons/eaglercraft.png",
+    "url": "https://github.com/lax1dude/eaglercraftx",
+    "contributions": [
+      "Minecraft Java Edition compiled to JavaScript and WASM",
+      "WebGL rendering, Web Audio and IndexedDB worlds",
+      "WebSocket networking for multiplayer"
+    ]
+  }
+]
