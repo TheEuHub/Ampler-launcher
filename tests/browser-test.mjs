@@ -16,7 +16,7 @@
  *   * the phone breakpoint collapses the sidebar;
  *   * external requests are limited to the allowlist (fonts, cdnjs).
  *
- * Usage:  node tools/browser-test.mjs
+ * Usage:  node tests/browser-test.mjs
  */
 
 import { spawn, execSync } from 'node:child_process';

@@ -53,6 +53,8 @@ class IntegrityTests(unittest.TestCase):
                     self.assertIn(folder, availability, entry['title'])
                     self.assertTrue((APP / folder / 'index.html').is_file(), folder)
 
+    @unittest.skipUnless((ROOT / 'archive' / 'all-1.zip').is_file(),
+                         'legacy archive/all-*.zip bundle not present')
     def test_recovery_matches_archive(self):
         import sys
         sys.path.insert(0, str(ROOT / 'tools'))

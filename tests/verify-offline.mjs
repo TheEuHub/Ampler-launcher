@@ -26,7 +26,7 @@
  *      COOP/COEP/SW-capable headers, and the skins listing matches
  *      tools/bake-skins.py.
  *
- * Usage:  node tools/verify-offline.mjs
+ * Usage:  node tests/verify-offline.mjs
  * jsdom is optional; install it with `npm i jsdom` for check 3.
  */
 
