@@ -469,7 +469,7 @@ head('3. CSS scales, the phone block is isolated');
             '--ui-contributors', '--ui-contributors-secondary',
             '--ui-credits', '--ui-credits-secondary'
         ];
-        const THEMES = ['redstone', 'lapis', 'amethyst', 'gold', 'midnight', 'neon', 'light'];
+        const THEMES = ['redstone', 'lapis', 'amethyst', 'gold', 'neon', 'light'];
         const themeCss = readFileSync(join(ROOT, 'assets/css/style.css'), 'utf8');
 
         const lum = (hex) => {
@@ -877,7 +877,7 @@ if (!JSDOM) {
     /* ---- themes apply from Appearance and persist ---- */
     {
         const applied = [];
-        for (const theme of ['redstone', 'lapis', 'amethyst', 'gold', 'midnight', 'neon', 'light', 'default']) {
+        for (const theme of ['redstone', 'lapis', 'amethyst', 'gold', 'neon', 'light', 'default']) {
             win.settheme(theme);
             const live = d.documentElement.getAttribute('data-theme');
             const card = d.querySelector('[data-themename="' + theme + '"]');

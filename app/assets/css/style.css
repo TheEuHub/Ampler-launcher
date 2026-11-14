@@ -2057,35 +2057,6 @@ html[data-theme="gold"] body {
     --ui-credits-secondary: #96700c;
 }
 
-html[data-theme="midnight"] body {
-    background-color: #080b15;
-    --ml-chrome: #0d1220;
-    --ml-bar: #080b15;
-    --ml-rail: #101728;
-    --ml-panel: #131b2e;
-    --ml-card: #172036;
-    --ml-card-hover: #1e2944;
-    --ml-border: #263352;
-    --ml-selected: #1f4576;
-    --ml-on-selected: #ffffff;
-    --ui-main: #131b2e;
-    --ui-main-dark: #0d1220;
-    --ui-main-light: #242b3d;
-    --ui-main-lighter: #3d4454;
-    --ui-main-hover: #1e2944;
-    --text-secondary: #e2ecf6;
-    --ui-select: #245c9e;
-    --ui-select-secodary: #3274bd;
-    --ui-select-deep: #18406f;
-    --ui-select-bright: #57a2f0;
-    --ui-red: #882b37;
-    --ui-red-secondary: #a33a45;
-    --ui-contributors: #0f1929;
-    --ui-contributors-secondary: #3274bd;
-    --ui-credits: #0c1423;
-    --ui-credits-secondary: #245c9e;
-}
-
 html[data-theme="neon"] body {
     background-color: #040e09;
     --ml-chrome: #06140d;

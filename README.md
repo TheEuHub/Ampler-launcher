@@ -5,7 +5,8 @@ Ampler is a browser launcher for a collection of Eaglercraft builds, with editio
 ## Repository layout
 
 ```
-index.html          redirects the bare repo URL to app/ (for static hosting)
+index.html          "Blockhop" - a standalone cover site for static hosting; its
+                    Settings popup hides a "continue to site" link into app/
 README.md           this file
 
 app/                the launcher itself - serve this directory (tools/serve.py roots here)
@@ -32,7 +33,10 @@ tests/              things that check the launcher
 
 Nothing outside `app/` is served to players, with one deliberate exception: the
 launcher fetches `./tools/upstream-files.json` for its Downloads screen, and
-`tools/serve.py` exposes exactly that one file.
+`tools/serve.py` exposes exactly that one file. When the repository root itself
+is hosted statically, visitors land on the root `index.html` cover page
+instead of the launcher; opening its Settings and scrolling to the bottom
+corner reveals the way into `app/`.
 
 ## Run locally
 
