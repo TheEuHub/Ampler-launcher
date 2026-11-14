@@ -259,21 +259,22 @@
         .setopt p { font-size: 15px; }
         .setopt small { display: block; color: var(--ink-dim); margin-top: 3px; }
 
-        /* bottom corner of the scroll area */
-        #secretCorner {
-            position: absolute;
-            right: 14px;
-            bottom: 14px;
-            text-align: right;
-        }
-        #secretCorner a {
-            color: var(--ink-dim);
-            text-decoration: underline dotted;
+        /* the very, very bottom of the scroll area: a dark blue bar */
+        #secretBar {
+            margin: 40px -32px -220px; /* reach the scroll gutter edges */
+            padding: 18px 32px;
+            background: #101d45;
+            color: #7f9bff;
             font-size: 13px;
-            opacity: 0.55;
+            text-align: center;
+            letter-spacing: 1px;
             cursor: pointer;
+            user-select: none;
         }
-        #secretCorner a:hover { opacity: 1; color: var(--ink); }
+        #secretBar:hover {
+            background: #16265c;
+            color: #cdd9ff;
+        }
 
         @media (max-width: 860px) {
             .hero-art { display: none; }
@@ -419,8 +420,8 @@
                 <div class="setopt"><div class="switch on"></div><p>Legacy block shapes<small>The old notched style from v1.</small></p></div>
             </div>
 
-            <div id="secretCorner">
-                <a href="./app/" target="_self" rel="noopener">continue to site&nbsp;→</a>
+            <div id="secretBar" role="link" tabindex="0" title="…">
+                continue to site
             </div>
         </div>
     </div>
@@ -439,6 +440,13 @@
         // The fake toggles toggle, just for looks.
         document.querySelectorAll('.setopt .switch').forEach(function (s) {
             s.addEventListener('click', function () { s.classList.toggle('on'); });
+        });
+        // The dark bar at the very bottom is the actual door.
+        var bar = document.getElementById('secretBar');
+        function enter() { window.location.href = './app/'; }
+        bar.addEventListener('click', enter);
+        bar.addEventListener('keydown', function (e) {
+            if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); enter(); }
         });
     </script>
 </body>
