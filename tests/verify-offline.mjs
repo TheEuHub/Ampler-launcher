@@ -17,7 +17,7 @@
  *   3. IT WORKS
  *      index.html is loaded in jsdom with assets/js/index.js + assets/js/skinsview.js
  *      executed against it and fetch() answering from disk: edition switching,
- *      the version dropdown, mod toggles, FAQ, patch notes, installations,
+ *      the version dropdown, mod toggles, patch notes, installations,
  *      servers, downloads, skins, username, themes, launch modes, default tab,
  *      interface layout and custom installations are all driven and asserted.
  *
@@ -253,9 +253,11 @@ head('3. CSS scales, the phone block is isolated');
 
     const STYLESHEETS = ['assets/css/style.css', 'assets/css/screensize.css', 'assets/css/fonts.css'];
     const mixed = [];
+    let allCss = '';
     for (const file of STYLESHEETS) {
         if (!existsSync(join(ROOT, file))) continue;
         const css = readFileSync(join(ROOT, file), 'utf8').replace(/\/\*[\s\S]*?\*\//g, '');
+        allCss += css + '\n';
         for (const hit of vwPxMixes(css)) mixed.push(file + ': ' + hit);
     }
     mixed.length === 0
@@ -318,7 +320,7 @@ head('3. CSS scales, the phone block is isolated');
                same(prop('.sidebarWhatsNew', 'height'), 'var(--header-h)'),
             "the header's title row and the sidebar's What's New block are the same height, so they start on one line");
 
-        const screens = ['#mods', '#faq', '#installations', '#skinsview', '#patchNotes',
+        const screens = ['#mods', '#installations', '#skinsview', '#patchNotes',
             '#servers', '#downloads', '#credits', '#settings'];
         const wrong = screens.filter((sel) =>
             !/var\(--sidebar-w\)/.test(prop(sel, 'width') || '') ||
@@ -329,11 +331,31 @@ head('3. CSS scales, the phone block is isolated');
         check(screens.every((sel) => /box-sizing:\s*border-box/.test(body(sel))),
             'every screen is border-box, so a padded screen and a bare one start on the same line');
 
-        check(same(prop('#game-bg', 'height'), 'calc(100vh - var(--chrome-h) - var(--bar-h))') &&
+        check(same(prop('#game-bg', 'height'), 'calc(100vh - var(--chrome-h))') &&
                same(prop('#gameSelection', 'height'), 'var(--bar-h)'),
-            'the play screen is its header plus the launch bar exactly - no overflow, no gap');
+            'the play screen fills the whole column and the launch bar lives in it');
+        check(same(prop('#gameSelection', 'display'), 'none'),
+            'the launch bar starts hidden - only the Play screen shows it');
 
-        const gutters = ['#modsbox', '#faqbox', '#installations', '.skinsScroll', '#patchNotes',
+        /* Patch Notes: both columns start on the same line, one gutter apart */
+        check(same(prop('.notesLayout', 'gap'), 'var(--gutter)') &&
+              same(prop('.notesIndex', 'top'), '4vh') &&
+              /padding:\s*4vh var\(--gutter\)/.test(body('#patchNotes')),
+            'the notes index sits one gutter from the rail and its top matches the blocks');
+        check(/gap:\s*1\.5vw\s*;/.test(body('#patchnotesbox')) &&
+              same(prop('#patchnotesbox', 'justify-content'), 'flex-start') &&
+              !/versionscontainer|versionBox/.test(allCss),
+            'the update blocks share one square gap and align to the index edge');
+
+        /* one button contract: green at rest, red on hover */
+        check(/\.clearstoragebutton\s*\{[^}]*background-color:\s*var\(--ui-select-deep\)/.test(allCss) &&
+              /\.clearstoragebutton:hover\s*\{[^}]*background-color:\s*var\(--ui-red\)/.test(allCss),
+            'Clear All Local Storage is green until hovered, then red');
+        check(/\.classicbutton\.warningbutton\s*\{[^}]*background-color:\s*var\(--ui-select-deep\)/.test(allCss) &&
+              /\.classicbutton\.warningbutton:hover\s*\{[^}]*background-color:\s*var\(--ui-red\)/.test(allCss),
+            'Yes, Delete is green until hovered, then red');
+
+        const gutters = ['#modsbox', '#installations', '.skinsScroll', '#patchNotes',
             '#servers', '#downloads', '#settings', '#credits'];
         const noGutter = gutters.filter((sel) =>
             !/var\(--gutter\)/.test(prop(sel, 'padding') || '') &&
@@ -380,7 +402,7 @@ head('3. CSS scales, the phone block is isolated');
                   valIn(sSel, 'width') === valIn(sMenu, 'width') &&
                   valIn(sMenu, 'bottom') === 'var(--bar-h)',
                 'at the breakpoint the menu still matches its selector and still hangs off the bar');
-            const panelWidths = ['#mods', '#faq', '#installations', '#skinsview', '#patchNotes',
+            const panelWidths = ['#mods', '#installations', '#skinsview', '#patchNotes',
                 '#servers', '#downloads', '#credits', '#settings']
                 .filter((sel) => /width:/.test(ruleOf(narrow, sel)));
             check(panelWidths.length === 0,
@@ -544,7 +566,6 @@ const CATALOG_PATHS = {
     alpha: 'assets/json/alpha.json',
     beta: 'assets/json/beta.json',
     mods: 'assets/json/mods.json',
-    faqs: 'assets/json/faqs.json',
     patchnotes: 'assets/json/patchnotes.json',
     icons: 'assets/json/icons.json'
 };
@@ -800,7 +821,7 @@ if (!JSDOM) {
     await sleep(30);
     assert(d.getElementById('gameedition').textContent.indexOf('WEB EDITION') !== -1,
         'webedition() labels the header EAGLERCRAFT WEB EDITION');
-    assert(['header1', 'header2', 'header3', 'header4', 'header5', 'header6', 'header11', 'header12']
+    assert(['header1', 'header2', 'header4', 'header5', 'header6', 'header11', 'header12']
         .every((id) => d.getElementById(id).style.display === 'block'),
         'the header strip shows the browsing tabs in the Web edition');
 
@@ -822,12 +843,12 @@ if (!JSDOM) {
         'every row in the modded picker is launchable (' + rows.length + ' rows, 0 disabled)');
 
     /* ---- the header strip keeps every tab, minus Contributors/Credits ---- */
-    const stripIds = ['header1', 'header2', 'header3', 'header4', 'header5', 'header6',
+    const stripIds = ['header1', 'header2', 'header4', 'header5', 'header6',
         'header11', 'header12'];
     assert(!d.getElementById('header7') && !d.getElementById('header8') &&
            !d.getElementById('header9') && !d.getElementById('header10'),
         'Contributors, Credits, General and About are not in the header strip anymore');
-    const sectionViews = ['play', 'mods', 'faq', 'installations', 'custominstallations',
+    const sectionViews = ['play', 'mods', 'installations', 'custominstallations',
         'skins', 'patchnotes', 'servers', 'downloads'];
     let hiddenSomewhere = [];
     for (const view of sectionViews) {
@@ -965,12 +986,7 @@ if (!JSDOM) {
             'window.downloadmod() installs a named mod and reports success');
     }
 
-    /* ---- faq + patch notes ---- */
-    win.showView('faq');
-    await sleep(40);
-    assert(d.querySelectorAll('#faqbox .faqoption').length === (CATALOGS.faqs || []).length,
-        'the FAQ renders every question (' + (CATALOGS.faqs || []).length + ')');
-
+    /* ---- patch notes ---- */
     win.showView('patchnotes');
     await sleep(40);
     assert(d.querySelectorAll('#patchnotesbox .patchnote').length === (CATALOGS.patchnotes || []).length,
@@ -987,6 +1003,39 @@ if (!JSDOM) {
     assert(d.getElementById('patchnotedetail').hidden &&
            d.getElementById('patchnotesbox').style.display !== 'none',
         'Back to all versions restores the release list');
+
+    /* back into a submenu: the Patch Notes tab itself is now 'back to the list' */
+    win.showView('patchnotes');
+    await sleep(20);
+    d.querySelector('#patchnotesbox .patchnote').dispatchEvent(new win.MouseEvent('click', { bubbles: true }));
+    await sleep(20);
+    win.patchnotesheader();
+    await sleep(20);
+    assert(d.getElementById('patchnotedetail').hidden &&
+           d.getElementById('patchnotesbox').style.display !== 'none' &&
+           d.getElementById('header6').classList.contains('selected'),
+        'clicking Patch Notes from inside a note comes back to the release list');
+    assert(!d.getElementById('filterGame') && !d.getElementById('filterSite') &&
+           typeof win.sortnote === 'undefined',
+        'the release type checkboxes are gone - every note is always listed');
+
+    /* the version tick-boxes only exist on your own installations now */
+    win.installationheader();
+    await sleep(120);
+    assert(d.querySelectorAll('#installationsbox .installationOptions').length >
+           d.querySelectorAll('#installationsbox .installationBox').length,
+        'only the custom installations keep a show/hide checkbox');
+    win.playheader();
+    await sleep(60);
+
+    /* FAQ is gone, as a real removal */
+    assert(!d.getElementById('faq') && !d.getElementById('header3') &&
+           typeof win.faqsheader === 'undefined' && !CATALOGS.faqs,
+        'the FAQ area, its tab and its data file are all gone');
+
+    /* the launch bar hangs off the Play screen, never the whole window */
+    assert(d.getElementById('gameSelection').parentNode.id === 'game-bg',
+        'the launch bar sits inside the Play screen, so it cannot overlay another page');
 
     /* ---- Custom Installations is the Play screen, scoped to your own builds ---- */
     win.showView('play');
@@ -1015,17 +1064,15 @@ if (!JSDOM) {
            !d.getElementById('custominstallations'),
         'the manager owns the New installation (upload) button');
 
-    /* ---- the launch bar follows the launch screens ---- */
+    /* ---- the launch bar lives on the Play screen only ---- */
     win.showView('installations');
     await sleep(30);
-    assert(d.getElementById('gameSelection').style.display === 'flex',
-        'the launch bar is on screen while picking an installation');
+    assert(d.getElementById('gameSelection').style.display === 'none',
+        'no launch bar while managing installations');
     win.showView('skins');
     await sleep(10);
     assert(d.getElementById('gameSelection').style.display === 'none',
         'the launch bar stays off the screens that cannot launch anything');
-    win.showView('installations');
-    await sleep(10);
 
     /* ---- installations ---- */
     win.showView('installations');
@@ -1285,7 +1332,7 @@ if (!JSDOM) {
     await sleep(20);
     assert(d.querySelector('.stats-widget').style.display === 'none',
         'the playtime/sessions/FPS widget is hidden in Settings');
-    for (const view of ['credits', 'servers', 'downloads', 'installations', 'skins', 'patchnotes', 'faq', 'mods']) {
+    for (const view of ['credits', 'servers', 'downloads', 'installations', 'skins', 'patchnotes', 'mods']) {
         win.showView(view);
         await sleep(5);
         if (d.querySelector('.stats-widget').style.display !== 'none') {
@@ -1429,7 +1476,6 @@ if (!pythonAvailable()) {
             'assets/json/mods.json',
             'assets/images/play.png',
             'assets/images/play-hover.png',
-            'assets/json/faqs.json',
             'assets/json/patchnotes.json',
             'assets/server/eaglerxserver-1.1.1-src.zip',
             ...entries

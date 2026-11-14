@@ -114,7 +114,6 @@ async function drive() {
 
     // Every tab renders content
     const tabs = [
-        ['faq', '#faqbox .faqoption'],
         ['installations', '#installationsbox .installationOptions'],
         ['patchnotes', '#patchnotesbox .patchnote'],
         ['servers', '#serversGrid .serverCard'],

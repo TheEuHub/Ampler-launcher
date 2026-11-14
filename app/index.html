@@ -111,7 +111,7 @@
         </div>
 
         <div onclick="custominstallationsmenu()" id="gtabs10" class="sidebarOptions" role="button" tabindex="0">
-            <img src="./assets/images/sidebar/i-live.png" alt="">
+            <img src="./assets/images/mc-icons/hopper.png" alt="">
             <div class="gTabsText"><p>Custom Installations</p></div>
         </div>
 
@@ -132,7 +132,6 @@
             <ul class="gameTabs" id="gameTabs">
                 <li id="header1" class="headerButtons selected" data-view="play" role="button" tabindex="0" onclick="playheader()">Play</li>
                 <li id="header2" class="headerButtons" data-view="mods" role="button" tabindex="0" onclick="modsheader()">Mods</li>
-                <li id="header3" class="headerButtons" data-view="faq" role="button" tabindex="0" onclick="faqsheader()">FAQ</li>
                 <li id="header4" class="headerButtons" data-view="installations" role="button" tabindex="0" onclick="installationheader()">Installations</li>
                 <li id="header5" class="headerButtons" data-view="skins" role="button" tabindex="0" onclick="skinsheader()">Skins</li>
                 <li id="header6" class="headerButtons" data-view="patchnotes" role="button" tabindex="0" onclick="patchnotesheader()">Patch Notes</li>
@@ -146,12 +145,6 @@
             <p class="bolded modssubtitle">Community mods for the EaglerForge installation.</p>
             <hr style="margin-top: 2vh;">
             <div id="modsbox"></div>
-        </div>
-
-        <div id="faq">
-            <p class="bolded faqtitle">Frequently Asked Questions</p>
-            <p>Here are some frequently asked questions about Ampler Launcher.</p>
-            <div id="faqbox"></div>
         </div>
 
         <div id="installations">
@@ -206,17 +199,49 @@
                         onclick="toggleFpsBoost()">ON</p>
                 </div>
             </div>
+
+        <div id="gameSelection">
+            <div id="drop" class="dropdownSelector" role="button" tabindex="0"
+                aria-haspopup="listbox" aria-expanded="false" onclick="dropdowntoggle()">
+                <div style="display: flex; gap: 1vw;">
+                    <div class="centeredIcon">
+                        <img id="gameicon" src="./assets/images/mc-icons/grass.png" alt="">
+                    </div>
+                    <div class="versionText">
+                        <p id="gametitle" class="bolded">Latest release</p>
+                        <p id="gameversion">1.12.2-u2</p>
+                    </div>
+                    <div id="dropdownuparrow" class="centeredIcon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="dropdownIcon">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M6 9l6 6l6 -6"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            <div id="dropdn" class="dropdownMenu" style="visibility: hidden;"></div>
+            <a id="playbutton" href="./mc/1.12.2/"><div id="mainbutton" class="playButton"></div></a>
+            <div class="username centeredIcon bolded" id="userbox" role="button" tabindex="0">
+                <p id="username">Generic User</p>
+                <input id="inlineUsernameInput" class="inlineUsernameInput" type="text" autocomplete="off" maxlength="24">
+                <svg class="userEditIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                    role="button" tabindex="0" onclick="editUser()">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/>
+                    <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/>
+                    <path d="M16 5l3 3"/>
+                </svg>
+            </div>
         </div>
+        </div>
+
 
         <div id="patchNotes">
             <div class="notesLayout">
                 <aside class="notesIndex">
-                    <p class="bolded patchnotes-title">Versions</p>
-                    <div class="versionscontainer">
-                        <input class="versionBox" id="filterGame" type="checkbox" onchange="sortnote('game')" checked><p>Game Releases</p>
-                        <input class="versionBox" id="filterSite" type="checkbox" onchange="sortnote('site')" checked><p>Site Releases</p>
-                    </div>
-                    <hr>
                     <div id="patchnotesindex" class="notesIndexList"></div>
                 </aside>
                 <section class="notesMain">
@@ -379,42 +404,7 @@
             </div>
         </div>
 
-        <div id="gameSelection">
-            <div id="drop" class="dropdownSelector" role="button" tabindex="0"
-                aria-haspopup="listbox" aria-expanded="false" onclick="dropdowntoggle()">
-                <div style="display: flex; gap: 1vw;">
-                    <div class="centeredIcon">
-                        <img id="gameicon" src="./assets/images/mc-icons/grass.png" alt="">
-                    </div>
-                    <div class="versionText">
-                        <p id="gametitle" class="bolded">Latest release</p>
-                        <p id="gameversion">1.12.2-u2</p>
-                    </div>
-                    <div id="dropdownuparrow" class="centeredIcon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                            viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"
-                            stroke-linecap="round" stroke-linejoin="round" class="dropdownIcon">
-                            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M6 9l6 6l6 -6"/>
-                        </svg>
-                    </div>
-                </div>
-            </div>
-            <div id="dropdn" class="dropdownMenu" style="visibility: hidden;"></div>
-            <a id="playbutton" href="./mc/1.12.2/"><div id="mainbutton" class="playButton"></div></a>
-            <div class="username centeredIcon bolded" id="userbox" role="button" tabindex="0">
-                <p id="username">Generic User</p>
-                <input id="inlineUsernameInput" class="inlineUsernameInput" type="text" autocomplete="off" maxlength="24">
-                <svg class="userEditIcon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                    role="button" tabindex="0" onclick="editUser()">
-                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
-                    <path d="M7 7h-1a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-1"/>
-                    <path d="M20.385 6.585a2.1 2.1 0 0 0 -2.97 -2.97l-8.415 8.385v3h3l8.385 -8.415z"/>
-                    <path d="M16 5l3 3"/>
-                </svg>
-            </div>
-        </div>
+
     </div>
 
     <script src="./assets/js/jszip-local.js"></script>

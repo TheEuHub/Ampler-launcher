@@ -83,16 +83,6 @@ body {
   font-size: calc(1.4vw * var(--text-scale, 1));
 }
 
-/* FAQ Menu CSS */
-
-#faq {
-  font-size: calc(1.5vw * var(--text-scale, 1));
-}
-
-.faqtitle {
-  font-size: calc(2.6vw * var(--text-scale, 1));
-}
-
 /* Installations Menu CSS */
 
 
@@ -105,10 +95,6 @@ body {
 
 /* Patch Notes Menu CSS */
 
-
-.patchnotes-title {
-  font-size: calc(1.6vw * var(--text-scale, 1));
-}
 
 .patchnote {
   width: 22vw;
@@ -341,7 +327,7 @@ body {
     height: 42px;
     max-height: calc(100% - 16px);
   }
-  #modsbox, #installationsbox, .skinsScroll, #faqbox, #patchNotes, #credits {
+  #modsbox, #installationsbox, .skinsScroll, #patchNotes, #credits {
     padding-left: 14px;
     padding-right: 14px;
   }

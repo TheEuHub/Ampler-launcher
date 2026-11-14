@@ -265,8 +265,7 @@
             background: '',
             title: '',
             sidebar: 'gtabs9',
-            hiddenHeaders: ['header1', 'header3', 'header4', 'header5', 'header6',
-                'header7', 'header8', 'header9', 'header10', 'header11'],
+            hiddenHeaders: ['header1', 'header2', 'header4', 'header5', 'header6', 'header7', 'header8', 'header9', 'header10', 'header11'],
             modsVisible: false
         },
         credits: {
@@ -275,8 +274,7 @@
             background: '',
             title: '',
             sidebar: 'gtabs5',
-            hiddenHeaders: ['header1', 'header2', 'header3', 'header4', 'header5', 'header6',
-                'header9', 'header10', 'header11', 'header12'],
+            hiddenHeaders: ['header1', 'header2', 'header4', 'header5', 'header6', 'header9', 'header10', 'header11', 'header12'],
             modsVisible: false
         },
         settings: {
@@ -285,23 +283,22 @@
             background: '',
             title: '',
             sidebar: 'gtabs6',
-            hiddenHeaders: ['header1', 'header2', 'header3', 'header4', 'header5', 'header6',
-                'header7', 'header8', 'header11', 'header12'],
+            hiddenHeaders: ['header1', 'header2', 'header4', 'header5', 'header6', 'header7', 'header8', 'header11', 'header12'],
             modsVisible: false
         }
     };
 
     var HEADER_TABS = {
-        play: 'header1', mods: 'header2', faq: 'header3', installations: 'header4',
+        play: 'header1', mods: 'header2', installations: 'header4',
         custom: 'header1', skins: 'header5', patchnotes: 'header6',
         servers: 'header11', downloads: 'header12',
         credits: 'header8'
     };
 
-    var VIEWS = ['game-bg', 'mods', 'faq', 'installations', 'skinsview',
+    var VIEWS = ['game-bg', 'mods', 'installations', 'skinsview',
         'patchNotes', 'servers', 'downloads', 'credits', 'settings'];
 
-    var DEFAULT_VIEWS = ['play', 'mods', 'faq', 'installations', 'custom',
+    var DEFAULT_VIEWS = ['play', 'mods', 'installations', 'custom',
         'skins', 'patchnotes', 'servers', 'downloads'];
 
     var state = {
@@ -342,7 +339,7 @@
 
         // The launch bar belongs to the screens that launch something; the
         // stats widget stays on Play.
-        var launcherViews = ['play', 'installations'];
+        var launcherViews = ['play'];
         var bar = el('gameSelection');
         if (bar) bar.style.display = launcherViews.indexOf(name) !== -1 ? 'flex' : 'none';
         var stats = document.querySelector('.stats-widget');
@@ -351,7 +348,6 @@
         var target = {
             play: 'game-bg',
             mods: 'mods',
-            faq: 'faq',
             installations: 'installations',
             skins: 'skinsview',
             patchnotes: 'patchNotes',
@@ -383,7 +379,6 @@
 
         if (name === 'skins' && typeof window.renderSkins === 'function') window.renderSkins();
         if (name === 'mods') renderMods();
-        if (name === 'faq') renderFaq();
         if (name === 'patchnotes') renderPatchNotes();
         if (name === 'servers') renderServers();
         if (name === 'downloads') renderDownloads();
@@ -403,11 +398,13 @@
         showView('play');
     };
     window.modsheader = function () { showView('mods'); };
-    window.faqsheader = function () { showView('faq'); };
-    window.faqheader = window.faqsheader;
     window.installationheader = function () { showView('installations'); };
     window.skinsheader = function () { showView('skins'); };
-    window.patchnotesheader = function () { showView('patchnotes'); };
+    window.patchnotesheader = function () {
+        // From a submenu the tab means 'back to the release list'.
+        window.closenotescreen();
+        showView('patchnotes');
+    };
     window.serversheader = function () { showView('servers'); };
     window.downloadsheader = function () { showView('downloads'); };
     window.creditsheader = function () { showView('credits'); };
@@ -574,11 +571,11 @@
 
     function isEntryEnabled(entry) {
         if (entry && entry.disabled) return true;
-        if (isPresetsOn()) {
-            var flag = sGet('ampler.on.' + entry.title);
-            return flag === null ? entry.active !== false : flag === 'true';
+        if (entry && entry.custom) {
+            // Custom builds only appear in the picker while their box is ticked.
+            return sGet('ampler.on.' + entry.title) !== 'false';
         }
-        return sGet('ampler.on.' + entry.title) === 'true';
+        return entry.active !== false;
     }
 
     function storeKeyForEdition() {
@@ -965,35 +962,10 @@
     }
 
     /* ------------------------------------------------------------------ *
-     * FAQ + Patch notes
+     * Patch notes
      * ------------------------------------------------------------------ */
 
-    var faqData = null;
-
-    function renderFaq() {
-        var box = el('faqbox');
-        if (!box) return;
-        var render = function (list) {
-            faqData = list;
-            box.innerHTML = '';
-            list.forEach(function (item) {
-                var wrap = document.createElement('div');
-                wrap.className = 'faqoption';
-                wrap.innerHTML =
-                    '<div class="bolded faqtext"><p class="faqsymbol">Q</p><p>' + escapeHtml(item.question) + '</p></div>' +
-                    '<div class="faqtext"><p class="bolded faqsymbol">A</p><p>' + escapeHtml(item.answer) + '</p></div>';
-                box.appendChild(wrap);
-            });
-        };
-        if (faqData) { render(faqData); return; }
-        fetch('./assets/json/faqs.json', { cache: 'no-cache' })
-            .then(function (r) { return r.json(); })
-            .then(render)
-            .catch(function () {});
-    }
-
     var notesData = null;
-    var noteFilters = { game: true, site: true };
 
     function renderPatchNotes() {
         var box = el('patchnotesbox');
@@ -1002,8 +974,7 @@
             notesData = list;
             box.innerHTML = '';
             list.forEach(function (note) {
-                if (note.type && !noteFilters[note.type]) return;
-                var card = document.createElement('div');
+                    var card = document.createElement('div');
                 card.className = 'patchnote';
                 card.setAttribute('tabindex', '0');
                 card.innerHTML =
@@ -1023,11 +994,6 @@
             .catch(function () {});
     }
 
-    window.sortnote = function (type) {
-        noteFilters[type] = !noteFilters[type];
-        renderPatchNotes();
-    };
-
     function openScreen(title, html) {
         var menu = el('externalmenu');
         if (!menu) return;
@@ -1046,7 +1012,6 @@
         if (!index) return;
         index.innerHTML = '';
         (list || []).forEach(function (note, i) {
-            if (note.type && !noteFilters[note.type]) return;
             var row = document.createElement('div');
             row.className = 'notesIndexRow' + (note.latest ? ' latest' : '');
             row.setAttribute('tabindex', '0');
@@ -1360,15 +1325,20 @@
 
         var isCurrent = current && current.title === entry.title;
 
-        var box = document.createElement('input');
-        box.className = 'installationBox';
-        box.type = 'checkbox';
-        box.checked = isEntryEnabled(entry) || isCurrent;
-        box.addEventListener('change', function () {
-            sSet('ampler.on.' + entry.title, box.checked ? 'true' : 'false');
-            buildDropdown();
-            notice((box.checked ? 'Showing ' : 'Hiding ') + entryLabel(entry) + ' in the version list.', 'INSTALLATIONS');
-        });
+        var box = null;
+        if (custom) {
+            // Only your own installations can be ticked in or out of the
+            // version list; the bundled releases are always there.
+            box = document.createElement('input');
+            box.className = 'installationBox';
+            box.type = 'checkbox';
+            box.checked = isEntryEnabled(entry) || isCurrent;
+            box.addEventListener('change', function () {
+                sSet('ampler.on.' + entry.title, box.checked ? 'true' : 'false');
+                buildDropdown();
+                notice((box.checked ? 'Showing ' : 'Hiding ') + entryLabel(entry) + ' in the version list.', 'INSTALLATIONS');
+            });
+        }
 
         var icon = document.createElement('img');
         icon.src = entry.icon;
@@ -1384,7 +1354,7 @@
         text.appendChild(title);
         text.appendChild(version);
 
-        inner.appendChild(box);
+        if (box) inner.appendChild(box);
         inner.appendChild(icon);
         inner.appendChild(text);
         row.appendChild(inner);
@@ -1934,6 +1904,10 @@
         { name: 'Rice Network', host: 'wss://play.ricenetwork.xyz' },
         { name: 'CraftClue', host: 'wss://play.craftclue.rocks' },
         { name: 'vanillamc', host: 'wss://play.vanillamc.org' },
+        { name: 'Aeon Network', host: 'wss://aeon-network.net/1.8' },
+        { name: 'LegendSMP', host: 'wss://legendsmp.minecraft.pe' },
+        { name: 'HellScaped', host: 'wss://play.hellscaped.tech' },
+        { name: 'VanillaCraft SMP', host: 'wss://play.vanillacraftsmp.org' },
         { name: 'Local Relay (LAN)', host: 'ws://127.0.0.1:8081' }
     ];
 

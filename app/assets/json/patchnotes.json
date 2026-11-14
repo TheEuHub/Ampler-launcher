@@ -1,204 +1,180 @@
 [
-  {
-    "title": "Site Update: Unified Edition",
-    "version": "v1.5.06",
-    "description": "Merged six community launchers into one offline-first launcher with 113 builds.",
-    "date": "Thursday, November 13th, 2026",
-    "icon": "logo.png",
-    "type": "site",
-    "notes": [
-      "Merged the Web, Mobile/Controller, Modded, Alpha and Beta editions into one launcher.",
-      "Added the live Servers screen, Skins library and offline Downloads packager.",
-      "Added eight themes, text scaling, six launch modes and custom installations.",
-      "Restored 113 catalogue builds with per-build icons and verified recovery.",
-      "Made the launcher fully offline: self-hosted fonts, local fallbacks and isolation headers."
-    ],
-    "latest": true
-  },
-  {
-    "title": "Site Update: Alpha and Beta",
-    "version": "v1.5.05",
-    "description": "Split the Alpha and Beta builds into their own rail sections with spawner and TNT icons.",
-    "date": "Wednesday, November 12th, 2026",
-    "icon": "mc-icons/monster-spawner.png",
-    "type": "site",
-    "notes": [
-      "Added the Alpha Releases section with six builds.",
-      "Added the Beta Releases section with fourteen builds.",
-      "WASM builds now use the matching -wasm block icon."
-    ]
-  },
-  {
-    "title": "Site Update: Modded Editions",
-    "version": "v1.5.04",
-    "description": "Expanded the Modded catalogue to 35 third-party clients including Resent 4.0 and 3.8.",
-    "date": "Tuesday, November 11th, 2026",
-    "icon": "icons/eaglerforge.png",
-    "type": "site",
-    "notes": [
-      "Added Resent 4.0 and Resent 3.8, Astra, PixelClient and Tuff WASM builds.",
-      "Every modded client now shows its real icon.",
-      "Removed the GX client."
-    ]
-  },
-  {
-    "title": "Site Update: Servers and Downloads",
-    "version": "v1.5.03",
-    "description": "Added the live server browser and per-client offline downloads.",
-    "date": "Monday, November 10th, 2026",
-    "icon": "icons/eaglercraft.png",
-    "type": "site",
-    "notes": [
-      "Servers now poll each relay for MOTD, player count and ping.",
-      "Downloads can package any client as a standalone .html or .zip.",
-      "Custom servers can be added, copied and joined."
-    ]
-  },
-  {
-    "title": "Site Update: Skins and Settings",
-    "version": "v1.5.02",
-    "description": "Added the skins library with canvas previews and inline quick settings.",
-    "date": "Sunday, November 9th, 2026",
-    "icon": "icons/settings-pn.png",
-    "type": "site",
-    "notes": [
-      "Skins can be equipped into the Eaglercraft profile.",
-      "Quick Stats shows playtime, sessions and an FPS-Boost toggle.",
-      "Volume, performance mode and auto-save sit inline in Settings."
-    ]
-  },
-  {
-    "title": "Site Update: Offline First",
-    "version": "v1.5.01",
-    "description": "Made the launcher offline-first with self-hosted fonts and a bundled server.",
-    "date": "Saturday, November 8th, 2026",
-    "icon": "mc-icons/grass.png",
-    "type": "site",
-    "notes": [
-      "Roboto is now self-hosted, so the launcher renders with no network.",
-      "The bundled server sends cross-origin isolation headers for WASM builds.",
-      "Added the verification suite covering transport, catalogues, skins and geometry."
-    ]
-  },
-  {
-    "title": "Site Update: Customizable",
-    "version": "v1.5.00",
-    "description": "Added customizable launcher options, credits, settings, more memory options, and updated code!",
-    "date": "Tuesday, February 24th, 2026",
-    "icon": "icons/settings-pn.png",
-    "type": "site",
-    "notes": [
-      "Added customizable launcher options, allowing users to create their own name and icon.",
-      "Added credits screen, displaying everybody who has contributed.",
-      "Added the settings screen, allowing users to customize the launcher, and learn info.",
-      "Implemented more memory on choices made inside of the launcher.",
-      "Updated games, fixed bugs, modified css."
-    ]
-  },
-  {
-    "title": "Site Update: Modded",
-    "version": "v1.4.00",
-    "description": "Added patch notes, bug fixes, and integrated mods!",
-    "date": "Tuesday, August 5th, 2025",
-    "icon": "mod-icons/grappling-gun.png",
-    "type": "site",
-    "notes": [
-      "Added the mod screen, which allows users to select mods, and it'll be added to their eaglerforge launcher. Will override mods added in by user inside of launcher.",
-      "Added the patch notes screen, it displays recent updates to the website, and launcher builds.",
-      "Fixed a bug of unable to scroll with to many launchers selected.",
-      "Fixed sizing bugs of website."
-    ]
-  },
-  {
-    "title": "Site Update: Memorized",
-    "version": "v1.3.10",
-    "description": "Organized/updated code, added memory options, more games, installations, usernames, and faq screen!",
-    "date": "Monday, May 28th, 2025",
-    "icon": "mc-icons/red-bed.png",
-    "type": "site",
-    "notes": [
-      "Implemented memory for options selected inside of launcher.",
-      "Added wider range of game versions.",
-      "Added usernames into launcher.",
-      "Added FAQ screen, answering common easy questions.",
-      "Removed bulk code for sleeker function/look.",
-      "Organize structure of project for future growth."
-    ]
-  },
-  {
-    "title": "Eaglercraft 1.12",
-    "version": "u2",
-    "description": "Come back soon for full log!",
-    "date": "Unknown",
-    "icon": "icons/eaglercraft.png",
-    "type": "game",
-    "notes": []
-  },
-  {
-    "title": "Eaglercraft 1.8.8",
-    "version": "u51",
-    "description": "Come back soon for full log!",
-    "date": "Unknown",
-    "icon": "icons/eaglercraft.png",
-    "type": "game",
-    "notes": []
-  },
-  {
-    "title": "Site Update: W.A.S.M.",
-    "version": "v1.2.00",
-    "description": "Adding W.A.S.M. options and updated games!",
-    "date": "Tuesday, April 1st, 2025",
-    "icon": "mc-icons/grass-wasm.png",
-    "type": "site",
-    "notes": [
-      "Added W.A.S.M. options to launcher.",
-      "Updated games."
-    ]
-  },
-  {
-    "title": "Site Update: CYA CSS",
-    "version": "v1.1.00",
-    "description": "Removed/updated css and code!",
-    "date": "Wednesday, November 13th, 2024",
-    "icon": "mc-icons/skull.png",
-    "type": "site",
-    "notes": [
-      "Removed clutterful CSS",
-      "Removed unnecessary code.",
-      "Updated images for better appearance."
-    ]
-  },
-  {
-    "title": "Site Roadmap",
-    "version": "v1.5.00",
-    "description": "Current progress on the future of Ampler Launcher!",
-    "date": "Thursday, February 19th, 2026",
-    "icon": "icons/roadmap.png",
-    "type": "site",
-    "notes": [
-      "\u2718 Add the servers screen",
-      "\u2714 Add Credits screen",
-      "\u2714 Add Settings screen",
-      "\u2714 Rewrite some of the css and js",
-      "\u2714 Organize code, and add comments",
-      "\u2714 Add a customizable launcher selector",
-      "\u2714 Save last played game",
-      "\u2714 Add FAQ screen",
-      "\u2714 Add Installations screen",
-      "\u2714 Add Mods screen",
-      "\u2718 Add Skins screen",
-      "\u2714 Add Patch Notes screen",
-      "\u2718 Fix display errors",
-      "\u2718 Offline launcher download?"
-    ]
-  },
-  {
-    "title": "Ampler Launcher Release",
-    "version": "v1.0.00",
-    "description": "Come back soon for full log!",
-    "date": "Saturday, July 17th, 2024",
-    "icon": "logo.png",
-    "type": "site",
-    "notes": []
-  }
+    {
+        "title": "Site Update: Unified Edition",
+        "version": "v1.5.06",
+        "description": "Merged six community launchers into one offline-first launcher with 113 builds.",
+        "date": "Thursday, November 13th, 2026",
+        "icon": "logo.png",
+        "type": "site",
+        "notes": [
+            "Merged the Web, Mobile/Controller, Modded, Alpha and Beta editions into one launcher.",
+            "Added the live Servers screen, Skins library and offline Downloads packager.",
+            "Added eight themes, text scaling, six launch modes and custom installations.",
+            "Restored 113 catalogue builds with per-build icons and verified recovery.",
+            "Made the launcher fully offline: self-hosted fonts, local fallbacks and isolation headers."
+        ],
+        "latest": true
+    },
+    {
+        "title": "Site Update: Alpha and Beta",
+        "version": "v1.5.05",
+        "description": "Split the Alpha and Beta builds into their own rail sections with spawner and TNT icons.",
+        "date": "Wednesday, November 12th, 2026",
+        "icon": "mc-icons/monster-spawner.png",
+        "type": "site",
+        "notes": [
+            "Added the Alpha Releases section with six builds.",
+            "Added the Beta Releases section with fourteen builds.",
+            "WASM builds now use the matching -wasm block icon."
+        ]
+    },
+    {
+        "title": "Site Update: Modded Editions",
+        "version": "v1.5.04",
+        "description": "Expanded the Modded catalogue to 35 third-party clients including Resent 4.0 and 3.8.",
+        "date": "Tuesday, November 11th, 2026",
+        "icon": "icons/eaglerforge.png",
+        "type": "site",
+        "notes": [
+            "Added Resent 4.0 and Resent 3.8, Astra, PixelClient and Tuff WASM builds.",
+            "Every modded client now shows its real icon.",
+            "Removed the GX client."
+        ]
+    },
+    {
+        "title": "Site Update: Servers and Downloads",
+        "version": "v1.5.03",
+        "description": "Added the live server browser and per-client offline downloads.",
+        "date": "Monday, November 10th, 2026",
+        "icon": "icons/eaglercraft.png",
+        "type": "site",
+        "notes": [
+            "Servers now poll each relay for MOTD, player count and ping.",
+            "Downloads can package any client as a standalone .html or .zip.",
+            "Custom servers can be added, copied and joined."
+        ]
+    },
+    {
+        "title": "Site Update: Skins and Settings",
+        "version": "v1.5.02",
+        "description": "Added the skins library with canvas previews and inline quick settings.",
+        "date": "Sunday, November 9th, 2026",
+        "icon": "icons/settings-pn.png",
+        "type": "site",
+        "notes": [
+            "Skins can be equipped into the Eaglercraft profile.",
+            "Quick Stats shows playtime, sessions and an FPS-Boost toggle.",
+            "Volume, performance mode and auto-save sit inline in Settings."
+        ]
+    },
+    {
+        "title": "Site Update: Offline First",
+        "version": "v1.5.01",
+        "description": "Made the launcher offline-first with self-hosted fonts and a bundled server.",
+        "date": "Saturday, November 8th, 2026",
+        "icon": "mc-icons/grass.png",
+        "type": "site",
+        "notes": [
+            "Roboto is now self-hosted, so the launcher renders with no network.",
+            "The bundled server sends cross-origin isolation headers for WASM builds.",
+            "Added the verification suite covering transport, catalogues, skins and geometry."
+        ]
+    },
+    {
+        "title": "Site Update: Customizable",
+        "version": "v1.5.00",
+        "description": "Added customizable launcher options, credits, settings, more memory options, and updated code!",
+        "date": "Tuesday, February 24th, 2026",
+        "icon": "icons/settings-pn.png",
+        "type": "site",
+        "notes": [
+            "Added customizable launcher options, allowing users to create their own name and icon.",
+            "Added credits screen, displaying everybody who has contributed.",
+            "Added the settings screen, allowing users to customize the launcher, and learn info.",
+            "Implemented more memory on choices made inside of the launcher.",
+            "Updated games, fixed bugs, modified css."
+        ]
+    },
+    {
+        "title": "Site Update: Modded",
+        "version": "v1.4.00",
+        "description": "Added patch notes, bug fixes, and integrated mods!",
+        "date": "Tuesday, August 5th, 2025",
+        "icon": "mod-icons/grappling-gun.png",
+        "type": "site",
+        "notes": [
+            "Added the mod screen, which allows users to select mods, and it'll be added to their eaglerforge launcher. Will override mods added in by user inside of launcher.",
+            "Added the patch notes screen, it displays recent updates to the website, and launcher builds.",
+            "Fixed a bug of unable to scroll with to many launchers selected.",
+            "Fixed sizing bugs of website."
+        ]
+    },
+    {
+        "title": "Site Update: Memorized",
+        "version": "v1.3.10",
+        "description": "Organized/updated code, added memory options, more games, installations, usernames, and faq screen!",
+        "date": "Monday, May 28th, 2025",
+        "icon": "mc-icons/red-bed.png",
+        "type": "site",
+        "notes": [
+            "Implemented memory for options selected inside of launcher.",
+            "Added wider range of game versions.",
+            "Added usernames into launcher.",
+            "Added FAQ screen, answering common easy questions.",
+            "Removed bulk code for sleeker function/look.",
+            "Organize structure of project for future growth."
+        ]
+    },
+    {
+        "title": "Eaglercraft 1.12",
+        "version": "u2",
+        "description": "Come back soon for full log!",
+        "date": "Unknown",
+        "icon": "icons/eaglercraft.png",
+        "type": "game",
+        "notes": []
+    },
+    {
+        "title": "Eaglercraft 1.8.8",
+        "version": "u51",
+        "description": "Come back soon for full log!",
+        "date": "Unknown",
+        "icon": "icons/eaglercraft.png",
+        "type": "game",
+        "notes": []
+    },
+    {
+        "title": "Site Update: W.A.S.M.",
+        "version": "v1.2.00",
+        "description": "Adding W.A.S.M. options and updated games!",
+        "date": "Tuesday, April 1st, 2025",
+        "icon": "mc-icons/grass-wasm.png",
+        "type": "site",
+        "notes": [
+            "Added W.A.S.M. options to launcher.",
+            "Updated games."
+        ]
+    },
+    {
+        "title": "Site Update: CYA CSS",
+        "version": "v1.1.00",
+        "description": "Removed/updated css and code!",
+        "date": "Wednesday, November 13th, 2024",
+        "icon": "mc-icons/skull.png",
+        "type": "site",
+        "notes": [
+            "Removed clutterful CSS",
+            "Removed unnecessary code.",
+            "Updated images for better appearance."
+        ]
+    },
+    {
+        "title": "Ampler Launcher Release",
+        "version": "v1.0.00",
+        "description": "Come back soon for full log!",
+        "date": "Saturday, July 17th, 2024",
+        "icon": "logo.png",
+        "type": "site",
+        "notes": []
+    }
 ]
