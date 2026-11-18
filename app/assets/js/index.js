@@ -96,7 +96,7 @@
         if (!box) return;
         var title = box.querySelector('.bolded');
         var body = el('errortext');
-        if (title) title.innerHTML = escapeHtml(heading || 'NOTICE');
+        if (title) title.innerHTML = escapeHtml(heading || 'Notice');
         if (body) {
             body.innerHTML = escapeHtml(text || '');
             body.style.color = colour || '#ffffff';
@@ -109,9 +109,9 @@
             setTimeout(function () {
                 box.classList.remove('zoom-out');
                 box.style.display = 'none';
-                if (title) title.innerHTML = 'SORRY!';
+                if (title) title.innerHTML = 'Sorry';
                 if (body) {
-                    body.innerHTML = 'Done.';
+                    body.innerHTML = 'Done';
                     body.style.color = '#ffffff';
                 }
             }, 4420)
@@ -122,10 +122,10 @@
 
     // Kept for markup that still calls the old helper.
     window.errorNA = function (what) {
-        toast('SORRY!', 'The ' + (what || 'requested') + ' feature is not available here.');
+        toast('Not available yet', 'The ' + (what || 'requested') + ' feature is not available here.');
     };
 
-    function notice(text, heading, colour) { toast(heading || 'NOTICE', text, colour); }
+    function notice(text, heading, colour) { toast(heading || 'Notice', text, colour); }
 
     /* ------------------------------------------------------------------ *
      * Catalogues
@@ -288,6 +288,17 @@
         }
     };
 
+    /* The screen title is the name of the screen, set in sentence case:
+       "Eaglercraft web edition", not "EAGLERCRAFT WEB EDITION". The catalog
+       labels above stay upper case because the launch bar and the settings
+       lists use them as data. */
+    function screenTitle(label) {
+        var small = { OF: 1, AND: 1, THE: 1, TO: 1, A: 1 };
+        return String(label).toLowerCase().replace(/\b[a-z][a-z\/]*\b/g, function (word) {
+            return small[word.toUpperCase()] ? word : word.charAt(0).toUpperCase() + word.slice(1);
+        });
+    }
+
     var HEADER_TABS = {
         play: 'header1', mods: 'header2', installations: 'header4',
         custom: 'header1', skins: 'header5', patchnotes: 'header6',
@@ -442,7 +453,7 @@
     }
 
     function applyEditionChrome(conf) {
-        if (el('gameedition')) el('gameedition').innerHTML = escapeHtml(conf.label);
+        if (el('gameedition')) el('gameedition').innerHTML = escapeHtml(screenTitle(conf.label));
 
         var bg = el('game-bg');
         if (bg) {
@@ -1211,7 +1222,7 @@
         return dbRun('readwrite', function (store) { return store.put(html, key); })
             .catch(function () {
                 try { sSet('amplerhtml.' + key, html); } catch (e) {
-                    notice('This HTML is too large to store. Use a URL instead.', 'INSTALLATIONS');
+                    notice('This HTML is too large to store. Use a URL instead.', 'Installations');
                 }
             });
     }
@@ -1336,7 +1347,7 @@
             box.addEventListener('change', function () {
                 sSet('ampler.on.' + entry.title, box.checked ? 'true' : 'false');
                 buildDropdown();
-                notice((box.checked ? 'Showing ' : 'Hiding ') + entryLabel(entry) + ' in the version list.', 'INSTALLATIONS');
+                notice((box.checked ? 'Showing ' : 'Hiding ') + entryLabel(entry) + ' in the version list.', 'Installations');
             });
         }
 
@@ -1441,7 +1452,7 @@
         sSet('c' + entry.title, JSON.stringify(entry));
 
         notice('Installation "' + data.name + '" ' + (existing ? 'updated' : 'saved') + '.',
-            'INSTALLATIONS', '#7CFC98');
+            'Installations', '#7CFC98');
         renderInstallations();
         buildDropdown();
         if ((EDITIONS[state.edition] || {}).customOnly) setEdition('custom');
@@ -1506,7 +1517,7 @@
         input.select();
         el('renameinstallationsave').addEventListener('click', function () {
             var name = input.value.trim();
-            if (!name) { notice('Give the installation a name.', 'INSTALLATIONS'); return; }
+            if (!name) { notice('Give the installation a name.', 'Installations'); return; }
             entry.displayName = name;
             sSet('c' + entry.title, JSON.stringify(entry));
             window.closenotescreen();
@@ -1514,7 +1525,7 @@
             buildDropdown();
             var selected = state.selected[entry.custom];
             if (selected && selected.title === entry.title) selectEntry(entry, false);
-            notice('Installation renamed.', 'INSTALLATIONS', '#7CFC98');
+            notice('Installation renamed.', 'Installations', '#7CFC98');
         });
     }
 
@@ -1775,7 +1786,7 @@
                 if (sourceKind === 'url') {
                     var typed = (sourceArea.value || '').trim();
                     if (!/^(https?:)?\/\/\S+$/i.test(typed)) {
-                        notice('Enter a full http(s) address.', 'INSTALLATIONS');
+                        notice('Enter a full http(s) address.', 'Installations');
                         return;
                     }
                     link = typed;
@@ -1783,7 +1794,7 @@
                 } else if (sourceKind === 'html') {
                     var html = pendingHtml;
                     if (!html && sourceArea.value.trim()) html = sourceArea.value;
-                    if (!html) { notice('Choose an HTML file or paste the HTML first.', 'INSTALLATIONS'); return; }
+                    if (!html) { notice('Choose an HTML file or paste the HTML first.', 'Installations'); return; }
                     try {
                         link = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
                     } catch (e) {
@@ -1797,7 +1808,7 @@
                         if (match) chosenLink = match.link;
                     }
                     if (!chosenLink) {
-                        notice('Pick a version from the list (or type one and add a source).', 'INSTALLATIONS');
+                        notice('Pick a version from the list (or type one and add a source).', 'Installations');
                         return;
                     }
                     link = chosenLink;
@@ -1948,10 +1959,10 @@
             '</div>';
 
         card.querySelector('[data-act="copy"]').addEventListener('click', function () {
-            var done = function () { notice('Copied ' + server.host, 'SERVERS', '#7CFC98'); };
+            var done = function () { notice('Copied ' + server.host, 'Servers', '#7CFC98'); };
             if (navigator.clipboard && navigator.clipboard.writeText) {
                 navigator.clipboard.writeText(server.host).then(done).catch(function () {
-                    notice('Copy failed - select the address manually.', 'SERVERS');
+                    notice('Copy failed - select the address manually.', 'Servers');
                 });
             } else {
                 var area = document.createElement('textarea');
@@ -2092,7 +2103,7 @@
         var name = (nameInput && nameInput.value || '').trim();
         var host = (hostInput && hostInput.value || '').trim();
         if (!/^wss?:\/\/\S+$/i.test(host)) {
-            notice('The server address must start with ws:// or wss://', 'SERVERS');
+            notice('The server address must start with ws:// or wss://', 'Servers');
             return;
         }
         var list = sJSON('ampler.customServers', []);
@@ -2101,7 +2112,7 @@
         if (nameInput) nameInput.value = '';
         if (hostInput) hostInput.value = '';
         renderServers();
-        notice('Server added.', 'SERVERS', '#7CFC98');
+        notice('Server added.', 'Servers', '#7CFC98');
     };
 
     /* ------------------------------------------------------------------ *
@@ -2209,12 +2220,12 @@
         }).then(function (found) {
             return found.res.text().then(function (text) {
                 saveBlob(new Blob([text], { type: 'text/html' }), safeName(entry.title) + '.html');
-                notice(entry.title + ' downloaded as a single .html file.', 'DOWNLOADS', '#7CFC98');
+                notice(entry.title + ' downloaded as a single .html file.', 'Downloads', '#7CFC98');
             });
         }).catch(function (error) {
             notice(error.message === 'multi-file'
                 ? 'This client needs multiple files. Download the ZIP instead.'
-                : 'Could not fetch ' + entry.title + '. It is not bundled on this server.', 'DOWNLOADS');
+                : 'Could not fetch ' + entry.title + '. It is not bundled on this server.', 'Downloads');
         }).then(function () { button.style.opacity = '1'; });
     }
 
@@ -2224,7 +2235,7 @@
 
         var jszip = window.JSZip || (window.jszipLocal && window.jszipLocal.JSZip) || null;
         if (!jszip) {
-            notice('No ZIP writer available; downloading the .html instead.', 'DOWNLOADS');
+            notice('No ZIP writer available; downloading the .html instead.', 'Downloads');
             downloadSingle(entry, button);
             return;
         }
@@ -2256,10 +2267,10 @@
                 'Serve this folder over HTTP (for example, python3 -m http.server) and open index.html.\n');
             return zip.generateAsync({ type: 'blob' }).then(function (blob) {
                 saveBlob(blob, safeName(entry.title) + '.zip');
-                notice(entry.title + ' packaged (' + found + ' file' + (found === 1 ? '' : 's') + ').', 'DOWNLOADS', '#7CFC98');
+                notice(entry.title + ' packaged (' + found + ' file' + (found === 1 ? '' : 's') + ').', 'Downloads', '#7CFC98');
             });
         }).catch(function () {
-            notice('Could not build the ZIP for ' + entry.title + '.', 'DOWNLOADS');
+            notice('Could not build the ZIP for ' + entry.title + '.', 'Downloads');
         }).then(function () { button.style.opacity = '1'; });
     }
 
@@ -2340,9 +2351,9 @@
         var edition = el('gameedition');
         if (edition) {
             var conf = EDITIONS[state.edition];
-            if (conf) edition.innerHTML = escapeHtml(state.branding
+            if (conf) edition.innerHTML = escapeHtml(screenTitle(state.branding
                 ? conf.label.replace('EAGLERCRAFT', 'MINECRAFT')
-                : conf.label);
+                : conf.label));
         }
         var gameTitle = el('game-title');
         if (gameTitle && state.branding && state.edition === 'web') {
@@ -2588,7 +2599,7 @@
             win.document.write(html);
             win.document.close();
         } catch (e) {
-            notice('Could not write the game page into the new window.', 'LAUNCH');
+            notice('Could not write the game page into the new window.', 'Launch');
         }
     }
 
@@ -2600,7 +2611,7 @@
     }
 
     function blockedNotice() {
-        notice('Your browser blocked the new window. Allow popups for this site.', 'LAUNCH');
+        notice('Your browser blocked the new window. Allow popups for this site.', 'Launch');
     }
 
     /* Opening a build
@@ -2635,7 +2646,7 @@
     function launch(mode) {
         var target = gameUrlFor();
         if (!target) {
-            notice('Pick a version first.', 'LAUNCH');
+            notice('Pick a version first.', 'Launch');
             return false;
         }
         var href = target.href;

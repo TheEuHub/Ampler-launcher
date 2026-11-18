@@ -537,8 +537,7 @@ head('3. CSS scales, the phone block is isolated');
         // The picker lives in Appearance (Settings), never in Sound & Performance.
         const page = readFileSync(join(ROOT, 'index.html'), 'utf8');
         const appearance = page.indexOf('data-themename="redstone"');
-        const audioAt = page.indexOf('Sound &amp; Performance') !== -1
-            ? page.indexOf('Sound &amp; Performance') : page.indexOf('Sound & Performance');
+        const audioAt = page.search(/Sound &(amp; )?Performance/i);
         const themeUiAt = page.indexOf('data-themename=');
         const between = audioAt === -1 ? '' : page.slice(audioAt, themeUiAt);
         appearance !== -1 && audioAt !== -1 && !/themename|themeSelect/.test(between) &&
@@ -819,7 +818,7 @@ if (!JSDOM) {
     /* ---- editions ---- */
     win.webedition();
     await sleep(30);
-    assert(d.getElementById('gameedition').textContent.indexOf('WEB EDITION') !== -1,
+    assert(d.getElementById('gameedition').textContent.toUpperCase().indexOf('WEB EDITION') !== -1,
         'webedition() labels the header EAGLERCRAFT WEB EDITION');
     assert(['header1', 'header2', 'header4', 'header5', 'header6', 'header11', 'header12']
         .every((id) => d.getElementById(id).style.display === 'block'),
@@ -827,7 +826,7 @@ if (!JSDOM) {
 
     win.moddededition();
     await sleep(30);
-    assert(d.getElementById('gameedition').textContent.indexOf('MODDED') !== -1 && d.getElementById('header2').style.display === 'block',
+    assert(d.getElementById('gameedition').textContent.toUpperCase().indexOf('MODDED') !== -1 && d.getElementById('header2').style.display === 'block',
         'moddededition() shows the Mods tab');
     const rows = [...d.querySelectorAll('#dropdn .dropdownOptions')];
     assert(rows.length === (CATALOGS.modded || []).length,
@@ -879,7 +878,7 @@ if (!JSDOM) {
         await sleep(40);
         const rail = d.getElementById(fn === 'alphaedition' ? 'gtabs12' : 'gtabs13');
         const rowsHere = [...d.querySelectorAll('#dropdn .dropdownOptions')];
-        assert(d.getElementById('gameedition').textContent.indexOf(label) !== -1 &&
+        assert(d.getElementById('gameedition').textContent.toUpperCase().indexOf(label) !== -1 &&
                rail.classList.contains('selected') &&
                rowsHere.length === (CATALOGS[key] || []).length,
             'the ' + key + ' rail section lists its own catalogue (' + rowsHere.length + ' builds)');
@@ -915,7 +914,7 @@ if (!JSDOM) {
 
     win.eaglercontrols();
     await sleep(30);
-    assert(d.getElementById('gameedition').textContent.indexOf('MOBILE') !== -1,
+    assert(d.getElementById('gameedition').textContent.toUpperCase().indexOf('MOBILE') !== -1,
         'eaglercontrols() switches to the Mobile/Controller edition');
 
     win.webedition();
@@ -1155,7 +1154,7 @@ if (!JSDOM) {
     assert(d.getElementById('mods').style.display === 'flex' &&
            !d.getElementById('gtabs10').classList.contains('selected') &&
            d.getElementById('header2').classList.contains('selected') &&
-           d.getElementById('gameedition').textContent.indexOf('WEB EDITION') !== -1 &&
+           d.getElementById('gameedition').textContent.toUpperCase().indexOf('WEB EDITION') !== -1 &&
            d.getElementById('gtabs2').classList.contains('selected'),
         'leaving Custom Installations for a header tab hands the chrome back to the Web Edition');
     win.playheader();
@@ -1163,7 +1162,7 @@ if (!JSDOM) {
     {
         const webRows = [...d.querySelectorAll('#dropdn .dropdownOptions')];
         const names = webRows.map((r) => r.getAttribute('data-title'));
-        assert(d.getElementById('gameedition').textContent.indexOf('WEB EDITION') !== -1 &&
+        assert(d.getElementById('gameedition').textContent.toUpperCase().indexOf('WEB EDITION') !== -1 &&
                d.getElementById('gtabs2').classList.contains('selected') &&
                !webRows.some((r) => r.classList.contains('emptyOption')) &&
                names.length === (CATALOGS.base || []).length + 1,
@@ -1589,6 +1588,50 @@ head('8. Global rules: no Discord, no proxy wording, no dead controls');
     hasWhite ? ok('settings descriptions are forced to white text')
              : bad('settings descriptions still use a low-contrast colour');
 
+}
+
+head('9. The cover page keeps its structure and its secret door');
+
+{
+    const cover = readFileSync(join(REPO, 'index.html'), 'utf8');
+
+    // The door is the only way from the cover into the launcher; it hangs off
+    // the Settings overlay's last scroll child and navigates to ./app/.
+    cover.includes("window.location.href = './app/'") && /id="secretBar"/.test(cover)
+        ? ok('the cover still walks into ./app/ from its Settings footer bar')
+        : bad('the cover lost its continue-to-site door');
+
+    // Same sections, same order, same names as the original cover.
+    const order = ['class="hero"', 'id="create"', 'id="explore"', 'id="about"'];
+    let at = -1;
+    const okOrder = order.every((needle) => {
+        const found = cover.indexOf(needle);
+        if (found <= at) return false;
+        at = found;
+        return true;
+    });
+    okOrder ? ok('the cover keeps hero -> what you can make -> featured -> footer')
+            : bad('the cover sections changed their order');
+
+    // The settings overlay keeps every group and every switch.
+    const groups = (cover.match(/class="setgroup"/g) || []).length;
+    const switches = (cover.match(/class="setopt"/g) || []).length;
+    groups === 6 && switches === 20
+        ? ok('settings keeps its 6 groups and 20 switches')
+        : bad('settings shrank: groups=' + groups + ' switches=' + switches);
+
+    // The slop this pass removed stays out: no emoji icons, no hue gradients.
+    const emoji = /[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u.test(cover);
+    const gradient = /(linear|radial|conic)-gradient/.test(cover);
+    !emoji && !gradient
+        ? ok('no emoji icons and no gradients on the cover')
+        : bad('cover regressed: ' + [emoji && 'emoji', gradient && 'gradient'].filter(Boolean).join(', '));
+
+    // The fonts the craft pass uses are on disk, not fetched.
+    ['space-grotesk-latin-400-normal.woff2', 'space-grotesk-latin-500-normal.woff2',
+        'roboto-latin-500-normal.woff2'].every((f) => existsSync(join(ROOT, 'assets/fonts', f)))
+        ? ok('the vendored display and medium faces exist locally')
+        : bad('a vendored font referenced by fonts.css is missing');
 }
 
 /* ------------------------------------------------------------------ *

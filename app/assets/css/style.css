@@ -2738,3 +2738,186 @@ body {
     background-color: var(--ui-red);
     border: 0.1vw solid var(--ui-main-lighter);
 }
+
+/* ------------------------------------------------------------------ *
+ * Craft pass (unslop)
+ * ------------------------------------------------------------------ *
+ * The shell above is the recovered launcher and stays as it is: the same
+ * rail, the same tabs, the same dark chrome and the same green. What this
+ * block does is give the launcher one display voice and one consistent set
+ * of weights, so nothing shouts louder than the green.
+ *
+ *   - Space Grotesk (OFL, vendored in ../fonts) sets the screen title in the
+ *     header, the screen headings, the empty-state titles and the version and
+ *     patch-note figures only. Body copy stays Roboto, as it always was.
+ *   - Labels stop shouting. `.bolded` was 800 everywhere; it is now 500, the
+ *     real Roboto Medium cut vendored in ../fonts, with a touch of tracking, so
+ *     hierarchy comes from size and colour. Themes and screensize.css still win
+ *     every rule they already set.
+ *   - Screen titles are the name of the screen, not a shout: the edition reads
+ *     "Eaglercraft web edition" (sentence case, applied in index.js) instead of
+ *     the all-caps catalogue label the launch bar and settings lists still use.
+ *   - The selected tab is a surface step plus a green underline instead of an
+ *     800 weight, and the rail's icons sit on one column with one gap.
+ *   - Small chrome figures (version, counts) get tabular numerals so they stop
+ *     shifting when they change, and the shell uses one motion curve.
+ * ------------------------------------------------------------------ */
+
+:root {
+    --display: 'Space Grotesk', 'Roboto', sans-serif;
+}
+
+/* One motion curve for the whole chrome. */
+.sidebarOptions,
+.headerButtons,
+.classicbutton,
+.playButton,
+.sidebarWhatsNew,
+.settinginput,
+.setopt,
+.dropdownSelector {
+    transition-property: color, background-color, border-color, opacity;
+    transition-duration: 0.15s;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Shouty weights on labels become 500 (the real Roboto Medium cut, vendored
+   in ../fonts) with a touch of tracking, so the hierarchy comes from size and
+   colour. It has to be repeated here because `.bolded` above is a class rule
+   and would otherwise win on source order. Body copy and buttons keep the
+   weights they had. */
+.bolded {
+    font-weight: 500;
+    letter-spacing: 0.01em;
+}
+
+.error .bolded {
+    font-weight: 500;
+    letter-spacing: 0.02em;
+}
+
+/* Wordmark, screen title, empty-state titles and figures: the display voice. */
+.launcherVersion,
+.sidebarWhatsNew .whatsnewsub,
+.skinsCount,
+.stat-value,
+#installationscount,
+#custominstallationscount {
+    font-variant-numeric: tabular-nums;
+}
+
+.currentGame {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: calc(1.5vw * var(--text-scale, 1));
+    letter-spacing: 0;
+}
+
+/* The display face follows the element, not one context: the settings screens
+   already size .settingstitle per panel (#generalsettings, #aboutsettings) and
+   a size restated here would fight those. */
+.settingstitle,
+.skinsTitle {
+    font-family: var(--display);
+    font-weight: 500;
+    letter-spacing: 0;
+    text-transform: none;
+}
+
+/* The rail: the Minecraft icons keep their size and align on one 24px column,
+   labels start on one line, and the pinned bottom items stop drifting by
+   magic numbers. The two bottom offsets in vw above still apply, this only
+   makes the boxes agree. */
+.sidebarOptions {
+    gap: 0.85vw;
+    padding-left: 0.9vw;
+}
+
+.sidebarOptions img {
+    flex: 0 0 auto;
+}
+
+.sidebarOptions.sidebarBottom {
+    margin-bottom: 0;
+}
+
+/* Versions and counts as quiet mono-ish meta instead of another shout. */
+.launcherVersion p {
+    font-family: var(--display);
+    font-size: calc(0.9vw * var(--text-scale, 1));
+    letter-spacing: 0.02em;
+    opacity: 0.72;
+}
+
+.whatsnewsub {
+    letter-spacing: 0.02em;
+}
+
+/* The tab strip: the selected tab is a surface step plus a hairline of the
+   accent, not an 800 weight. Same green, quieter voice. */
+.headerButtons.selected {
+    font-weight: 500;
+    background-color: var(--ui-main-light);
+    border-bottom: 0.21vw solid var(--ui-select);
+}
+
+.headerButtons {
+    border-bottom: 0.21vw solid transparent;
+}
+
+/* Frames and focus: one visible ring, in the launcher's own green. */
+:where(.classicbutton, .sidebarOptions, .headerButtons, .skinTool, #drop, .username):focus-visible {
+    outline: 0.14vw solid var(--ui-select-bright);
+    outline-offset: 0.12vw;
+}
+
+/* Motion: the star in What's New no longer spins on hover, and nothing else
+   moves more than a colour step. */
+.sidebarWhatsNew:hover svg {
+    transform: none;
+}
+
+/* The game title art sits over the edition background; give the launch bar a
+   hairline top edge so the bar reads as one strip on every background. */
+#gameSelection {
+    border-top: 0.1vw solid rgba(255, 255, 255, 0.06);
+    background-color: rgba(0, 0, 0, 0.22);
+}
+
+html[data-theme="light"] #gameSelection {
+    background-color: rgba(255, 255, 255, 0.55);
+    border-top-color: rgba(0, 0, 0, 0.06);
+}
+
+/* Stats: the FPS Boost value is a control, so it gets a control's state, not
+   a bright green figure that looks like a metric. */
+.stat-value[role="button"] {
+    color: var(--ui-select-bright);
+    cursor: pointer;
+    padding: 0 0.3vw;
+    border-radius: 0.2vw;
+}
+
+.stat-value[role="button"]:hover {
+    color: #ffffff;
+    background-color: var(--ui-select-deep);
+}
+
+/* Small screens: the sizes already come down in screensize.css, in vw like the
+   rest of the shell, and the display face follows those. Only the version
+   figure needs its own step, because it is set in rem-free vw too. */
+@media (max-width: 1100px) {
+    .launcherVersion p {
+        font-size: calc(1vw * var(--text-scale, 1));
+    }
+}
+
+/* Patch notes index: the version number is the figure in the row, so it is
+   the display face at a quiet weight rather than another 800. */
+.notesIndexVersion {
+    font-family: var(--display);
+    font-weight: 500;
+    font-size: calc(0.95vw * var(--text-scale, 1));
+    font-variant-numeric: tabular-nums;
+    color: var(--ui-select-bright);
+}

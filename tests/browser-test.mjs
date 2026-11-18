@@ -102,7 +102,7 @@ async function drive() {
     await sleep(600);
 
     const heading = await page.$eval('#gameedition', (n) => n.textContent.trim());
-    heading.includes('EAGLERCRAFT') ? ok('header reads "' + heading + '"') : bad('odd header: ' + heading);
+    /^eaglercraft/i.test(heading) ? ok('header reads "' + heading + '"') : bad('odd header: ' + heading);
 
     const sidebarIds = await page.$$eval('#sidebar .sidebarOptions', (n) => n.map((x) => x.id));
     JSON.stringify(sidebarIds) === JSON.stringify(['gtabs2', 'gtabs4', 'gtabs3', 'gtabs10', 'gtabs9', 'gtabs5', 'gtabs6'])

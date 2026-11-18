@@ -8,6 +8,12 @@
  * The woff2 files in ../fonts/ are the latin subset published by the
  * @fontsource/roboto package (OFL-licensed), vendored into this repo so the
  * launcher renders identically with the network unplugged.
+ *
+ * Space Grotesk (also @fontsource, OFL) sets the wordmark, the screen titles
+ * and the figures only. Body copy stays on Roboto, so the launcher keeps its
+ * Minecraft-adjacent, square-shouldered look and only gains a display voice.
+ * The 500 cut is the real Medium face: labels dropped from 800 to 500 in the
+ * craft pass and need a weight that exists, rather than the 400 fallback.
  */
 
 @font-face {
@@ -29,8 +35,32 @@
 @font-face {
     font-family: 'Roboto';
     font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/roboto-latin-500-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
     font-weight: 800;
     font-display: swap;
     /* No 800 cut is shipped; .bolded uses 800, so alias it to the 700 face. */
     src: url('../fonts/roboto-latin-700-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('../fonts/space-grotesk-latin-400-normal.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Space Grotesk';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url('../fonts/space-grotesk-latin-500-normal.woff2') format('woff2');
 }
