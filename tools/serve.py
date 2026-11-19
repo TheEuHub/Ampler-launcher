@@ -3,10 +3,15 @@
 Ampler Launcher - Unified HTTP/HTTPS Local & Preview Server.
 
 - Serves app/ (the document root: index.html + assets/) over HTTP,
-  default 0.0.0.0:8080.
+  default 127.0.0.1:8080. Pass --lan to listen on every interface.
 - Sends COOP (same-origin) + COEP (credentialless / require-corp) headers so
   SharedArrayBuffer and WASM-GC Eaglercraft builds run at full speed while
   allowing HTTPS fonts/APIs/CDNs.
+- Sends baseline hardening headers (nosniff, no-referrer, a locked-down
+  Permissions-Policy) on every response, and a Content-Security-Policy plus
+  X-Frame-Options on the launcher shell only - app/mc/ holds third-party
+  single-file clients that need their own inline scripts and framebuffers.
+- Refuses directory listings.
 - Dynamically serves /assets/skins/list.js matching tools/bake-skins.py.
 - Serves recovered clients from app/mc/ without substituting unrelated builds.
 """
@@ -16,10 +21,8 @@ import functools
 import http.server
 import json
 import os
-import shutil
 import socket
 import socketserver
-import subprocess
 import sys
 from pathlib import Path
 
@@ -47,9 +50,7 @@ def _find_root():
 ROOT = _find_root()
 ROOT_PATH = Path(ROOT)
 REPO = ROOT_PATH.parent
-# Clients recovered by tools/recover_*.py live in app/mc/ (served); .cache/mc/
-# is scratch space outside the document root.
-CACHE_MC = REPO / ".cache" / "mc"
+# Clients recovered by tools/recover_*.py are written straight into app/mc/.
 
 SKINS_DIR = os.path.join(ROOT, "assets", "skins")
 SKINS_LIST_PATH = "/assets/skins/list.js"
@@ -102,50 +103,6 @@ def _find_case_insensitive(base_dir: Path, name: str) -> Path | None:
     return None
 
 
-def try_materialize_mc_folder(folder_name: str) -> Path | None:
-    direct = _find_case_insensitive(ROOT_PATH / "mc", folder_name)
-    if direct and (direct / "index.html").is_file():
-        return direct
-    cached = _find_case_insensitive(CACHE_MC, folder_name)
-    if cached and (cached / "index.html").is_file():
-        return cached
-
-    target_cache = CACHE_MC / folder_name
-    candidate_repos = [
-        Path("/tmp/repos/theveil-media_AmplerLauncher"),
-        Path("/tmp/repos/Dev-subha-stack_minecraft-launcher"),
-        Path("/tmp/repos/gtrdhf_AmplerLauncher"),
-    ]
-    for repo in candidate_repos:
-        if not (repo / ".git").exists():
-            continue
-        try:
-            subprocess.run(
-                ["git", "sparse-checkout", "add", f"mc/{folder_name}"],
-                cwd=str(repo),
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                timeout=30,
-                check=False,
-            )
-            subprocess.run(
-                ["git", "checkout", "HEAD"],
-                cwd=str(repo),
-                stdout=subprocess.DEVNULL,
-                stderr=subprocess.DEVNULL,
-                timeout=60,
-                check=False,
-            )
-            src_dir = _find_case_insensitive(repo / "mc", folder_name)
-            if src_dir and (src_dir / "index.html").is_file():
-                target_cache.parent.mkdir(parents=True, exist_ok=True)
-                shutil.copytree(src_dir, target_cache, dirs_exist_ok=True)
-                return target_cache
-        except Exception:
-            pass
-    return None
-
-
 EXTRA_MIME = {
     ".html": "text/html; charset=utf-8",
     ".js": "text/javascript; charset=utf-8",
@@ -168,13 +125,35 @@ class Handler(http.server.SimpleHTTPRequestHandler):
     isolation = True
     server_version = "AmplerOffline/2.4"
 
+    # The launcher shell is the only document that gets a CSP from the server.
+    # It also carries one in a <meta> tag, so a static host behaves the same.
+    LAUNCHER_PATHS = ("/", "/index.html", "/index.htm")
+    LAUNCHER_CSP = (
+        "frame-ancestors 'self'; "
+        "object-src 'none'; base-uri 'none'; form-action 'none'"
+    )
+
     def end_headers(self):
         if self.isolation:
             self.send_header("Cross-Origin-Opener-Policy", "same-origin")
             self.send_header("Cross-Origin-Embedder-Policy", "credentialless")
             self.send_header("Cross-Origin-Resource-Policy", "cross-origin")
         self.send_header("Cache-Control", "no-cache")
+        self.send_header("X-Content-Type-Options", "nosniff")
+        self.send_header("Referrer-Policy", "no-referrer")
+        self.send_header(
+            "Permissions-Policy",
+            "geolocation=(), microphone=(), camera=(), usb=(), serial=()",
+        )
+        if self.path.split("?")[0] in self.LAUNCHER_PATHS:
+            self.send_header("Content-Security-Policy", self.LAUNCHER_CSP)
+            self.send_header("X-Frame-Options", "SAMEORIGIN")
         super().end_headers()
+
+    def list_directory(self, path):
+        """No directory listings: 404 instead of an index of app/."""
+        self.send_error(404, "Not found")
+        return None
 
     def _send_skins_list(self, include_body=True):
         body = skins_list_js().encode("utf-8")
@@ -225,7 +204,10 @@ def local_ip():
 def main():
     parser = argparse.ArgumentParser(description="Serve the Ampler Launcher.")
     parser.add_argument("--port", type=int, default=8080)
-    parser.add_argument("--host", default="0.0.0.0")
+    parser.add_argument("--host", default=None,
+                        help="interface to bind (default 127.0.0.1)")
+    parser.add_argument("--lan", action="store_true",
+                        help="listen on every interface, e.g. to try the launcher on a phone")
     parser.add_argument("--no-isolation", action="store_true",
                         help="do not send COOP/COEP (disables SharedArrayBuffer)")
     parser.add_argument("--no-browser", action="store_true",
@@ -236,11 +218,12 @@ def main():
 
     Handler.isolation = not args.no_isolation
     handler = functools.partial(Handler, directory=ROOT)
+    host = args.host or ("0.0.0.0" if args.lan else "127.0.0.1")
 
     try:
-        httpd = Server((args.host, args.port), handler)
+        httpd = Server((host, args.port), handler)
     except OSError as exc:
-        print("Could not bind %s:%d - %s" % (args.host, args.port, exc))
+        print("Could not bind %s:%d - %s" % (host, args.port, exc))
         return 1
 
     print("=" * 62)
@@ -249,8 +232,9 @@ def main():
     print("  Repo         : %s" % REPO)
     print("  Document root: %s" % ROOT)
     print("  Launcher     : http://localhost:%d/" % args.port)
-    print("  From another device on your LAN:")
-    print("                 http://%s:%d/" % (local_ip(), args.port))
+    if host in ("0.0.0.0", "::"):
+        print("  From another device on your LAN:")
+        print("                 http://%s:%d/" % (local_ip(), args.port))
     print("  Isolation hdrs: %s" % ("ON (SharedArrayBuffer enabled)"
                                       if Handler.isolation else "OFF"))
     print("  Skins          : %d folder(s) in assets/skins/ (scanned live)"

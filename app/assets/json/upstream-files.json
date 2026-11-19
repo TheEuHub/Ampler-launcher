@@ -1,0 +1,1868 @@
+[
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "c0bb5fef7fb4bade1f30d9b4045af47f9d4db660",
+  "size": 25273451,
+  "target": "mc/1.0/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "5b51719844fd54f2aa240e0fc42e2b1aaa102c88",
+  "size": 8158156,
+  "target": "mc/1.1/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "0aafdf5af0711c282999f50249901edfce2e8d31",
+  "size": 54245378,
+  "target": "mc/1.13.2-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "aa87dcb0f5d3ff21699c41aca9ea15c56d51ddf6",
+  "size": 68568348,
+  "target": "mc/1.13.2/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "3f9c43f393a3f28fd729ffecb6d00f48337c7ba0",
+  "size": 36011556,
+  "target": "mc/1.14.4-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "1405908085815baf6a7bab40d19f0809fc044a16",
+  "size": 55447416,
+  "target": "mc/1.14.4/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f8533b738a7060cc8c443c6ab0ab2b501c5bea34",
+  "size": 4347,
+  "target": "mc/1.16.5-wasm/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "5c7ee51f354ecf413904db57651ddaa0eadcaa90",
+  "size": 53138875,
+  "target": "mc/1.16.5-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7af89450fcc8ce99d8780f0305b61328cb08a6ab",
+  "size": 46618795,
+  "target": "mc/1.16.5/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "29beb4561de01950a8ba49e23d307f07c7b4df00",
+  "size": 1029,
+  "target": "mc/1.17.1-wasm/assets/css/index.css"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "ed8fd0349faf0a1dc4422e3a2165f9072a9645c4",
+  "size": 367,
+  "target": "mc/1.17.1-wasm/assets/css/mc.css"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "4fbe33af8bf120cfdc4751d42e39d13a4bf1e7c2",
+  "size": 8124,
+  "target": "mc/1.17.1-wasm/assets/font/mojangles.otf"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "ebb5b8734081621c1da8dc0f54eb891bcc44aec3",
+  "size": 24,
+  "target": "mc/1.17.1-wasm/assets/game/assets.epk"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "55c3d5e974f7f2551f5d4d0e9d017401f5783429",
+  "size": 23068672,
+  "target": "mc/1.17.1-wasm/assets/game/assets.epk.part0"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "66d926698ae19f1be817d0832f12a6edab6d64f5",
+  "size": 23068672,
+  "target": "mc/1.17.1-wasm/assets/game/assets.epk.part1"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "55ce2b41cc8b4a49a881fddf212ea21c774d0b1b",
+  "size": 23068672,
+  "target": "mc/1.17.1-wasm/assets/game/assets.epk.part2"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7bab5cc51d93ea5e6024c1801cf7f62dcb8d0bb0",
+  "size": 14621269,
+  "target": "mc/1.17.1-wasm/assets/game/assets.epk.part3"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "bfe4abbef05ab8e3ec6ea1a1f90677ce44a724fd",
+  "size": 24,
+  "target": "mc/1.17.1-wasm/assets/game/classes.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "d17ea171c24c1eb676207b55f04f5afc66c4e0e4",
+  "size": 23068672,
+  "target": "mc/1.17.1-wasm/assets/game/classes.js.part0"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "329262786c95e43965517207d060688efd0e4a1a",
+  "size": 13387311,
+  "target": "mc/1.17.1-wasm/assets/game/classes.js.part1"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "d21142ed405adbb93cb03da012340a3d54753be7",
+  "size": 4982,
+  "target": "mc/1.17.1-wasm/assets/img/dirt.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "b6c767ccd6290a88c11f66642c5d82214ccf261d",
+  "size": 167790,
+  "target": "mc/1.17.1-wasm/assets/img/icon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "b065e8e5c6277c63814a466be1b21551fb6b8002",
+  "size": 2061,
+  "target": "mc/1.17.1-wasm/assets/js/index.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "16563e4a9b7617928bb3f5cf01aa54de3eaaf2d5",
+  "size": 105453,
+  "target": "mc/1.17.1-wasm/assets/js/server-writer.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "1970a5589b38ddd06b75990372047a751411b05a",
+  "size": 979,
+  "target": "mc/1.17.1-wasm/assets/js/splits.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6b598890ac5850170c2431bd8c02dd6a3c4d3762",
+  "size": 343,
+  "target": "mc/1.17.1-wasm/assets/js/worker.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "bb6195d769520609959cfc4b46af82eff242472d",
+  "size": 1988,
+  "target": "mc/1.17.1-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "0197b2e2e13df3781db6e44ededd47edfb969617",
+  "size": 23860117,
+  "target": "mc/1.2.3-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "aa93d637e052f3e9eb6561d79db4e9404f75854c",
+  "size": 27989474,
+  "target": "mc/1.2.3/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "b6685e8f667019987fdd6ed468ae9ae41fdfe340",
+  "size": 23888268,
+  "target": "mc/1.2.5-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "75da66267a14dae629791519b9baa60f188c2626",
+  "size": 55586148,
+  "target": "mc/1.20.6-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "0778c326544d6646915d6fd9a49220c7c98e72a6",
+  "size": 48845015,
+  "target": "mc/1.21.11-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "2ec0de12800379fa697cacb04123b67d6cec80e0",
+  "size": 28948632,
+  "target": "mc/1.3.2-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6868a50ac1fcb17ca16bb7da6c9af32fa5297c66",
+  "size": 39499616,
+  "target": "mc/1.4.7-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "576781523c440d284e6b55b322486ba08f8d14a5",
+  "size": 67567216,
+  "target": "mc/1.4.7/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "756b69da6ccb5fdfb65903e3b6e4edf1a9bf83a2",
+  "size": 12158677,
+  "target": "mc/1.7.10-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/1.7.10/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "dca3daee4a554bb4da94116d428751a3e4a9bbd4",
+  "size": 18463536,
+  "target": "mc/1.7.10/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "71df2696dfc8f1d52a2d3e7f1231abe12e3c34ce",
+  "size": 26497704,
+  "target": "mc/1.8.8/index.html"
+ },
+ {
+  "repo": "gtrdhf/AmplerLauncher",
+  "sha": "3ff9e5b1e93ccd3aa1bd1e4ee6409697d9a4e79f",
+  "size": 1119,
+  "target": "mc/1.8.8/js/loader.js"
+ },
+ {
+  "repo": "gtrdhf/AmplerLauncher",
+  "sha": "43a0186f8426695960aad5c245e9d9c07d1fe178",
+  "size": 135537,
+  "target": "mc/1.8.8/js/userscript/flameddogo99-eaglermobile.js"
+ },
+ {
+  "repo": "gtrdhf/AmplerLauncher",
+  "sha": "afbb80f8a4ab1ddfd16c892b497d85d8d73d8cf5",
+  "size": 22669,
+  "target": "mc/1.8.8/js/userscript/irv77-eaglerconsole.js"
+ },
+ {
+  "repo": "gtrdhf/AmplerLauncher",
+  "sha": "1bd7cdd29073cfdfaa5f04b798ad0379facbf2ba",
+  "size": 42678,
+  "target": "mc/1.8.8/js/userscript/irv77-eaglercraft-mobile.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7e97d9cb405f17212312b6e123c0fa3777eeb3b6",
+  "size": 65694755,
+  "target": "mc/26.1.2-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "67007d4b87997eae990d85ebb2bfb92e5a0706fd",
+  "size": 75535611,
+  "target": "mc/26.2-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "bf03421a6bcb9273f9ac0fc174c1ae5a0572b88c",
+  "size": 1392072,
+  "target": "mc/Aero Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "a65c415187ce957b834ebac06cb69ba9a9bd3c2e",
+  "size": 41548077,
+  "target": "mc/Aero Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "8b0ac3794560e5716ff53e75bd4495ea280a09a7",
+  "size": 43227,
+  "target": "mc/Astra Client 2-1.8.8/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "18d6291c58122323425cc54180c448db2f6215f5",
+  "size": 39213689,
+  "target": "mc/Astra Client 2-1.8.8/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7e6c4eb62d7b611f81df9beafd81f1aeae1f1b7b",
+  "size": 98057,
+  "target": "mc/EB Client 1.14.4/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "1599c23c16f9fa6011f9163b8dd35fee14e67409",
+  "size": 42176903,
+  "target": "mc/EB Client 1.14.4/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7e6c4eb62d7b611f81df9beafd81f1aeae1f1b7b",
+  "size": 98057,
+  "target": "mc/EB Client 1.8.8/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "45682acd61eac069e4d455a9ba385af36e7e8bf5",
+  "size": 22066113,
+  "target": "mc/EB Client 1.8.8/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7e6c4eb62d7b611f81df9beafd81f1aeae1f1b7b",
+  "size": 98057,
+  "target": "mc/EB Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "8b12d783bb63ce8564edc8341494c790585a5ef2",
+  "size": 23504408,
+  "target": "mc/EB Client/index.html"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "4921e1d659539666d1828fcd97deb02c9c0b93b0",
+  "size": 3396,
+  "target": "mc/Eaglerforge/ModAPI.js"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "22a6434e8c4409f75e4ea6afbede2d7954c774fd",
+  "size": 7361,
+  "target": "mc/Eaglerforge/ModGUI.js"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "9a21198ba50ea546e091208f59d2464f90599713",
+  "size": 4213,
+  "target": "mc/Eaglerforge/ModLoader.js"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "b64b679ebc3a4b31cf50ee315165b412bf1d1eaa",
+  "size": 7217909,
+  "target": "mc/Eaglerforge/assets.epk"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "5cbd108f89cdc1c055adb508980f2e15424e10cb",
+  "size": 31207450,
+  "target": "mc/Eaglerforge/classes.js"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "a107e1da470d96adaf0a9e38e1ad1b9dcecb0867",
+  "size": 3228108,
+  "target": "mc/Eaglerforge/classes.js.map"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "02893956a77cf94f0865fa16c4f99d1eb5c83381",
+  "size": 8424,
+  "target": "mc/Eaglerforge/favicon.png"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "1e22c55a7c2fa10371c4ce81627e104ed488ae48",
+  "size": 2189,
+  "target": "mc/Eaglerforge/index.html"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "1f215211224f6dacb8b40aa9c40cd4998fe689e6",
+  "size": 75886,
+  "target": "mc/Eaglerforge/lang/af_ZA.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "696db22ed3ab49e02fdfb61b8a167f1cccca408b",
+  "size": 92381,
+  "target": "mc/Eaglerforge/lang/ar_SA.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "3609c5962774721e68114032eb0ce858fc9ff389",
+  "size": 85749,
+  "target": "mc/Eaglerforge/lang/ast_ES.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "55b9969a7423a219db8ce6d02533ea61e33e325d",
+  "size": 73675,
+  "target": "mc/Eaglerforge/lang/az_AZ.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "2cf84af141f2f05af826883b079e6a978e5e3498",
+  "size": 166141,
+  "target": "mc/Eaglerforge/lang/bg_BG.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "0349e32d8576bed2bbc761fbf17c1065b38d5a65",
+  "size": 90420,
+  "target": "mc/Eaglerforge/lang/ca_ES.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "98886c6647e7b5e1d0ea78aa955229a66ced91ae",
+  "size": 122290,
+  "target": "mc/Eaglerforge/lang/cs_CZ.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "ec22514616edba4ebf559a6644a06e71a174c144",
+  "size": 69996,
+  "target": "mc/Eaglerforge/lang/cy_GB.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "b12ae315e0caa8f04b8e98ac5abb03a0d78d9086",
+  "size": 81844,
+  "target": "mc/Eaglerforge/lang/da_DK.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "2d2c656c91c7e564d009eb8d51b3e4353d19be79",
+  "size": 123909,
+  "target": "mc/Eaglerforge/lang/de_DE.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "169c4139cb7617b7f5ba3e7220580a2b71788b9a",
+  "size": 112265,
+  "target": "mc/Eaglerforge/lang/el_GR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "6fb6d55c738ab031dfd8453b78111626e1985dec",
+  "size": 78561,
+  "target": "mc/Eaglerforge/lang/en_AU.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "a36f127caebd59766766c0c7eb55c4b3e151ba32",
+  "size": 117224,
+  "target": "mc/Eaglerforge/lang/en_CA.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "445349bef4611b54573dd1a3b680b69ab49a10c7",
+  "size": 117031,
+  "target": "mc/Eaglerforge/lang/en_GB.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "97f141b29358dfc892f47df31c4082a73552165e",
+  "size": 90201,
+  "target": "mc/Eaglerforge/lang/en_PT.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "9f7789372e3409ce6439f32e4daf97b652ad05ee",
+  "size": 78124,
+  "target": "mc/Eaglerforge/lang/eo_UY.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "7fefa5dda0cf6c1a5168428cbfb80a9f4d2feab9",
+  "size": 123494,
+  "target": "mc/Eaglerforge/lang/es_AR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "be3459ce5938f489793191c6887e04d544c16261",
+  "size": 125750,
+  "target": "mc/Eaglerforge/lang/es_ES.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "fbec99e3b266b75f835a766dab23f59024aedd1a",
+  "size": 123120,
+  "target": "mc/Eaglerforge/lang/es_MX.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "d64d1d6a43e12c280c2b0bcc782be16e83b5dbd7",
+  "size": 85858,
+  "target": "mc/Eaglerforge/lang/es_UY.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "2fe9682ae1d3db7b54ff273a265dafb68815f741",
+  "size": 96783,
+  "target": "mc/Eaglerforge/lang/es_VE.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "9a7df7982b896939fe5a24d9625cc6fc1a36b4ce",
+  "size": 102593,
+  "target": "mc/Eaglerforge/lang/et_EE.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "511a7ad72d38ce6ee45a84589b2946c2301bfe42",
+  "size": 88473,
+  "target": "mc/Eaglerforge/lang/eu_ES.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "db421b74ab694e9858e875574009992b95daa099",
+  "size": 76178,
+  "target": "mc/Eaglerforge/lang/fa_IR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "65f91dd94c00c5384d1c0930521fa100a4d204a0",
+  "size": 113837,
+  "target": "mc/Eaglerforge/lang/fi_FI.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "09680817342f4a1dbbad07c4db4c6377d451f505",
+  "size": 74035,
+  "target": "mc/Eaglerforge/lang/fil_PH.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "02878a0aaef43b42c5119aeae5223b3e1e049133",
+  "size": 131217,
+  "target": "mc/Eaglerforge/lang/fr_CA.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "4120ba5734f27eaa0a2b3ec06048aba8b0ea4352",
+  "size": 129948,
+  "target": "mc/Eaglerforge/lang/fr_FR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "6321181937215ada8c7820fb9da2ceb5d968a9e2",
+  "size": 83864,
+  "target": "mc/Eaglerforge/lang/ga_IE.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "54cfa670e35d455e59f6611f9bda452d8ff29721",
+  "size": 71591,
+  "target": "mc/Eaglerforge/lang/gl_ES.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "c205ada1ac8b8b4e888128628986fc91fcce46ad",
+  "size": 69181,
+  "target": "mc/Eaglerforge/lang/gv_IM.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "20815f40d303d7adf7b4c13e29295e2500c713f1",
+  "size": 80785,
+  "target": "mc/Eaglerforge/lang/he_IL.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "a87a924b618d0099dcd1f7847607671f85364814",
+  "size": 93262,
+  "target": "mc/Eaglerforge/lang/hi_IN.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "18c5069ed01632017b709785a3428a2b3371a308",
+  "size": 122189,
+  "target": "mc/Eaglerforge/lang/hr_HR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "e387120ff861a8c1b50366b09ca68b5049eac099",
+  "size": 126360,
+  "target": "mc/Eaglerforge/lang/hu_HU.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "daf8da9eaaabb192eff9e89dec256174732224fd",
+  "size": 78431,
+  "target": "mc/Eaglerforge/lang/hy_AM.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "8c9bb70e3c6dbb9d8357c4a9dc0e08c0f315757a",
+  "size": 84740,
+  "target": "mc/Eaglerforge/lang/id_ID.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "1fe9a3e5425c4789fd89d05f79ac0f830cbadbca",
+  "size": 88071,
+  "target": "mc/Eaglerforge/lang/is_IS.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "45c6a38be1be2640c0e61d3c57d3b8cc048b5cdf",
+  "size": 130584,
+  "target": "mc/Eaglerforge/lang/it_IT.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "3901fb72718daba3ee71a5e974ed999f2c120df7",
+  "size": 140508,
+  "target": "mc/Eaglerforge/lang/ja_JP.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "ddb4f5e61b73c3d4815c7374e1fc7395a706095b",
+  "size": 211068,
+  "target": "mc/Eaglerforge/lang/ka_GE.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "73507b889540d876a9b2c1908d59275dbb23fe79",
+  "size": 133795,
+  "target": "mc/Eaglerforge/lang/ko_KR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "5458cf1ed32dd3e3ccef75b3f6c8f09f843c37e3",
+  "size": 71080,
+  "target": "mc/Eaglerforge/lang/kw_GB.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "6a67394b7aad95b61a30c125f87ef1cf9a7edc06",
+  "size": 72956,
+  "target": "mc/Eaglerforge/lang/la_LA.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "f3045c3917f4393052dc806f34434a94061b12f2",
+  "size": 91317,
+  "target": "mc/Eaglerforge/lang/lb_LU.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "1d3821201ebc8a7242849803835334b8f504e806",
+  "size": 133647,
+  "target": "mc/Eaglerforge/lang/lt_LT.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "2b5ee86290bc2a12afb3e5a9e86bd5378694ec17",
+  "size": 81437,
+  "target": "mc/Eaglerforge/lang/lv_LV.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "16ab161c00d0a593ca82f4a08129030c080138b3",
+  "size": 17524,
+  "target": "mc/Eaglerforge/lang/mi_NZ.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "9c05923c55ef5b66fd3d4b3e57f355914fc9f235",
+  "size": 70341,
+  "target": "mc/Eaglerforge/lang/ms_MY.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "383c5b27f73dee2fec4c85887f414160469e01bf",
+  "size": 92736,
+  "target": "mc/Eaglerforge/lang/mt_MT.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "3e3436cc5e17bded82036fd304f69b749185df23",
+  "size": 77218,
+  "target": "mc/Eaglerforge/lang/nds_DE.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "fc7f5717a8069f7bb4a60514cac0699665ade26f",
+  "size": 121179,
+  "target": "mc/Eaglerforge/lang/nl_NL.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "e782ddfbe2918fd0bf349cfc4391c3ef0b8d52c0",
+  "size": 70672,
+  "target": "mc/Eaglerforge/lang/nn_NO.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "72af82bb012be7c72147a23d17b4977c82c458a8",
+  "size": 82506,
+  "target": "mc/Eaglerforge/lang/no_NO.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "b2ec9a01c45ba7ba700fa2a310ace2b718e05435",
+  "size": 125048,
+  "target": "mc/Eaglerforge/lang/oc_FR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "f7447a7f15f988b3eeefdc03d7df430a4d4b27b8",
+  "size": 97025,
+  "target": "mc/Eaglerforge/lang/pl_PL.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "6a94e30b41e3b49c372661576b59b978fcb4c0c3",
+  "size": 124210,
+  "target": "mc/Eaglerforge/lang/pt_BR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "34bd6c6b60cd0795216c42aad86c67559f66bb9b",
+  "size": 97851,
+  "target": "mc/Eaglerforge/lang/pt_PT.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "765c9a64fbdf644af5d15f057e98f3f99871803a",
+  "size": 41454,
+  "target": "mc/Eaglerforge/lang/qya_AA.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "54da65c3cfbcd2489f6764aa733d97b31bbdbbf2",
+  "size": 125596,
+  "target": "mc/Eaglerforge/lang/ro_RO.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "8386797d4a33f70a037df764f13b33297dc5f6ab",
+  "size": 164431,
+  "target": "mc/Eaglerforge/lang/ru_RU.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "c7d15c1898681dae124a326fb08f2ad093fabbca",
+  "size": 15884,
+  "target": "mc/Eaglerforge/lang/se_NO.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "6d43efeadcc8873e11a651beb8d085b0edee4dfe",
+  "size": 87259,
+  "target": "mc/Eaglerforge/lang/sk_SK.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "1c644267d24d7b038cb23f3460346091602ff7f0",
+  "size": 70270,
+  "target": "mc/Eaglerforge/lang/sl_SI.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "c974d39abea61dfa0b64375b92519ed6532f2d54",
+  "size": 109208,
+  "target": "mc/Eaglerforge/lang/sr_SP.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "775698b7c2758fcefe5b0d1758cdf1d25fbabbf0",
+  "size": 119832,
+  "target": "mc/Eaglerforge/lang/sv_SE.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "cff92a170c2a89298e0dc00541883ccf92a06e78",
+  "size": 122405,
+  "target": "mc/Eaglerforge/lang/th_TH.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "d3ae7356f90b8689a3e1ec20336ec0ac967d0099",
+  "size": 48507,
+  "target": "mc/Eaglerforge/lang/tlh_AA.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "df2720352350864b6ef9e55ed7d3751b3c8f9555",
+  "size": 124126,
+  "target": "mc/Eaglerforge/lang/tr_TR.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "0e4572b8b35cd8c196360f29aefb4e86bbfba450",
+  "size": 164062,
+  "target": "mc/Eaglerforge/lang/uk_UA.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "be494cf6c2f5d1b73444e5146d933461bfb11284",
+  "size": 127376,
+  "target": "mc/Eaglerforge/lang/val_ES.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "486a8f67a6ff9e7fcefe844b287b15484a0d6c00",
+  "size": 142577,
+  "target": "mc/Eaglerforge/lang/vi_VN.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "63e64e2fa60243e7c3b9c04657bcb885b6a3e247",
+  "size": 113949,
+  "target": "mc/Eaglerforge/lang/zh_CN.lang"
+ },
+ {
+  "repo": "EaglerForge/EaglerForge-builds",
+  "sha": "fa63a74e520f21a3d49dbcd7543ad26d8f540f79",
+  "size": 118271,
+  "target": "mc/Eaglerforge/lang/zh_TW.lang"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "169d2bcbc1ba65fbe9cb7eb5a5b62a6c1f663348",
+  "size": 137,
+  "target": "mc/Eaglerforge/mods/auto-clicker.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "ae222b5e523da1040a7d05ef8bf740ca22ea4b19",
+  "size": 1776,
+  "target": "mc/Eaglerforge/mods/auto-login.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "917856f94f3dd69f9118a6597790c5f63a27a0bd",
+  "size": 273,
+  "target": "mc/Eaglerforge/mods/auto-respawn.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "63a99d258cd5f73aff6f4454d3d0197dc04d4aad",
+  "size": 1498,
+  "target": "mc/Eaglerforge/mods/autofish.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "2d33da9dbce96b4e47de07eb6fd4bfd9d996e1b3",
+  "size": 6810,
+  "target": "mc/Eaglerforge/mods/barneys-music.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "bf10f9ba597291007c5e767d81fac04c08b5f524",
+  "size": 5854,
+  "target": "mc/Eaglerforge/mods/blink.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "d59178fc7de64e420631bcb05e04630d2ede6125",
+  "size": 684,
+  "target": "mc/Eaglerforge/mods/blur.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "f8a87bff8984cf2974e9a8cb4615cde59f1113a6",
+  "size": 80293,
+  "target": "mc/Eaglerforge/mods/burmod.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "d385dccfe8aa2d28a5b7ecf695673c09475a2684",
+  "size": 5606,
+  "target": "mc/Eaglerforge/mods/chat-commands.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "6371f3df6360483ebb7c3a0e3bcabf4b0c463e9f",
+  "size": 1106,
+  "target": "mc/Eaglerforge/mods/chat-shortcuts.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "59d7e185706ef2529b266ab3e4abccbf088649f1",
+  "size": 1196,
+  "target": "mc/Eaglerforge/mods/eagler-homes.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "4e112b138da1332717cbb717332424166699cf81",
+  "size": 4191,
+  "target": "mc/Eaglerforge/mods/fresh-ui.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "a2d9c265f9e48d5511b5b3ebe5a4f95cf8e054d7",
+  "size": 608,
+  "target": "mc/Eaglerforge/mods/fullbright.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "a2ec7546763dc7a5432c790484802648e811171f",
+  "size": 2040,
+  "target": "mc/Eaglerforge/mods/grapple-hook.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "3714402036ef8c3f4aaefe0d902fd4b6854dbe72",
+  "size": 26315,
+  "target": "mc/Eaglerforge/mods/jei.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "ddc0e1df70f5782d10cb4f3ccd94391f97299b81",
+  "size": 437,
+  "target": "mc/Eaglerforge/mods/jetpack.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "ccdbc9e54d4f14f0d9091184375fd98aab5cc2ec",
+  "size": 384,
+  "target": "mc/Eaglerforge/mods/jump-boost.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "62737691492907f99470b272ed9577b81e9b933e",
+  "size": 465,
+  "target": "mc/Eaglerforge/mods/no-fall-damage.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "2c449fe0ae9708a30863f6ce3689226052644bb2",
+  "size": 2322,
+  "target": "mc/Eaglerforge/mods/player-vision.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "9634df45f2296af98ec4728056f4a4e497243f93",
+  "size": 314,
+  "target": "mc/Eaglerforge/mods/speed.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "224e4f9b3f35f11d346e9763c81edeb5a33f3133",
+  "size": 1136666,
+  "target": "mc/Eaglerforge/mods/stats.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "409f00e69f440cd01b7d02fdc5f7fdf21a163dcf",
+  "size": 1804,
+  "target": "mc/Eaglerforge/mods/xray.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "99c02acd7c50cea6a8abab42f098fd154d09a476",
+  "size": 1150268,
+  "target": "mc/Eclipse Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6595f7be346bc59931385c4463365ef803e78b8b",
+  "size": 46774872,
+  "target": "mc/Eclipse Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "2c2de197c3094f812b2625739207e1c6ebdc35ae",
+  "size": 2871,
+  "target": "mc/Forge 1.6.4/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6a32bb849998f9c319d075553535f1d7538dd4d4",
+  "size": 71192905,
+  "target": "mc/Forge 1.6.4/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "70254be8fb18b467193fb552cae110970b9b9430",
+  "size": 990793,
+  "target": "mc/Huzzium Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f5b12f2ab6c144ae6338ff26f7c6e3aeaa64982a",
+  "size": 15286205,
+  "target": "mc/Huzzium Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "e304e273b3cbcc249a9a149ae39d6a9cb03ea4ac",
+  "size": 1401581,
+  "target": "mc/Kozmo Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "47e393204ecc1c860a7ca31054df5559dd7bda9c",
+  "size": 67272908,
+  "target": "mc/Kozmo Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f8533b738a7060cc8c443c6ab0ab2b501c5bea34",
+  "size": 4347,
+  "target": "mc/Larp Client 1.12.2/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f90776b7287bd5373db30251df786d8a454e10bc",
+  "size": 25173577,
+  "target": "mc/Larp Client 1.12.2/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f8533b738a7060cc8c443c6ab0ab2b501c5bea34",
+  "size": 4347,
+  "target": "mc/Larp Client 1.14.4/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "bb9ca9cd92894ac98ae7a79bd84f0ea457bcb2d5",
+  "size": 44016899,
+  "target": "mc/Larp Client 1.14.4/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "3873b73f405ab3fef0f70be8e0dbf091e4fb0b5c",
+  "size": 34892152,
+  "target": "mc/Modern Client/assets.epk"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "89cd596923438b0fb94872ac67a208201f85ad11",
+  "size": 8127803,
+  "target": "mc/Modern Client/classes.wasm"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "64aa55ae78a27da10a5b3e3756b428811c2015b3",
+  "size": 34676,
+  "target": "mc/Modern Client/classes.wasm-deobfuscator.wasm"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "bab9aeb99098115ef6056312cb9380f18fc3a35d",
+  "size": 1496251,
+  "target": "mc/Modern Client/classes.wasm.teadbg"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "0daab99aadc141ed374b01e726cddbd88af9c316",
+  "size": 3916,
+  "target": "mc/Modern Client/crashLogo.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "1dbccf8fb4d16f468893d8709d2efdaf8d72787a",
+  "size": 107127,
+  "target": "mc/Modern Client/eagruntime.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "278002d3b5b4653afe2e2b3f0097593df698709c",
+  "size": 326416,
+  "target": "mc/Modern Client/enableJSPIScreen.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "ec4f78685da52b6ec86cd0b2f9ddddd682aec5ff",
+  "size": 260,
+  "target": "mc/Modern Client/epw_meta.txt"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "a937ff0d3b0a1f9089879d665644ca46f9ce76b9",
+  "size": 843,
+  "target": "mc/Modern Client/epw_src.txt"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "766418648a5a4af5b615a717b82cfc77226232b6",
+  "size": 182686,
+  "target": "mc/Modern Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "c097c53eb460f04821c2b20fd3d00387c9b0c938",
+  "size": 4252,
+  "target": "mc/Modern Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "2974755078857764a12ccb5892f95291a2c34ae7",
+  "size": 10189,
+  "target": "mc/Modern Client/loader.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "de16ec8b75ff38ef6886e11c7541109ac57bb041",
+  "size": 30167,
+  "target": "mc/Modern Client/loader.wasm"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6f62becb32bfe6ac3bfeb00d0f608c6384933751",
+  "size": 1104,
+  "target": "mc/Modern Client/pressAnyKey.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "e9fd01b73872a70b2c7af2d6e002d951fd2c8853",
+  "size": 30775,
+  "target": "mc/Modern Client/splash.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "508fe1c9a63e7810e9776badae4b9f73d1e2772e",
+  "size": 1823356,
+  "target": "mc/Myven Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "33dd6b2fc1cf22bd3556c3ef263c8a583f212b06",
+  "size": 84032731,
+  "target": "mc/Myven Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "72cd65a1647972ea1aa51a32838e9cff30be9a47",
+  "size": 848,
+  "target": "mc/Precision Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7822ac83d0238a78201d11a097fea54f4e6ec42e",
+  "size": 33679575,
+  "target": "mc/Precision Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "c1e619911bff3d46f7b24cb74a061a00972cf0cc",
+  "size": 772,
+  "target": "mc/Reflex Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "071a06c8e340b6490c2a2ab569d8e5bbf64deb76",
+  "size": 26170303,
+  "target": "mc/Reflex Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "467ecd447c9920c6e9c35477fcfe3a732f7f1d01",
+  "size": 258424,
+  "target": "mc/Shadow Network/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "3d2bdf46900324682874ef26afa2f661ac982e76",
+  "size": 49926394,
+  "target": "mc/Shadow Network/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "d75576e21ba5c1ad4cfa684aa9049a856c425617",
+  "size": 19990,
+  "target": "mc/The Broken Script 1.8.8/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "34f8abccdb0f6a9e84d4af97fa37de1b4234749e",
+  "size": 61863790,
+  "target": "mc/The Broken Script 1.8.8/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "b3f1951a18b5c2c62b6fb91f50ca4619c237ce41",
+  "size": 3386,
+  "target": "mc/Tuff Client Beta/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "5eb82590ddc0b8669dece94a20b1d5f1baefa2d9",
+  "size": 30871765,
+  "target": "mc/Tuff Client Beta/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "b3f1951a18b5c2c62b6fb91f50ca4619c237ce41",
+  "size": 3386,
+  "target": "mc/Tuff Client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "ec1378f1a3e4f931d72ad3f133924864b4c6b9ff",
+  "size": 33998118,
+  "target": "mc/Tuff Client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "45fc7961c131312fce6d3df8fc79139c52e0d4e7",
+  "size": 20396720,
+  "target": "mc/alpha-1.0.16_02-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "1fb7884d0c784cb24872d8ea304cd35ef80b01c5",
+  "size": 2309358,
+  "target": "mc/alpha-1.0.1_01/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6bed47ccfb3ef07c3fe3c184ed0a0d4f5d3937f4",
+  "size": 2316776,
+  "target": "mc/alpha-1.0.4/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "fb45bf6a3652e55828053f13e2724ec2e3fca83d",
+  "size": 43841336,
+  "target": "mc/alpha-1.0.6_03/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "c58fc5a6f14578ddc95ef1c5237c91067e8745fe",
+  "size": 34428670,
+  "target": "mc/alpha-1.1.2_01/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "aac8f53fbf6fe65b8822b0dfd403fc1a76517c56",
+  "size": 2065182,
+  "target": "mc/beta-1.0.2/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "eb16559f45c329f4417acb007c81fd9cbb01afb0",
+  "size": 16627982,
+  "target": "mc/beta-1.0/assets.epk"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "a704d119ac508aecfb20f1d2458c4b83b74e207a",
+  "size": 2237114,
+  "target": "mc/beta-1.0/classes.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "c6be4c45403ad30fa4f15bf4f63bf69d9afd6c9e",
+  "size": 489715,
+  "target": "mc/beta-1.0/classes.js.map"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "404b1249fb4e3b38075f046676e4a661b32b50db",
+  "size": 1484,
+  "target": "mc/beta-1.0/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "e075a5a336ff54745b1d2178c4f0a4f2be2025b8",
+  "size": 26021166,
+  "target": "mc/beta-1.2/assets.epk"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "04997e084fe6d0846ed1342cbe4cdd5a80e4e588",
+  "size": 2398643,
+  "target": "mc/beta-1.2/classes.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "221759da011940ce4079b2bbee7255e3871bb4c3",
+  "size": 514043,
+  "target": "mc/beta-1.2/classes.js.map"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/beta-1.2/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "672a8c3bffd4219794f0a32de89341f3e0942719",
+  "size": 1499,
+  "target": "mc/beta-1.2/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "33de1f12c1f47738fcb2c219ccb2095280e097e4",
+  "size": 20813642,
+  "target": "mc/beta-1.3-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "91abf89ee0665d5f6ae67cc035ff63aa4fb21a0e",
+  "size": 16723976,
+  "target": "mc/beta-1.4/assets.epk"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "752bfa195fcdafb73b677922b9ae33cf93fbcf05",
+  "size": 13149091,
+  "target": "mc/beta-1.4/classes.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/beta-1.4/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "bb36e7f88d6dd33e19f0745f9f754e556c4fd0fc",
+  "size": 1525,
+  "target": "mc/beta-1.4/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/beta-1.5/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "932778c5c2cd5ee7f129be283538144464ec6f0b",
+  "size": 18824876,
+  "target": "mc/beta-1.5/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/beta-1.6.4/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "76d734b596e8f22be619430b2d7eacd5c2fca895",
+  "size": 37925542,
+  "target": "mc/beta-1.6.4/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/beta-1.8.1-wasm/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "16184706d3b9502b34856d32665a54bc9007bc8a",
+  "size": 21678388,
+  "target": "mc/beta-1.8.1-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/beta-1.8.1/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "2efe625e9af0299fc0027298f4feb2c367e8bb88",
+  "size": 25078223,
+  "target": "mc/beta-1.8.1/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "37e1dd038a02d5e6899cad96c811322b548063d8",
+  "size": 23696324,
+  "target": "mc/beta-1.9-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7bf86843f3ee14f63c70ed23d7705ab8f776c44c",
+  "size": 25799658,
+  "target": "mc/beta-1.9/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "5009fd1039b104be54ebbb414520e13f4c9096bb",
+  "size": 2072316,
+  "target": "mc/c0.30/assets.epk"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "78a7eb9f85b2d68ae25d7dbcc43ad7b26eb0dce4",
+  "size": 1416876,
+  "target": "mc/c0.30/classes.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "4f4d4d00397b30953aa7228d5770516fbabdae3f",
+  "size": 302996,
+  "target": "mc/c0.30/classes.js.map"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f9aa8e75f2f1b7af31c24c3e4c809eda20f65dfc",
+  "size": 850,
+  "target": "mc/c0.30/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "a4fa5496f1a91e5de021184cc25ea76273911fcc",
+  "size": 967647,
+  "target": "mc/classic-0.0.11a-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "b42fd96355064ccb28ed356f4abccad494c0ddb6",
+  "size": 980602,
+  "target": "mc/classic-0.0.12a-03-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "4d3704a885332497aed10a0f6d47728c58e725cd",
+  "size": 992578,
+  "target": "mc/classic-0.0.13a-03-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "e5a02854c1b3303cc4b69564f3293093926b47ce",
+  "size": 1025690,
+  "target": "mc/classic-0.0.14a-08-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6e074ff0f603bc759c3f70206bb259204f64a0b3",
+  "size": 1048223,
+  "target": "mc/classic-0.0.15a-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "570770ac1201edd75884c06a4007485fe14d6f57",
+  "size": 1053066,
+  "target": "mc/classic-0.0.16a-02-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "656b4ab6d852230429cb9978d6ad68c143d1a53c",
+  "size": 1058376,
+  "target": "mc/classic-0.0.17a-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "5a7e57703e99dbc599351d12b95a65b95396d81e",
+  "size": 1063982,
+  "target": "mc/classic-0.0.18a-02-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "c49cda605a4476496cda6d799bcda12697eb9f0a",
+  "size": 1075910,
+  "target": "mc/classic-0.0.19a-06-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "41f4b386e6066ea6075e33dc914383b02277627b",
+  "size": 1087397,
+  "target": "mc/classic-0.0.20a-02-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7cff7417242d230e9e513e23b4aaaa9f61339f99",
+  "size": 1088472,
+  "target": "mc/classic-0.0.21a-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "396cf940dbd747ac1a5e8c81c32748ca8a2f943e",
+  "size": 9988102,
+  "target": "mc/classic-0.0.22a-05-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "e346a14229e14c5e87a7ff97cb62981d3e23eed2",
+  "size": 10009463,
+  "target": "mc/classic-0.0.23a-01-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "cb1cbda2ce48d802a96e47369dd588e93858e537",
+  "size": 10035295,
+  "target": "mc/classic-0.0.24a-03-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f0ff75c3a6310e164f224e21c682bd2a0ad41441",
+  "size": 10042186,
+  "target": "mc/classic-0.0.25a-05-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "3d152d8518ee4e1c7bce3d0c3b9deea840baebd9",
+  "size": 5548,
+  "target": "mc/efi-1.12.2/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "ef6a710822dacdb94f8cd50001bfe2ed24d1c6cb",
+  "size": 85514220,
+  "target": "mc/efi-1.12.2/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "3d152d8518ee4e1c7bce3d0c3b9deea840baebd9",
+  "size": 5548,
+  "target": "mc/efi-1.8.8/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "d6b21ec30ce783d571e218533973d8868d1e3c71",
+  "size": 78479974,
+  "target": "mc/efi-1.8.8/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "86c258fb1cc04b31c2463d94655fcaf286cc6746",
+  "size": 21188427,
+  "target": "mc/indev-20100219-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "749fcd5e78dc98e9b21e681a5cc1edd83f9b431b",
+  "size": 21254888,
+  "target": "mc/indev-20100223-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "46f31992a8d9ed84605953eb40a73e291ffbe829",
+  "size": 1150978,
+  "target": "mc/indev/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/infdev-wasm/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "c96d0d1005bc5d61d5927956a9d83a3ced972de9",
+  "size": 1421180,
+  "target": "mc/infdev-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "91aa82c53c5a13bbb81ef1999cce7b55cad5b034",
+  "size": 262199,
+  "target": "mc/infdev/assets.epk"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "1102db32beebedc3d74fbb224a5bd94a7c28cdcb",
+  "size": 1669212,
+  "target": "mc/infdev/classes.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "130c0a975eb974579fbf7e59b2a524cea3c5f5a5",
+  "size": 343590,
+  "target": "mc/infdev/classes.js.map"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6423f9ac015912b0cc9411dddb51d54f9bdf1197",
+  "size": 844,
+  "target": "mc/infdev/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/ir/1.12.2-wasm/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "416ce3478a6615fc128c43debd95d75361e6199e",
+  "size": 25066800,
+  "target": "mc/ir/1.12.2-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/ir/1.12.2/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "65e87f60f9520d67d800a4de7fef602148e214d6",
+  "size": 83354158,
+  "target": "mc/ir/1.12.2/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "b1fc10e69d2aba1f05f5b37833caf174b177ffcb",
+  "size": 6267505,
+  "target": "mc/ir/1.2.5/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "3d1981c472278e0cfe825b43a6eb0a628f5e1dbb",
+  "size": 6743383,
+  "target": "mc/ir/1.5.2/assets.epk"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "89690840b21aee9b0e0c189804886eb64e6afa8c",
+  "size": 6081184,
+  "target": "mc/ir/1.5.2/classes.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7449b5255e668a68b8ec2fb7e53662ecc695334e",
+  "size": 2301182,
+  "target": "mc/ir/1.5.2/classes.js.map"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "2a5b11eb36e0483e53a04c5c2bdf7cad6f74b428",
+  "size": 8445572,
+  "target": "mc/ir/1.5.2/classes_server.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "3a606e8d0f4305b816f164ba021bd09bc19a7516",
+  "size": 3299671,
+  "target": "mc/ir/1.5.2/classes_server.js.map"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "af5b6bad7fe31d0369acb2f811e6b893214affe9",
+  "size": 12802,
+  "target": "mc/ir/1.5.2/eagswebrtc.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/ir/1.5.2/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "b663156dc20f6f3b0fe4db41eabab708487ba636",
+  "size": 2796,
+  "target": "mc/ir/1.5.2/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f64671eb59c29eba0ca445042a22847f1fcc9d20",
+  "size": 108,
+  "target": "mc/ir/1.5.2/worker_bootstrap.js"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/ir/1.6.4/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "fd326d91dd4afabba2932b6d9fd4cc7ccac547e2",
+  "size": 30059254,
+  "target": "mc/ir/1.6.4/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "95a49a630681fd23b205d890bf4249bc48315f39",
+  "size": 15129081,
+  "target": "mc/ir/1.8.8-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "71df2696dfc8f1d52a2d3e7f1231abe12e3c34ce",
+  "size": 26497704,
+  "target": "mc/ir/1.8.8/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/ir/alpha-1.2.6/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "13d642e6625c87d4339414ee77b6d7ddfebc47a4",
+  "size": 8644309,
+  "target": "mc/ir/alpha-1.2.6/index.html"
+ },
+ {
+  "repo": "AstraClientOrg/AstraClientOrg.github.io",
+  "sha": "244aa53be57397c7f0447e2489762fe0454990e5",
+  "size": 59214986,
+  "target": "mc/ir/astra-client-wasm/index.html"
+ },
+ {
+  "repo": "eaglercrafthub/eaglercrafthub.github.io",
+  "sha": "6bcb21837aa612e7f96f858cb0eb178c2813245f",
+  "size": 70457776,
+  "target": "mc/ir/astra-client/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/ir/beta-1.1/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f8b2a0eac0d537e7c534ed95155d635d2b756c1b",
+  "size": 24414610,
+  "target": "mc/ir/beta-1.1/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "704ae7590da10810fef240381c757b84518e4d29",
+  "size": 22139380,
+  "target": "mc/ir/beta-1.3/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/ir/beta-1.7.3/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "8428edc5c542777a1b6327400819e92af3f5ba8f",
+  "size": 16296998,
+  "target": "mc/ir/beta-1.7.3/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "f58a68a2fea47f8a0496ff2d3cb9a416f75fd698",
+  "size": 3790,
+  "target": "mc/ir/classic-0.3.0-wasm/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "9eb74ff8167f7c8137d817950c1c536c859e1dc3",
+  "size": 3750171,
+  "target": "mc/ir/classic-0.3.0-wasm/index.html"
+ },
+ {
+  "repo": "Tucky143/Archive",
+  "sha": "3f2b66eff0a96ec687e86196472e2e0447a63165",
+  "size": 25440886,
+  "target": "mc/ir/pixelclient-1.12.2-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "a612aeab171fac5765f541249910eaa58427f8f5",
+  "size": 65973,
+  "target": "mc/ir/pixelclient-1.12.2/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "7b1e8f211b0ad126f9b3e187b111e7146d656fe6",
+  "size": 26494350,
+  "target": "mc/ir/pixelclient-1.12.2/index.html"
+ },
+ {
+  "repo": "Tucky143/Archive",
+  "sha": "0be8267c825f0fda5f3eebcaa3a507e830715593",
+  "size": 15492173,
+  "target": "mc/ir/pixelclient-1.8.8-wasm/index.html"
+ },
+ {
+  "repo": "eaglercrafthub/eaglercrafthub.github.io",
+  "sha": "0bb6ce3aa8f5c2f46116152c98e67c216ec7d973",
+  "size": 30588771,
+  "target": "mc/ir/pixelclient-1.8.8/index.html"
+ },
+ {
+  "repo": "Eaglercraft-Archive/Resent-3.8_Patch-0-offline",
+  "sha": "4f3a6471ccee5d0f92b9f66179fc79dc0f86df2c",
+  "size": 37659212,
+  "target": "mc/ir/resent-client-3.8/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "a17030737f5154411e144cd3310d51fab5fd2456",
+  "size": 58600,
+  "target": "mc/ir/resent-client/favicon.png"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "9ec8fe6ab5b50829a8849de476a212330316a7ff",
+  "size": 18825211,
+  "target": "mc/ir/resent-client/index.html"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "c0e4e1983aae534729d4a422233f3ca216b412b5",
+  "size": 11685398,
+  "target": "mc/ir/starlike-client/assets.epk"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "87c9d833bcdd864b5699ae6d7940302c4b708f2f",
+  "size": 15071727,
+  "target": "mc/ir/starlike-client/classes.js"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "3ec927b5f2d1a0fe10da3c91d303b738f7e19870",
+  "size": 2952452,
+  "target": "mc/ir/starlike-client/classes.js.map"
+ },
+ {
+  "repo": "yummyfiles/Minecraft-Launcher",
+  "sha": "28cb6d83b4891af5d638bdbcfc33a3295cab71b6",
+  "size": 2288350,
+  "target": "mc/ir/starlike-client/index.html"
+ },
+ {
+  "repo": "nx13chillguy/TuffClient-Archive",
+  "sha": "479dd4092b8efcee6179b872227b09ccbfdec739",
+  "size": 24044391,
+  "target": "mc/ir/tuff-client-1.12.2-wasm/index.html"
+ },
+ {
+  "repo": "Inca2026/Winston-Client-Eaglercraft",
+  "sha": "ec4aba8e2aa4b62f99b4636de3ae98f5df8d763a",
+  "size": 5767168,
+  "target": "mc/ir/winston-horror/index.html"
+ },
+ {
+  "repo": "eaglercrafthub/eaglercrafthub.github.io",
+  "sha": "30102af3e9088693468c7d5bedc2129ffb94857d",
+  "size": 26000291,
+  "target": "mc/ir/z1.11/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "e23c0aa6cbac378bdaf1467ea59d77321f2a866b",
+  "size": 938550,
+  "target": "mc/pre-classic-rd-131655-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "1de84dbcb15ffa5829418b26837f0f4abfa4a81b",
+  "size": 942986,
+  "target": "mc/pre-classic-rd-132211-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "6eed8893fc4e1e8c491c8f25f4f780d672702674",
+  "size": 950006,
+  "target": "mc/pre-classic-rd-132328-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "389847138c9c810a75e1d06a110c8fa077c17d38",
+  "size": 957174,
+  "target": "mc/pre-classic-rd-160052-wasm/index.html"
+ },
+ {
+  "repo": "theveil-media/AmplerLauncher",
+  "sha": "38f659297ef7454595e59977c8ca70c6f8bb41c6",
+  "size": 961846,
+  "target": "mc/pre-classic-rd-161348-wasm/index.html"
+ }
+]
