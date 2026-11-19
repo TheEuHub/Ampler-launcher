@@ -408,8 +408,8 @@ head('3. CSS scales, the phone block is isolated');
             check(panelWidths.length === 0,
                 'no screen restates its width at the breakpoint (all follow the rail token)' +
                 (panelWidths.length ? ' (found: ' + panelWidths.join(', ') + ')' : ''));
-            check(!/#settings\s*\{[^}]*height:/.test(narrow),
-                'no screen restates its height at the breakpoint either');
+            check(/height:\s*calc\(100dvh - var\(--chrome-h\)\)/.test(narrow),
+                'phone panels follow the dynamic viewport height');
         }
         const phoneBlock = narrow.slice(narrow.search(/@media[^{]*max-width:\s*768px/));
         const tk = (name) => {
@@ -466,18 +466,16 @@ head('3. CSS scales, the phone block is isolated');
     } else {
         const bare = sizeCss.slice(phoneAt).replace(/\/\*[\s\S]*?\*\//g, '');
         const guarded = /max-width:\s*768px/.test(bare) && /max-height:\s*480px/.test(bare);
-        const only = (bare.match(/@media/g) || []).length === 1;
-        const pxOnly = !/\d(?:\.\d+)?vw/.test(bare);
         let depth = 0;
         for (const ch of bare) {
             if (ch === '{') depth++;
             else if (ch === '}') depth--;
         }
-        const closedLast = depth === 0;
-        guarded && only && pxOnly && closedLast
-            ? ok('phone sizing is one px-only block in the last (max-width 768px / max-height 480px) query')
-            : bad('phone media query: guarded=' + guarded + ' singleBlock=' + only +
-                  ' pxOnly=' + pxOnly + ' closedLast=' + closedLast);
+        const touchLayout = /grid-template-columns:\s*minmax\(0, 1fr\)/.test(bare) &&
+            /overflow-x:\s*auto/.test(bare) && /overflow-y:\s*auto/.test(bare);
+        guarded && touchLayout && depth === 0
+            ? ok('phone and landscape layouts use a flexible bar and scrollable navigation')
+            : bad('phone layout: guarded=' + guarded + ' touchLayout=' + touchLayout + ' balanced=' + (depth === 0));
     }
 
     /* ---- every theme repaints the whole launcher, not just the accent ---- */
@@ -1409,6 +1407,16 @@ if (!JSDOM) {
         assert(d.getElementById('drop').getAttribute('tabindex') === '0' &&
                d.getElementById('userbox').getAttribute('tabindex') === '0',
             'the version selector and the username are reachable by Tab');
+
+        const userBox = d.getElementById('userbox');
+        const userInput = d.getElementById('inlineUsernameInput');
+        userBox.dispatchEvent(new win.MouseEvent('click', { bubbles: true }));
+        assert(userBox.classList.contains('usernameEditing'), 'tapping the username opens its editor');
+        key(userInput, 'Escape');
+        key(userBox, 'Enter');
+        assert(userBox.classList.contains('usernameEditing'), 'keyboard users can open the username editor');
+        key(userInput, 'Enter');
+        assert(!userBox.classList.contains('usernameEditing'), 'committing the username does not reopen the editor');
 
         win.webedition();
         await sleep(20);

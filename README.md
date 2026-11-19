@@ -79,6 +79,7 @@ node tests/security.test.cjs            # URL and sandbox regression tests
 
 npm i puppeteer-core                     # or set $BROWSER_PATH
 node tests/browser-test.mjs              # optional live-browser pass
+node tests/mobile-test.mjs               # touch layouts; set BROWSER_PATH if needed
 ```
 
 The checks cover the shell's local resources, the catalogue↔disk↔manifest
@@ -105,3 +106,11 @@ individually before redistribution: no repository-wide license has been establis
 
 Resent Client 5.1 Patch 1 WASM is sourced from
 [its upstream release](https://github.com/Elite4r/Resent-Client/releases/tag/v5.1-patch-1).
+
+## Mobile use
+
+The launcher supports touch-sized controls and scrollable navigation on phones and
+tablets, including landscape. Choose the Mobile/Controller edition in the left
+rail for clients intended for touch input. Individual third-party clients may
+still require a keyboard, controller, a supported browser, or landscape mode;
+the launcher cannot add touch controls to clients that do not provide them.

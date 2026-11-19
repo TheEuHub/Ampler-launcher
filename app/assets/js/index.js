@@ -2813,6 +2813,11 @@
         }
 
         var userBox = el('userbox');
+        if (userBox) userBox.addEventListener('keydown', function (event) {
+            if (event.target !== userBox || (event.key !== 'Enter' && event.key !== ' ')) return;
+            event.preventDefault();
+            window.editUser();
+        });
         var userInput = el('inlineUsernameInput');
         if (userInput) {
             userInput.addEventListener('keydown', function (event) {
