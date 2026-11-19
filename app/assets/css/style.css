@@ -440,7 +440,9 @@ hr {
     height: var(--bar-h);
     justify-content: space-around;
     display: none;
-    background-color: var(--ui-main);
+    /* No solid strip: the controls float over the game art. The selector and
+       the username carry their own backgrounds so they stay readable. */
+    background-color: transparent;
     z-index: 500;
 }
 
@@ -2363,9 +2365,9 @@ body {
 }
 
 #gameSelection {
-    background-color: var(--ml-bar);
-    border-top: 0.1vw solid var(--ml-border);
-    box-shadow: 0 -0.15vw 0.6vw rgba(0, 0, 0, 0.45);
+    background-color: transparent;
+    border-top: none;
+    box-shadow: none;
 }
 
 /* The version selector is part of the launch bar: same colour while idle,
@@ -2388,6 +2390,7 @@ body {
 .username {
     border-radius: var(--ml-radius);
     border: 0.1vw solid transparent;
+    background-color: var(--ml-bar);
     transition: border-color 0.15s, background-color 0.15s;
 }
 

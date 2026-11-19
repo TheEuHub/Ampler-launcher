@@ -243,5 +243,12 @@
     "icon": "./assets/images/mc-icons/tnt.png",
     "link": "./mc/beta-1.6.4/",
     "active": true
+  },
+  {
+    "title": "Resent Client 5.1",
+    "version": "v5.1-patch-1-wasm",
+    "icon": "./assets/images/icons/resent-client.png",
+    "link": "./mc/ir/resent-client-5.1/",
+    "active": true
   }
 ]

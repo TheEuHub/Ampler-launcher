@@ -774,6 +774,9 @@ if (!JSDOM) {
 
     let bootError = null;
     try {
+        for (const name of ['url-policy.js', 'launch.js', 'install-sandbox.js']) {
+            win.eval(readFileSync(join(ROOT, 'assets/js', name), 'utf8'));
+        }
         win.eval(readFileSync(join(ROOT, 'assets/js/jszip-local.js'), 'utf8'));
         win.eval(readFileSync(join(ROOT, 'assets/js/skins.js'), 'utf8'));
         win.eval(readFileSync(join(ROOT, 'assets/skins/list.js'), 'utf8'));

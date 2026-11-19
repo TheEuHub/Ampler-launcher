@@ -5,8 +5,7 @@ Ampler is a browser launcher for a collection of Eaglercraft builds, with editio
 ## Repository layout
 
 ```
-index.html          "Blockhop" - a standalone cover site for static hosting; its
-                    Settings popup hides a "continue to site" link into app/
+index.html          HTML cover page with a direct link to the launcher in app/
 README.md           this file
 
 app/                the launcher itself - serve this directory (tools/serve.py roots here)
@@ -27,16 +26,15 @@ tools/              things that run or rebuild the launcher
 
 tests/              things that check the launcher
   test_integrity.py    fast structural unittest (python3 -m unittest discover -s tests)
-  verify-offline.mjs   full offline verification (178 checks; needs node, jsdom optional)
+  verify-offline.mjs   offline verification (needs node, jsdom optional)
   browser-test.mjs     optional headless live-browser pass (needs puppeteer-core)
 ```
 
-Nothing outside `app/` is served to players, with one deliberate exception: the
-launcher fetches `./tools/upstream-files.json` for its Downloads screen, and
-`tools/serve.py` exposes exactly that one file. When the repository root itself
-is hosted statically, visitors land on the root `index.html` cover page
-instead of the launcher; opening its Settings and scrolling to the bottom
-corner reveals the way into `app/`.
+The local server serves `app/`; the Downloads screen reads the copy of the
+recovery manifest in `app/assets/json/upstream-files.json`. Keep that copy in
+sync with `tools/upstream-files.json` when updating the recovery manifest.
+When the repository root is hosted statically, `index.html` is the cover page
+and links directly to `app/`.
 
 ## Run locally
 
@@ -45,7 +43,7 @@ python3 tools/serve.py --port 8000 --no-browser
 ```
 
 Open <http://localhost:8000/>. The server supplies cross-origin isolation
-headers for the WASM builds; `--host` and `--port` change the address. The same
+headers for the WASM builds; `--host` and `--port` change the address. The server binds to localhost by default; use `--lan` only on a trusted network to expose it to other devices. The same
 thing can be started by double-clicking `tools/start-offline.sh`,
 `tools/start-offline.command` (macOS) or `tools/start-offline.bat` (Windows).
 To host your own offline multiplayer server, see `app/assets/server/README.md`.
@@ -75,8 +73,9 @@ only complete, verified folders so the UI keeps missing clients disabled.
 ```sh
 python3 -m unittest discover -s tests   # fast structural checks
 
-npm i jsdom                              # enables the live-DOM group
-node tests/verify-offline.mjs            # 178 checks, all offline
+npm install --no-save --no-package-lock jsdom@22 # enables the live-DOM group
+node tests/verify-offline.mjs            # offline suite including DOM tests
+node tests/security.test.cjs            # URL and sandbox regression tests
 
 npm i puppeteer-core                     # or set $BROWSER_PATH
 node tests/browser-test.mjs              # optional live-browser pass
@@ -91,5 +90,18 @@ launcher, and an end-to-end URL sweep through the real server.
 The recovered upstream files are documented sources, not proof of byte-for-byte
 identity with the missing original unified build. Client artwork was recovered
 from each corresponding upstream client favicon where available, so icons are
-not necessarily byte-identical to the original artwork. Everything in the
-catalogue is complete and playable offline.
+not necessarily byte-identical to the original artwork. The catalogued files are present locally; individual client functionality depends on browser compatibility.
+
+## Security and compatibility
+
+Bundled clients are third-party code and run with the permissions of their host origin.
+Only use clients you trust, and do not host sensitive applications on the same origin.
+Imported HTML is placed in an opaque-origin sandbox; its Storage shim preserves basic
+localStorage values, but IndexedDB is unavailable, so world persistence may not work.
+The sandbox is not a substitute for trusting downloads or remote URLs. The launcher CSP
+still permits inline scripts and eval for compatibility with blob-based clients; it is
+not a complete defense against script injection. Review bundled upstream licenses
+individually before redistribution: no repository-wide license has been established.
+
+Resent Client 5.1 Patch 1 WASM is sourced from
+[its upstream release](https://github.com/Elite4r/Resent-Client/releases/tag/v5.1-patch-1).

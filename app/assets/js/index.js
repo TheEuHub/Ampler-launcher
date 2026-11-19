@@ -27,8 +27,10 @@
      * ------------------------------------------------------------------ */
 
     var memoryStore = {};
+    var volatileKeys = {};
 
     function sGet(key) {
+        if (volatileKeys[key]) return memoryStore[key];
         try {
             var v = window['localStorage'].getItem(key);
             return v === null ? null : v;
@@ -37,19 +39,44 @@
         }
     }
 
+    // Set when a write had to fall back to memory. The UI reads this so a
+    // "saved" message never lies about data that will vanish on reload.
+    var storageFailure = null;
+
     function sSet(key, value) {
         var str = String(value);
         memoryStore[key] = str;
-        try { window['localStorage'].setItem(key, str); } catch (e) { /* private mode */ }
+        try {
+            window['localStorage'].setItem(key, str);
+            delete volatileKeys[key];
+        } catch (e) {
+            volatileKeys[key] = true;
+            var wasFailing = !!storageFailure;
+            storageFailure = e && e.name === 'QuotaExceededError'
+                ? 'This browser is out of space for launcher data, so the change was only kept for this session.'
+                : 'This browser is blocking local storage, so the change was only kept for this session.';
+            if (!wasFailing && typeof storageNotice === 'function') storageNotice(storageFailure);
+        }
+    }
+
+    function storageNotice(text) {
+        // toast() is defined further down; keep this side-effect free until then.
+        if (typeof notice === 'function') notice(text, 'STORAGE', '#ffd23f');
+    }
+
+    function storageHealthy() {
+        return storageFailure === null;
     }
 
     function sRemove(key) {
         delete memoryStore[key];
+        delete volatileKeys[key];
         try { window['localStorage'].removeItem(key); } catch (e) {}
     }
 
     function sClear() {
         memoryStore = {};
+        volatileKeys = {};
         try { window['localStorage'].clear(); } catch (e) {}
     }
 
@@ -141,7 +168,7 @@
 
     var catalogCache = {};
     // The recovery tool writes this only after checking every file in each build.
-    var upstreamAvailability = fetch('./mc/upstream-availability.json', { cache: 'no-cache' })
+    var upstreamAvailability = fetch('./mc/upstream-availability.json')
         .then(function (r) { return r.ok ? r.json() : []; })
         .catch(function () { return []; });
 
@@ -150,7 +177,9 @@
             catalogCache[path] = Promise.resolve()
                 .then(function () {
                     if (typeof fetch !== 'function') throw new Error('fetch unavailable');
-                    return fetch(path, { cache: 'no-cache' });
+                    // Let the browser revalidate instead of downloading every
+                    // catalogue again on each load.
+                    return fetch(path);
                 })
                 .then(function (res) {
                     if (!res.ok) throw new Error('HTTP ' + res.status + ' for ' + path);
@@ -953,7 +982,7 @@
             .then(function (r) { if (!r.ok) throw new Error('EaglerForge is missing'); })
             .then(function () {
                 if (modsData) return modsData;
-                return fetch('./assets/json/mods.json', { cache: 'no-cache' }).then(function (r) {
+                return fetch('./assets/json/mods.json').then(function (r) {
                     if (!r.ok) throw new Error('mod list is missing');
                     return r.json();
                 });
@@ -988,7 +1017,7 @@
             renderNotesIndex(list);
         };
         if (notesData) { render(notesData); return; }
-        fetch('./assets/json/patchnotes.json', { cache: 'no-cache' })
+        fetch('./assets/json/patchnotes.json')
             .then(function (r) { return r.json(); })
             .then(render)
             .catch(function () {});
@@ -1000,7 +1029,7 @@
         menu.innerHTML =
             '<div class="bolded notescreenheader">' +
             '<p>' + escapeHtml(title) + '</p>' +
-            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" onclick="closenotescreen()"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-action="closenotescreen"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>' +
             '</div><hr><div class="notescreendetails">' + html + '</div>';
         menu.style.display = 'flex';
     }
@@ -1037,7 +1066,7 @@
             '<p class="bolded patchnoteDetailTitle">' + escapeHtml(note.title) + '</p>' +
             '<p class="patchnoteDetailMeta">' + escapeHtml(note.version) + ' &middot; ' + escapeHtml(note.date) + '</p>' +
             '</div>' +
-            '<div class="classicbutton" role="button" tabindex="0" onclick="closenotescreen()"><p class="bolded">Back to all versions</p></div>' +
+            '<div class="classicbutton" role="button" tabindex="0" data-action="closenotescreen"><p class="bolded">Back to all versions</p></div>' +
             '</div>' +
             '<p class="patchnoteDetailDesc">' + escapeHtml(note.description) + '</p>' +
             (list ? '<ul class="patchnotelist">' + list + '</ul>' : '<p>Full log coming soon.</p>');
@@ -1055,7 +1084,7 @@
     window.generaterecentnote = function () {
         showView('patchnotes');
         markSidebar('whatsnew');
-        fetch('./assets/json/patchnotes.json', { cache: 'no-cache' })
+        fetch('./assets/json/patchnotes.json')
             .then(function (r) { return r.json(); })
             .then(function (list) {
                 if (!list || !list.length) return;
@@ -1112,7 +1141,7 @@
             });
         };
         if (creditsData) { paint(creditsData); return; }
-        fetch('./assets/json/credits.json', { cache: 'no-cache' })
+        fetch('./assets/json/credits.json')
             .then(function (r) { return r.json(); })
             .then(paint)
             .catch(function () { box.innerHTML = '<p>Could not load the credits list.</p>'; });
@@ -1136,7 +1165,7 @@
             '<p class="creditrole">' + escapeHtml(person.role) + '</p>' +
             (person.url ? '<a class="creditlink" href="' + escapeHtml(person.url) + '" target="_blank" rel="noopener">' + escapeHtml(person.url.replace(/^https?:\/\//, '')) + '</a>' : '') +
             '</div>' +
-            '<div class="classicbutton creditBack" role="button" tabindex="0" onclick="closeCredit()"><p class="bolded">Back to credits</p></div>' +
+            '<div class="classicbutton creditBack" role="button" tabindex="0" data-action="closeCredit"><p class="bolded">Back to credits</p></div>' +
             '</div>' +
             '<p class="creditblurb">' + escapeHtml(person.blurb) + '</p>' +
             '<p class="bolded settingstitle">Everything they contributed</p>' +
@@ -1226,22 +1255,54 @@
             .catch(function () { return sGet('amplerhtml.' + key); });
     }
 
+    var sandboxUrls = {};
+
     function dropInstallHtml(key) {
+        if (sandboxUrls[key]) {
+            URL.revokeObjectURL(sandboxUrls[key].outer);
+            URL.revokeObjectURL(sandboxUrls[key].inner);
+            delete sandboxUrls[key];
+        }
+        try {
+            if (window.AmplerInstallSandbox && window.AmplerInstallSandbox.dropSeed) {
+                window.AmplerInstallSandbox.dropSeed(key);
+            }
+        } catch (e) {}
         delete htmlCache[key];
         sRemove('amplerhtml.' + key);
         dbRun('readwrite', function (store) { return store.delete(key); }).catch(function () {});
     }
 
+    /* A self-contained installation is HTML the launcher did not write, so it
+       runs inside a sandboxed frame on an opaque origin - it cannot touch the
+       launcher's storage, DOM or globals. Assets/js/install-sandbox.js builds
+       the wrapper and gives the frame a Storage shim whose contents are kept
+       for it under `ampler-sandbox:<id>` on the launcher origin. */
+    var Sandbox = window.AmplerInstallSandbox;
+
     function blobFor(entry) {
-        if (entry._blobUrl) return entry._blobUrl;
+        if (sandboxUrls[entry.title]) return sandboxUrls[entry.title].outer;
         var html = htmlCache[entry.title];
         if (typeof html !== 'string') return null;
+        var scope = entry.title;
         try {
-            entry._blobUrl = URL.createObjectURL(new Blob([html], { type: 'text/html' }));
+            var seed = typeof Sandbox.readSeed === 'function' ? Sandbox.readSeed(scope) : {};
+            var inner = URL.createObjectURL(new Blob(
+                [Sandbox.instrumentHtml(html, { scope: scope, seed: seed })],
+                { type: 'text/html' }
+            ));
+            var outer = URL.createObjectURL(new Blob(
+                [Sandbox.buildSandboxPage(inner, scope)],
+                { type: 'text/html' }
+            ));
+            sandboxUrls[scope] = { inner: inner, outer: outer };
         } catch (e) {
+            console.warn('[ampler] could not sandbox installation', e);
+            if (inner) URL.revokeObjectURL(inner);
+            notice('Could not safely open this installation in your browser.', 'INSTALLATIONS');
             return null;
         }
-        return entry._blobUrl;
+        return sandboxUrls[scope].outer;
     }
 
     function hydrateCustomInstallations() {
@@ -1405,9 +1466,19 @@
         return { storeKey: 'assisted', key: 'assisted', catalog: CATALOGS.assisted };
     }
 
+    /* Installation ids are storage keys (entry, HTML, sandbox Storage), so they
+       have to stay unique and stable. The old scheme embedded the display name
+       and the last two digits of a counter, which repeated every 100 saves and
+       meant renaming an installation moved all of its stored data. */
+    function nextInstallationId() {
+        var count = parseInt(sGet('customlaunchersnumber') || '0', 10) || 0;
+        sSet('customlaunchersnumber', count + 1);
+        return count + 'cl' + Date.now().toString(36);
+    }
+
     function saveCustomInstallation(data, existing) {
         var count = parseInt(sGet('customlaunchersnumber') || '0', 10) || 0;
-        var id = ('0' + count).slice(-2) + 'cl' + data.name;
+        var id = existing ? existing.title : nextInstallationId();
         var entry = {
             title: id,
             displayName: data.name,
@@ -1429,6 +1500,11 @@
         }
 
         if (data.source && data.source.kind === 'html' && typeof data.html === 'string') {
+            if (sandboxUrls[id]) {
+                URL.revokeObjectURL(sandboxUrls[id].outer);
+                URL.revokeObjectURL(sandboxUrls[id].inner);
+                delete sandboxUrls[id];
+            }
             saveInstallHtml(id, data.html);
         } else if (existing && !(data.source && data.source.kind === 'html')) {
             dropInstallHtml(existing.title);
@@ -1437,10 +1513,10 @@
         var ids = sJSON('customlaunchers', []);
         ids.push(entry.title);
         sSet('customlaunchers', JSON.stringify(ids));
-        sSet('customlaunchersnumber', count + 1);
+        if (!existing) sSet('customlaunchersnumber', count + 1);
         sSet('c' + entry.title, JSON.stringify(entry));
 
-        notice('Installation "' + data.name + '" ' + (existing ? 'updated' : 'saved') + '.',
+        notice(storageHealthy() ? 'Installation "' + data.name + '" ' + (existing ? 'updated' : 'saved') + '.' : storageFailure,
             'INSTALLATIONS', '#7CFC98');
         renderInstallations();
         buildDropdown();
@@ -1491,12 +1567,12 @@
         menu.innerHTML =
             '<div class="bolded notescreenheader">' +
             '<p>Rename Installation</p>' +
-            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" onclick="closenotescreen()"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>' +
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-action="closenotescreen"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>' +
             '</div><hr><div class="newinstallationdetails">' +
             '<p class="bolded newinstallationheader">NAME</p>' +
             '<input id="renameinstallationinput" type="text" autocomplete="off" maxlength="40">' +
             '</div><div class="newinstallationfooter"><hr><div class="newinstallationfooterbuttons">' +
-            '<div class="classicbutton" onclick="closenotescreen()"><p class="bolded">Cancel</p></div>' +
+            '<div class="classicbutton" data-action="closenotescreen"><p class="bolded">Cancel</p></div>' +
             '<div class="greenbutton classicbutton" id="renameinstallationsave"><p class="bolded">Save</p></div>' +
             '</div></div>';
         menu.style.display = 'flex';
@@ -1527,7 +1603,7 @@
         header.className = 'bolded notescreenheader';
         header.innerHTML =
             '<p>' + escapeHtml(opts.title) + '</p>' +
-            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" onclick="closenotescreen()"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>';
+            '<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-action="closenotescreen"><path stroke="none" d="M0 0h24v24H0z" fill="none" /><path d="M18 6l-12 12" /><path d="M6 6l12 12" /></svg>';
 
         var details = document.createElement('div');
         details.className = 'newinstallationdetails';
@@ -1536,7 +1612,7 @@
         iconWrap.className = 'newinstallationicons';
         var chosenIcon = opts.icon;
 
-        fetch('./assets/json/icons.json', { cache: 'no-cache' })
+        fetch('./assets/json/icons.json')
             .then(function (r) { return r.json(); })
             .then(function (icons) {
                 (icons || []).forEach(function (src) {
@@ -1618,7 +1694,8 @@
 
         var sourceDesc = document.createElement('p');
         sourceDesc.className = 'settingsdesc';
-        sourceDesc.textContent = 'Load a bundled version, open an HTML file from your computer, or paste a URL / HTML.';
+        sourceDesc.textContent = 'Load a bundled version, open an HTML file from your computer, or paste a URL / HTML. ' +
+            'Uploaded or pasted HTML runs in a sandbox, which may prevent world saving. URLs open normally; only use sources you trust.';
 
         var sourceCards = document.createElement('div');
         sourceCards.className = 'sourcecards';
@@ -1690,7 +1767,7 @@
             var value = sourceArea.value.trim();
             pendingHtml = null;
             if (!value) { sourceKind = 'paste'; return; }
-            sourceKind = /^(https?:)?\/\/\S+$/i.test(value) ? 'url' : 'html';
+            sourceKind = window.AmplerUrlPolicy.isSourceUrl(value) ? 'url' : 'html';
             if (sourceKind === 'html') pendingHtml = sourceArea.value;
             setStatus(sourceKind === 'url' ? 'Will open ' + value : 'Will store the pasted HTML in this browser.');
         });
@@ -1737,7 +1814,7 @@
         var footer = document.createElement('div');
         footer.className = 'newinstallationfooter';
         footer.innerHTML = '<hr><div class="newinstallationfooterbuttons">' +
-            '<div class="classicbutton" onclick="closenotescreen()"><p class="bolded">Cancel</p></div>' +
+            '<div class="classicbutton" data-action="closenotescreen"><p class="bolded">Cancel</p></div>' +
             '<div class="greenbutton classicbutton" id="newinstallationsave"><p class="bolded">Save</p></div>' +
             '</div>';
 
@@ -1774,8 +1851,8 @@
 
                 if (sourceKind === 'url') {
                     var typed = (sourceArea.value || '').trim();
-                    if (!/^(https?:)?\/\/\S+$/i.test(typed)) {
-                        notice('Enter a full http(s) address.', 'INSTALLATIONS');
+                    if (!window.AmplerUrlPolicy.isSourceUrl(typed)) {
+                        notice(window.AmplerUrlPolicy.rejectionMessage(), 'INSTALLATIONS');
                         return;
                     }
                     link = typed;
@@ -2190,8 +2267,26 @@
         return String(text).replace(/[^\w\-]+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '') || 'client';
     }
 
-    var upstreamFiles = fetch('./tools/upstream-files.json', { cache: 'no-cache' })
-        .then(function (r) { return r.ok ? r.json() : []; }).catch(function () { return []; });
+    /* tools/upstream-files.json is copied into assets/json/ by
+       the recovery manifest; the old ./tools/ path was never served because
+       the document root is app/. Both are tried so a checkout works before the
+       copy has run. */
+    function fetchFirstJson(paths) {
+        var index = 0;
+        function attempt() {
+            if (index >= paths.length) return Promise.resolve([]);
+            var path = paths[index++];
+            return fetch(path)
+                .then(function (r) { return r.ok ? r.json() : attempt(); })
+                .catch(attempt);
+        }
+        return attempt();
+    }
+
+    var upstreamFiles = fetchFirstJson([
+        './assets/json/upstream-files.json',
+        './tools/upstream-files.json'
+    ]);
 
     function packagedFiles(entry) {
         var folder = decodeURIComponent(entry.link.split('?')[0]).replace(/^\.\//, '').replace(/\/$/, '') + '/';
@@ -2574,112 +2669,85 @@
 
     /* ------------------------------------------------------------------ *
      * Launching the selected build
-     * ------------------------------------------------------------------ */
+     * ------------------------------------------------------------------ *
+     * The six strategies (same tab, new tab, popup, about:blank, blob, data:)
+     * live in assets/js/launch.js, and the question "is this href something we
+     * may open at all?" lives in assets/js/url-policy.js. This file only wires
+     * them to the launcher's state.
+     * ------------------------------------------------------------------- */
 
-    function cloakPage(href) {
-        return '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>Ampler Launcher</title>' +
-            '<style>html,body,iframe{margin:0;padding:0;border:0;width:100%;height:100%;overflow:hidden;background:#000}</style>' +
-            '</head><body><iframe src="' + escapeHtml(href) + '" allowfullscreen allow="fullscreen; autoplay; clipboard-write; gamepad"></iframe></body></html>';
-    }
-
-    function writePage(win, html) {
-        try {
-            win.document.open();
-            win.document.write(html);
-            win.document.close();
-        } catch (e) {
-            notice('Could not write the game page into the new window.', 'LAUNCH');
-        }
-    }
+    var Launch = window.AmplerLaunch.create({
+        notice: notice,
+        mode: function () { return launchMode(); }
+    });
 
     function gameUrlFor() {
-        var play = el('playbutton');
-        var href = play ? play.getAttribute('href') : null;
-        if (!href || href === '#') return null;
-        try { return new URL(href, location.href); } catch (e) { return null; }
-    }
-
-    function blockedNotice() {
-        notice('Your browser blocked the new window. Allow popups for this site.', 'LAUNCH');
-    }
-
-    /* Opening a build
-       ------------------------------------------------------------------
-       window.open returns null when the browser (or a sandboxed frame such
-       as a preview pane) refuses the window, and passing 'noopener' makes it
-       return null even on success - so noopener is applied by hand and the
-       return value stays usable. When the window is refused the build opens
-       in this tab instead of leaving the button doing nothing. */
-
-    function inFrame() {
-        try { return window.self !== window.top; } catch (e) { return true; }
-    }
-
-    function openInTab(href) {
-        if (inFrame()) return false;          // preview frames block popups outright
-        try {
-            var win = window.open(href, '_blank');
-            if (!win) return false;
-            try { win.opener = null; } catch (e) {}
-            return true;
-        } catch (e) {
-            return false;
-        }
-    }
-
-    function launchOrNavigate(href) {
-        if (!openInTab(href)) location.href = href;
-        return true;
+        return Launch.gameUrl();
     }
 
     function launch(mode) {
-        var target = gameUrlFor();
-        if (!target) {
-            notice('Pick a version first.', 'LAUNCH');
-            return false;
-        }
-        var href = target.href;
+        return Launch.launch(mode);
+    }
 
-        if (mode === 'same') {
-            location.href = href;
-            return true;
-        }
+    function launchOrNavigate(href) {
+        return Launch.launchOrNavigate(href);
+    }
 
-        if (mode === 'tab') {
-            return launchOrNavigate(href);
-        }
+    /* ------------------------------------------------------------------ *
+     * Declarative actions
+     * ------------------------------------------------------------------ *
+     * No markup runs code through an inline handler. A node carries
+     *   data-action="name"        the function to run (usually a window.* one)
+     *   data-arg="value"          a single string argument
+     *   data-read="checked"       pass the node's checked state instead
+     *   data-event="change"       listen for change instead of click
+     * and one delegated listener per event type dispatches them. That is the
+     * same path for mouse, touch, keyboard and assistive technology, and it
+     * lets index.html run without any inline script of its own.
+     * ------------------------------------------------------------------- */
 
-        if (mode === 'popup') {
-            var win = window.open(href, '_blank', 'popup,width=1280,height=720');
-            if (!win) blockedNotice();
-            return true;
-        }
+    var actionMisses = {};
 
-        if (mode === 'blank') {
-            var host = window.open('about:blank', '_blank');
-            if (!host) { blockedNotice(); return true; }
-            writePage(host, cloakPage(href));
-            return true;
-        }
+    function actionEventFor(node) {
+        return node.getAttribute('data-event') || 'click';
+    }
 
-        if (mode === 'blob' || mode === 'data-uri') {
-            var page = cloakPage(href);
-            var url;
-            try {
-                url = mode === 'blob'
-                    ? URL.createObjectURL(new Blob([page], { type: 'text/html' }))
-                    : 'data:text/html;charset=utf-8,' + encodeURIComponent(page);
-            } catch (e) {
-                blockedNotice();
-                return true;
+    function closestAction(node, eventName) {
+        while (node && node.nodeType === 1) {
+            if (node.hasAttribute('data-action') && actionEventFor(node) === eventName) return node;
+            node = node.parentNode;
+        }
+        return null;
+    }
+
+    function runAction(node, event) {
+        var name = node.getAttribute('data-action');
+        var fn = window[name];
+        if (typeof fn !== 'function') {
+            if (!actionMisses[name]) {
+                actionMisses[name] = true;
+                console.warn('[ampler] no handler for data-action="' + name + '"');
             }
-            var tab = window.open(url, '_blank', 'noopener');
-            if (!tab) blockedNotice();
-            return true;
+            return;
         }
+        var arg = node.getAttribute('data-arg');
+        var read = node.getAttribute('data-read');
+        try {
+            if (read === 'checked') fn.call(node, !!node.checked);
+            else if (arg !== null) fn.call(node, arg);
+            else fn.call(node, event);
+        } catch (err) {
+            console.error('[ampler] data-action="' + name + '" threw', err);
+        }
+    }
 
-        // Unknown mode: behave like the default (New Tab).
-        return launchOrNavigate(href);
+    function wireActions() {
+        ['click', 'change', 'input', 'keyup'].forEach(function (eventName) {
+            document.addEventListener(eventName, function (event) {
+                var node = closestAction(event.target, eventName);
+                if (node) runAction(node, event);
+            }, false);
+        });
     }
 
     /* ------------------------------------------------------------------ *
@@ -2687,11 +2755,13 @@
      * ------------------------------------------------------------------ */
 
     function wire() {
+        wireActions();
+
         var play = el('playbutton');
         if (play) {
             play.addEventListener('click', function (event) {
-                if (!gameUrlFor()) return;
                 event.preventDefault();
+                if (!gameUrlFor()) { notice('Pick a valid version first.', 'LAUNCH'); return; }
                 countLaunch();
                 launch(launchMode());
             });
