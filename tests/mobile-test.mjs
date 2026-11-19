@@ -37,8 +37,9 @@ try {
     const desktop = await browser.newPage();
     await desktop.setViewport({ width: 1440, height: 900 });
     await desktop.goto(base, { waitUntil: 'load' });
-    const bottom = await desktop.$eval('#gameSelection', n => n.getBoundingClientRect().bottom);
-    assert.ok(Math.abs(bottom - 900) <= 1, `desktop: launch bar bottom is ${bottom}, expected 900`);
+    const bar = await desktop.$eval('#gameSelection', n => ({ bottom: n.getBoundingClientRect().bottom, background: getComputedStyle(n).backgroundColor }));
+    assert.ok(Math.abs(bar.bottom - 900) <= 1, `desktop: launch bar bottom is ${bar.bottom}, expected 900`);
+    assert.notEqual(bar.background, 'rgba(0, 0, 0, 0)', 'desktop: launch bar has a visible background');
     await desktop.close();
     console.log('Desktop launch bar reaches the viewport bottom');
     for (const [width, height] of [[320, 700], [390, 844], [844, 390]]) {
