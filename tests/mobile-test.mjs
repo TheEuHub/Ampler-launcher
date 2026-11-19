@@ -32,6 +32,15 @@ try {
     }
     assert.ok(ready, 'server starts');
     browser = await puppeteer.launch({ executablePath: executable, args: ['--no-sandbox', '--disable-dev-shm-usage'], headless: true });
+    // On desktop the header and the content must add up exactly to the
+    // viewport; otherwise the launch controls float above a dead strip.
+    const desktop = await browser.newPage();
+    await desktop.setViewport({ width: 1440, height: 900 });
+    await desktop.goto(base, { waitUntil: 'load' });
+    const bottom = await desktop.$eval('#gameSelection', n => n.getBoundingClientRect().bottom);
+    assert.ok(Math.abs(bottom - 900) <= 1, `desktop: launch bar bottom is ${bottom}, expected 900`);
+    await desktop.close();
+    console.log('Desktop launch bar reaches the viewport bottom');
     for (const [width, height] of [[320, 700], [390, 844], [844, 390]]) {
         const page = await browser.newPage();
         await page.setViewport({ width, height, isMobile: true, hasTouch: true, deviceScaleFactor: 1 });
@@ -49,6 +58,10 @@ try {
             assert.ok(r.w >= 44 && r.h >= 40 && r.l >= 0 && r.r <= width + 1 && r.b <= height + 1, `${width}: ${name} fits viewport: ${JSON.stringify(r)}`);
         }
         assert.ok(box.selector.r <= box.play.l + 1, `${width}: selector and play do not overlap`);
+        assert.ok(Math.abs(box.bar.b - height) <= 1, `${width}: launch bar reaches the viewport bottom`);
+        for (const name of ['selector', 'play', 'user']) {
+            assert.ok(box[name].t >= box.bar.t - 1 && box[name].b <= box.bar.b + 1, `${width}: ${name} stays inside the launch bar`);
+        }
         await page.tap('#drop');
         await page.waitForFunction(() => getComputedStyle(document.querySelector('#dropdn')).visibility === 'visible');
         await page.tap('#dropdn .dropdownOptions:not(.disabled)');

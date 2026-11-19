@@ -248,6 +248,7 @@ hr {
     position: relative;
     height: 100vh;
     width: var(--sidebar-w);
+    box-sizing: border-box;
     background-color: var(--ui-main);
     flex-shrink: 0;
     z-index: 10;
@@ -360,6 +361,11 @@ hr {
 }
 
 .currentGame {
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    height: var(--header-h);
+    min-height: var(--header-h);
     font-size: calc(1.42vw * var(--text-scale, 1));
     line-height: 1.1;
     margin: 0;

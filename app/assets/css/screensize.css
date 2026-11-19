@@ -365,7 +365,7 @@ body {
   .versionText { font-size: 12px; }
   .dropdownIcon { width: 20px; }
   #playbutton { width: 100%; height: 44px; max-height: none; margin: 0; }
-  .username { grid-column: 1 / -1; justify-self: start; margin: 0; min-width: 0;
+  .username { grid-column: 1 / -1; justify-self: start; box-sizing: border-box; margin: 0; min-width: 0;
     max-width: 100%; height: 44px; padding: 0 10px; gap: 8px; font-size: 14px; }
   #username { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .userEditIcon { width: 18px; height: 18px; flex: none; }
@@ -403,6 +403,6 @@ body {
 }
 @media (max-height: 480px) and (min-width: 600px) {
   body { --bar-h: 60px; }
-  #gameSelection { grid-template-columns: minmax(0, 1fr) 120px minmax(90px, 150px); grid-template-rows: 48px; }
+  #gameSelection[style*="display: flex"] { grid-template-columns: minmax(0, 1fr) 120px minmax(90px, 150px); grid-template-rows: 48px; }
   .username { grid-column: auto; }
 }
