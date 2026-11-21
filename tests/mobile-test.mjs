@@ -40,6 +40,22 @@ try {
     const bar = await desktop.$eval('#gameSelection', n => ({ bottom: n.getBoundingClientRect().bottom, background: getComputedStyle(n).backgroundColor }));
     assert.ok(Math.abs(bar.bottom - 900) <= 1, `desktop: launch bar bottom is ${bar.bottom}, expected 900`);
     assert.notEqual(bar.background, 'rgba(0, 0, 0, 0)', 'desktop: launch bar has a visible background');
+    await desktop.evaluate(() => window.settheme('light'));
+    const theme = await desktop.evaluate(() => {
+        const css = selector => getComputedStyle(document.querySelector(selector));
+        return {
+            header: css('.gameHeader').backgroundColor,
+            bar: css('#gameSelection').backgroundColor,
+            text: css('.currentGame').color,
+            accent: css('.sidebarOptions.selected').borderLeftColor,
+            play: css('.playButton').filter
+        };
+    });
+    assert.equal(theme.header, 'rgb(8, 8, 8)', 'Light theme has a black header');
+    assert.equal(theme.bar, 'rgb(10, 10, 10)', 'Light theme has a black launch bar');
+    assert.equal(theme.text, 'rgb(255, 255, 255)', 'Light theme text is white');
+    assert.equal(theme.accent, 'rgb(255, 255, 255)', 'Light theme selection accent is white');
+    assert.equal(theme.play, 'grayscale(1)', 'Light theme Play button is monochrome');
     await desktop.close();
     console.log('Desktop launch bar reaches the viewport bottom');
     for (const [width, height] of [[320, 700], [390, 844], [844, 390]]) {
