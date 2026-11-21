@@ -38,6 +38,7 @@ class IntegrityTests(unittest.TestCase):
 
     def test_upstream_manifest_and_availability(self):
         manifest = json.loads((ROOT / 'tools/upstream-files.json').read_text())
+        self.assertEqual(manifest, json.loads((APP / 'assets/json/upstream-files.json').read_text()))
         self.assertEqual(len(manifest), len({item['target'] for item in manifest}))
         for item in manifest:
             target = Path(item['target'])

@@ -248,6 +248,7 @@ hr {
     position: relative;
     height: 100vh;
     width: var(--sidebar-w);
+    box-sizing: border-box;
     background-color: var(--ui-main);
     flex-shrink: 0;
     z-index: 10;
@@ -360,6 +361,11 @@ hr {
 }
 
 .currentGame {
+    display: flex;
+    align-items: flex-end;
+    box-sizing: border-box;
+    height: var(--header-h);
+    min-height: var(--header-h);
     font-size: calc(1.42vw * var(--text-scale, 1));
     line-height: 1.1;
     margin: 0;
@@ -440,6 +446,7 @@ hr {
     height: var(--bar-h);
     justify-content: space-around;
     display: none;
+    box-sizing: border-box;
     background-color: var(--ui-main);
     z-index: 500;
 }
@@ -2022,37 +2029,39 @@ html[data-theme="neon"] body {
     --ui-credits-secondary: #0aa35a;
 }
 
+/* Light is a monochrome theme: black surfaces with white highlights. */
 html[data-theme="light"] body {
-    background-color: #e9e9e9;
-    color: #111111;
-    --ml-chrome: #ffffff;
-    --ml-bar: #f0f0f0;
-    --ml-rail: #f5f5f5;
-    --ml-panel: #ffffff;
-    --ml-card: #ffffff;
-    --ml-card-hover: #e6f2e0;
-    --ml-border: #cfcfcf;
-    --ml-selected: #2f7d1e;
+    background-color: #080808;
+    color: #ffffff;
+    --ml-chrome: #080808;
+    --ml-bar: #0a0a0a;
+    --ml-rail: #101010;
+    --ml-panel: #171717;
+    --ml-card: #1b1b1b;
+    --ml-card-hover: #303030;
+    --ml-border: #494949;
+    --ml-selected: #343434;
     --ml-on-selected: #ffffff;
-    --ui-main: #ffffff;
-    --ui-main-dark: #f2f2f2;
-    --ui-main-light: #e7e7e7;
-    --ui-main-lighter: #b9b9b9;
-    --ui-main-hover: #e6f2e0;
-    --text-secondary: #222222;
-    --ui-select: #2f7d1e;
-    --ui-select-secodary: #3c9427;
-    --ui-select-deep: #235f16;
-    --ui-select-bright: #4bb32c;
-    --ui-red: #b02318;
-    --ui-red-secondary: #cf3a2c;
-    --ui-contributors: #f4f1e2;
-    --ui-contributors-secondary: #8a6f10;
-    --ui-credits: #eef3fa;
-    --ui-credits-secondary: #1f4f96;
+    --ui-main: #171717;
+    --ui-main-dark: #090909;
+    --ui-main-light: #292929;
+    --ui-main-lighter: #606060;
+    --ui-main-hover: #303030;
+    --text-secondary: #e8e8e8;
+    --ui-select: #555555;
+    --ui-select-secodary: #666666;
+    --ui-select-deep: #404040;
+    --ui-select-bright: #ffffff;
+    --ui-red: #9e302a;
+    --ui-red-secondary: #bd4038;
+    --ui-contributors: #181818;
+    --ui-contributors-secondary: #d0d0d0;
+    --ui-credits: #111111;
+    --ui-credits-secondary: #d0d0d0;
 }
 
-/* Light needs dark ink on the pale surfaces. */
+/* Preserve readable white text on the dark surfaces, and remove green from
+   decorative highlights without changing other themes or client artwork. */
 html[data-theme="light"] .sidebarOptions,
 html[data-theme="light"] .headerButtons,
 html[data-theme="light"] .currentGame,
@@ -2060,16 +2069,22 @@ html[data-theme="light"] .settingstitle,
 html[data-theme="light"] .settingsdesc,
 html[data-theme="light"] .sectionTitle,
 html[data-theme="light"] .contributoruser,
-html[data-theme="light"] .creditside .contributordescription {
-    color: #111111;
+html[data-theme="light"] .creditside .contributordescription,
+html[data-theme="light"] .stat-value {
+    color: #ffffff;
 }
 
-html[data-theme="light"] .headerButtons.selected,
-html[data-theme="light"] .sidebarOptions.selected,
-html[data-theme="light"] .sidebarWhatsNew,
-html[data-theme="light"] .classicbutton,
-html[data-theme="light"] .greenbutton {
-    color: #ffffff;
+html[data-theme="light"] .playButton {
+    filter: grayscale(1);
+}
+
+html[data-theme="light"] .sidebarOptions:hover img {
+    filter: brightness(1.15) drop-shadow(0 0 0.25vw rgba(255, 255, 255, 0.4));
+}
+
+html[data-theme="light"] .settingcard.selected,
+html[data-theme="light"] .modoption.selected {
+    box-shadow: inset 0.25vw 0 0 #ffffff, 0 0 0.6vw rgba(255, 255, 255, 0.15);
 }
 
 /* ------------------------------------------------------------------ *
@@ -2388,6 +2403,7 @@ body {
 .username {
     border-radius: var(--ml-radius);
     border: 0.1vw solid transparent;
+    background-color: var(--ml-bar);
     transition: border-color 0.15s, background-color 0.15s;
 }
 

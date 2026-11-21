@@ -332,3 +332,77 @@ body {
     padding-right: 14px;
   }
 }
+
+/* Touch layouts: keep controls readable and reachable rather than scaling the
+   desktop's vw dimensions down to a few pixels. The rail and tab strip scroll
+   independently so all destinations remain available in landscape too. */
+@media (max-width: 768px), (max-height: 480px) {
+  body { --header-h: 48px; --tabstrip-h: 44px; --chrome-h: 92px; --bar-h: 104px; }
+  .sidebar, .mainPage { height: 100vh; height: 100dvh; }
+  .sidebar { overflow-y: auto; overscroll-behavior: contain; }
+  .sidebarWhatsNew { height: 48px; min-height: 48px; justify-content: center; padding: 0; }
+  .sidebarOptions, .sidebarOptions.sidebarBottom {
+    position: static; box-sizing: border-box; min-height: 48px;
+    height: 48px; margin: 2px 4px; padding: 0; justify-content: center;
+  }
+  .launcherVersion { position: static; font-size: 10px; margin: 8px auto; }
+  .currentGame {
+    box-sizing: border-box; height: var(--header-h); display: flex; align-items: center;
+    padding: 0 12px; font-size: 15px; line-height: 1.2;
+  }
+  .gameTabs { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: thin; }
+  .headerButtons { flex: 0 0 auto; min-height: 44px; padding: 0 12px; font-size: 14px; }
+  #game-bg, #mods, #installations, #skinsview, #patchNotes, #credits, #servers, #downloads, #settings {
+    height: calc(100vh - var(--chrome-h)); height: calc(100dvh - var(--chrome-h));
+  }
+  #game-title { width: min(75%, 320px); height: auto; max-height: 90px; margin-top: 32px; }
+  #gameSelection[style*="display: flex"] {
+    display: grid !important; grid-template-columns: minmax(0, 1fr) minmax(90px, 120px);
+    grid-template-rows: 48px 44px; align-content: center; gap: 4px 8px;
+    padding: 4px 8px max(4px, env(safe-area-inset-bottom));
+  }
+  .dropdownSelector { width: auto; min-width: 0; height: 48px; padding: 0 8px; gap: 6px; }
+  .versionText { font-size: 12px; }
+  .dropdownIcon { width: 20px; }
+  #playbutton { width: 100%; height: 44px; max-height: none; margin: 0; }
+  .username { grid-column: 1 / -1; justify-self: start; box-sizing: border-box; margin: 0; min-width: 0;
+    max-width: 100%; height: 44px; padding: 0 10px; gap: 8px; font-size: 14px; }
+  #username { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .userEditIcon { width: 18px; height: 18px; flex: none; }
+  .inlineUsernameInput { width: 100%; max-width: 220px; font-size: 16px; padding: 6px; }
+  .dropdownMenu { left: 8px; bottom: var(--bar-h); width: calc(100% - 16px); max-height: min(55vh, 400px); }
+  .dropdownOption { min-width: 0; width: 100%; left: 0; padding: 0 10px; gap: 10px; }
+  .dropdownOptionText { min-width: 0; }
+  .stats-widget { font-size: 12px; }
+  .stat-label, .stat-value { font-size: 12px; }
+  #modsbox, .skinsGrid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+  .serversGrid { grid-template-columns: 1fr; gap: 12px; }
+  .modssubtitle, .moddetails, .modtitle, .settingsdesc, .installationOptions,
+  #settings, #generalsettings .settingstitle, .serverCard, .notescreenheader { font-size: 14px; }
+  .classicbutton, .greenbutton, .skinTool, .clearstoragebutton { font-size: 14px; min-height: 44px; padding: 8px 12px; }
+  .settingsbox, .installationBox { width: 28px; height: 28px; }
+  .settingcards { gap: 8px; margin: 8px 0; }
+  .settingcard, .settingcard.compact { width: auto; flex: 1 1 130px; min-height: 48px; padding: 10px; font-size: 14px; }
+  .settingcard .carddesc { font-size: 12px; }
+  .skinsTitle { font-size: 20px; }
+  .skinsCount, .serverName, .serverMotd, .serverAddr, .serverBadge { font-size: 13px; }
+  .skinsHead, .skinsTools, .serverAddRow { gap: 8px; }
+  .skinsHead { padding: 12px; }
+  .serverCard { padding: 12px; gap: 8px; }
+  .serverAddRow input, .skinSearch, #usernameinput, .newinstallationdetails input,
+  .newinstallationdetails select, .newinstallationdetails textarea { font-size: 16px; min-height: 44px; max-width: 100%; }
+  #usernameinput { width: 100%; }
+  .installationOptions { width: 100%; min-height: 64px; height: auto; }
+  .installationOption { position: static; min-width: 0; padding: 8px 0; gap: 10px; }
+  .installationOptionText { min-width: 0; overflow-wrap: anywhere; }
+  .editbuttons { position: static; margin-left: auto; flex-shrink: 0; }
+  .newinstallationdetails { width: 100%; }
+  .newinstallationicons img { width: 48px; padding: 5px; }
+  .confrimationmenuscreen, .confrimationmenuscreen.deleteinstallation { width: 92%; max-width: 500px; max-height: 90dvh; overflow-y: auto; padding: 20px; font-size: 14px; }
+  .notescreenheader svg { width: 32px; height: 32px; right: 12px; }
+}
+@media (max-height: 480px) and (min-width: 600px) {
+  body { --bar-h: 60px; }
+  #gameSelection[style*="display: flex"] { grid-template-columns: minmax(0, 1fr) 120px minmax(90px, 150px); grid-template-rows: 48px; }
+  .username { grid-column: auto; }
+}
